@@ -1,5 +1,19 @@
 [
   {
+    "title": "IBM Full-Stack JavaScript Developer Certificate",
+    "description": "I am an <b>IBM-certified Full-Stack JavaScript Developer</b> with expertise in building, deploying, and managing cloud-native applications. I specialize in <b>React, Node.js, Express, and DevOps</b>, utilizing modern tools and methodologies to develop scalable and efficient web solutions.",
+    "id": "LY40KI3BA49I",
+    "date": "March, 2025",
+    "skills": [
+      { "text": "Node", "icon": "node" },
+      { "text": "React", "icon": "react" },
+      { "text": "Express", "icon": "expressjs" },
+      { "text": "Docker", "icon": "docker" },
+      { "text": "NoSQL Databases", "icon": "database" }
+    ],
+    "issuer": ["IBM", "Coursera"]
+  },
+  {
     "title": "Meta React Native Developer Certificate",
     "description": "I am a <b>Meta-trained React Native developer</b> skilled in <b>JavaScript, React</b>, and <b>mobile development principles</b>, with expertise in building cross-platform mobile applications and optimizing user experiences.",
     "id": "NY92RRAPU10L",
