@@ -26,44 +26,43 @@
 // }
 
 function hasTouchSupport() {
-  return (
-    'ontouchstart' in window || // Most browsers
-    navigator.maxTouchPoints > 0 || // Modern browsers
-    navigator.msMaxTouchPoints > 0 // Older IE
-  )
+	return (
+		'ontouchstart' in window || // Most browsers
+		navigator.maxTouchPoints > 0 || // Modern browsers
+		navigator.msMaxTouchPoints > 0 // Older IE
+	);
 }
-const draggableContainer = selectorID => {
-  if (!hasTouchSupport()) {
+const draggableContainer = (selectorID) => {
+	if (!hasTouchSupport()) {
+		const container = document.getElementById(selectorID);
+		let isDragging = false;
+		let startX;
+		let scrollLeft;
 
-    const container = document.getElementById(selectorID)
-    let isDragging = false
-    let startX
-    let scrollLeft
+		container.addEventListener('mousedown', (e) => {
+			isDragging = true;
+			startX = e.pageX - container.offsetLeft;
+			scrollLeft = container.scrollLeft;
+			container.classList.add('dragging');
+		});
 
-    container.addEventListener('mousedown', (e) => {
-      isDragging = true
-      startX = e.pageX - container.offsetLeft
-      scrollLeft = container.scrollLeft
-      container.classList.add('dragging')
-    })
+		container.addEventListener('mouseleave', () => {
+			isDragging = false;
+			container.classList.remove('dragging');
+		});
 
-    container.addEventListener('mouseleave', () => {
-      isDragging = false
-      container.classList.remove('dragging')
-    })
+		container.addEventListener('mouseup', () => {
+			isDragging = false;
+			container.classList.remove('dragging');
+		});
 
-    container.addEventListener('mouseup', () => {
-      isDragging = false;
-      container.classList.remove('dragging')
-    })
-
-    container.addEventListener('mousemove', (e) => {
-      if (!isDragging) return
-      e.preventDefault()
-      const x = e.pageX - container.offsetLeft
-      const walk = (x - startX) * 3
-      container.scrollLeft = scrollLeft - walk
-    })
-  }
-}
-export default draggableContainer
+		container.addEventListener('mousemove', (e) => {
+			if (!isDragging) return;
+			e.preventDefault();
+			const x = e.pageX - container.offsetLeft;
+			const walk = (x - startX) * 3;
+			container.scrollLeft = scrollLeft - walk;
+		});
+	}
+};
+export default draggableContainer;

@@ -14,7 +14,7 @@ export default defineConfig({
 			content: [
 				'./src/app.html',
 				'./src/**/*.js',
-				'./src/**/*.svelte',
+				'./src/**/*.svelte'
 				// --- Import only the required components.
 				// `${bootstrap}/js/dist/alert.js`,
 				// `${bootstrap}/js/dist/base-component.js`,
@@ -46,7 +46,7 @@ export default defineConfig({
 			$components: path.resolve('./src/components'),
 			$data: path.resolve('./src/data'),
 			$styles: path.resolve('./src/styles'),
-			$lib: path.resolve('./src/lib'),
+			$lib: path.resolve('./src/lib')
 		}
 	},
 

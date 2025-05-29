@@ -1,20 +1,15 @@
 @charset "UTF-8";
 
 // override bootstrap variables
-$primary: #0B192C;
-$secondary: #2B3F97;
+$primary: #0b192c;
+$secondary: #2b3f97;
 $warning: #ffeb00;
 
 // $font-size-base: 0.9375rem;
 $font-family-sans-serif: 'Montserrat Variable', sans-serif;
 
-
 // import bootstrap scss
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
-
-
-
-
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 
 // Function to calculate the luminance of a color
 // @function calculate-luminance($color) {

@@ -1,64 +1,61 @@
-import { defineConfig } from "vite";
-import webfontDownload from "vite-plugin-webfont-dl";
-import { ViteMinifyPlugin } from "vite-plugin-minify";
+import { defineConfig } from 'vite';
+import webfontDownload from 'vite-plugin-webfont-dl';
+import { ViteMinifyPlugin } from 'vite-plugin-minify';
 
-const IN_PRODUCTION = process.env.NODE_ENV === "production";
-const IN_DEVELOPMENT = process.env.NODE_ENV === "development";
+const IN_PRODUCTION = process.env.NODE_ENV === 'production';
+const IN_DEVELOPMENT = process.env.NODE_ENV === 'development';
 
 // Hide Preloader while in development.
 const hidePreloader = () => {
-  return {
-    name: "hide-preloader",
-    transformIndexHtml(html) {
-      return html.replace(
-        `<link rel="stylesheet" href="/src/styles/preloader.css" type="text/css">`,
-        `<!-- <link rel="stylesheet" href="/src/styles/preloader.css" type="text/css"> -->`
-      );
-    }
-  }
-}
+	return {
+		name: 'hide-preloader',
+		transformIndexHtml(html) {
+			return html.replace(
+				`<link rel="stylesheet" href="/src/styles/preloader.css" type="text/css">`,
+				`<!-- <link rel="stylesheet" href="/src/styles/preloader.css" type="text/css"> -->`
+			);
+		}
+	};
+};
 
 export default defineConfig({
-  plugins: [
-
-    /* ## Hide Preloader while in Development
+	plugins: [
+		/* ## Hide Preloader while in Development
     --------------------------------------------- */
-    IN_DEVELOPMENT && hidePreloader(),
+		IN_DEVELOPMENT && hidePreloader(),
 
-    /* ## Download Google Fonts and attach them with production build for offline use
+		/* ## Download Google Fonts and attach them with production build for offline use
     --------------------------------------------- */
-    IN_PRODUCTION && webfontDownload(
-      [
-        "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap",
-      ]
-    ),
+		IN_PRODUCTION &&
+			webfontDownload([
+				'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap'
+			]),
 
-    /* ## Minify the output HTML files in production
+		/* ## Minify the output HTML files in production
     --------------------------------------------- */
-    IN_PRODUCTION && ViteMinifyPlugin({}),
-  ],
+		IN_PRODUCTION && ViteMinifyPlugin({})
+	],
 
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern'
-      }
-    }
-  },
+	css: {
+		preprocessorOptions: {
+			scss: {
+				api: 'modern'
+			}
+		}
+	},
 
-  base: "./",
-  server: {
-    port: 3000,
-  },
+	base: './',
+	server: {
+		port: 3000
+	},
 
-  build: {
-    // outDir: "./docs",
-    minify: 'terser',
-    terserOptions: {
-      format: {
-        comments: false,
-      },
-    },
-  },
-
+	build: {
+		// outDir: "./docs",
+		minify: 'terser',
+		terserOptions: {
+			format: {
+				comments: false
+			}
+		}
+	}
 });

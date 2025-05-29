@@ -10,12 +10,20 @@
 	import '@fontsource-variable/montserrat/wght-italic.css';
 
 	// Import Components
-	import { LoadingAnimation, TopLink } from '$components';
+	import { LoadingAnimation, TopLink, Navigation } from '$components';
+
+	// Handle Dark Mode
+	import { darkTheme } from '$data/sharedState.js';
+	import { onMount } from 'svelte';
+	onMount(async () => {
+		document.querySelector('body').setAttribute('data-bs-theme', $darkTheme ? 'dark' : 'light');
+	});
 </script>
 
 <LoadingAnimation />
 <TopLink />
 
+<Navigation />
 <main id="main" class="main-container">
 	{@render children()}
 </main>

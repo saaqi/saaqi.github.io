@@ -35,7 +35,7 @@
 							<a
 								href={url}
 								class={name}
-								title={title}
+								{title}
 								aria-label={title}
 								target="_blank"
 								rel="nofollow noopener"
@@ -50,13 +50,22 @@
 				<div
 					class="col-12 m-0 hero-buttons d-flex gap-2 justify-content-lg-start justify-content-center"
 				>
-					<a href="#contact" class="btn {$darkTheme ? 'btn-warning' : 'btn-secondary'} scrollto" title="Hire Me!">
+					<a
+						href="#contact"
+						class="btn {$darkTheme ? 'btn-warning' : 'btn-secondary'} scrollto"
+						title="Hire Me!"
+					>
 						<svg class="icon handshake-icon">
 							<use xlink:href="{iconsSvg}#handshake-icon"></use>
 						</svg>
 						Hire Me!
 					</a>
-					<a href={resume} class="btn {$darkTheme ? 'btn-light' : 'btn-primary'}" title="Download My Resume" target="_blank">
+					<a
+						href={resume}
+						class="btn {$darkTheme ? 'btn-light' : 'btn-primary'}"
+						title="Download My Resume"
+						target="_blank"
+					>
 						<svg class="icon download-icon">
 							<use xlink:href="{iconsSvg}#download-icon"></use>
 						</svg>

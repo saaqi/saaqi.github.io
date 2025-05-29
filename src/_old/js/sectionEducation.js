@@ -1,58 +1,56 @@
 // Import Icons
-import svgSprite from "../assets/icons.svg"
+import svgSprite from '../assets/icons.svg';
 
-import 'bootstrap/js/dist/modal.js'
+import 'bootstrap/js/dist/modal.js';
 // ".modal-backdrop, .fad, .show, .modal-open"
 
 // Import Styles
-import "../styles/draggable.scss"
+import '../styles/draggable.scss';
 
-import draggableContainer from "./functions/draggableContainer.js"
-draggableContainer('certificatesContainer')
+import draggableContainer from './functions/draggableContainer.js';
+draggableContainer('certificatesContainer');
 
-import certificates from '../data/certificates.json'
+import certificates from '../data/certificates.json';
 
 // Handle Dark Mode Changess
-import { handleDarkMode } from "./functions/handleDarkMode"
+import { handleDarkMode } from './functions/handleDarkMode';
 handleDarkMode(
-  {
-    'btn-outline-primary': 'btn-outline-light',
-    'text-secondary': 'text-warning'
-  },
-  '.certificatesContainer'
-)
-
+	{
+		'btn-outline-primary': 'btn-outline-light',
+		'text-secondary': 'text-warning'
+	},
+	'.certificatesContainer'
+);
 
 const certificatesList = (selectorID) => {
-  const certificateList = certificates.map((cr) => {
-    const {
-      title = '',
-      description = '',
-      id = '',
-      date = '',
-      skills = [],
-      issuer = []
-    } = cr
+	const certificateList = certificates.map((cr) => {
+		const { title = '', description = '', id = '', date = '', skills = [], issuer = [] } = cr;
 
-    // Generate Skills List
-    const skillsList = skills.map(skill => `
+		// Generate Skills List
+		const skillsList = skills
+			.map(
+				(skill) => `
       <li class="list-group-item">
         <svg style="--icon-fill: var(--bs-body-color)" class="icon ${skill.icon}-icon small">
           <use xlink:href="${svgSprite + '#' + skill.icon}-icon"></use>
         </svg> ${skill.text}
       </li>
-    `).join('')
+    `
+			)
+			.join('');
 
-    const issuerList = issuer.map(authority =>
-      `<div class="issuer-item">
-        <svg class="icon ${authority.toLowerCase().split(" ").join("")}-icon small">
-          <use xlink:href="${svgSprite +'#' + authority.toLowerCase().split(" ").join("")}-icon"></use>
+		const issuerList = issuer
+			.map(
+				(authority) =>
+					`<div class="issuer-item">
+        <svg class="icon ${authority.toLowerCase().split(' ').join('')}-icon small">
+          <use xlink:href="${svgSprite + '#' + authority.toLowerCase().split(' ').join('')}-icon"></use>
         </svg> ${authority}
       </div>`
-    ).join(' - ')
+			)
+			.join(' - ');
 
-    const output =
-      `<div class="draggableItem">
+		const output = `<div class="draggableItem">
         <div class="card certificateCard h-100 shadow-sm">
           <div class="card-body d-flex flex-column h-100">
             <svg class="icon award-icon h2 text-secondary"><use xlink:href="${svgSprite}#award-icon"></use></svg>
@@ -85,9 +83,9 @@ const certificatesList = (selectorID) => {
           </div>
         </div>
       </div>`.replace(/\s+/g, ' ');
-    return output
-  })
-  const parentSelector = document.getElementById(selectorID);
-  parentSelector && (parentSelector.innerHTML = certificateList.join(""))
-}
-certificatesList('certificatesContainer')
+		return output;
+	});
+	const parentSelector = document.getElementById(selectorID);
+	parentSelector && (parentSelector.innerHTML = certificateList.join(''));
+};
+certificatesList('certificatesContainer');

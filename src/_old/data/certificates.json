@@ -1,128 +1,128 @@
 [
-  {
-    "title": "IBM Full-Stack JavaScript Developer Certificate",
-    "description": "I am an <b>IBM-certified Full-Stack JavaScript Developer</b> with expertise in building, deploying, and managing cloud-native applications. I specialize in <b>React, Node.js, Express, and DevOps</b>, utilizing modern tools and methodologies to develop scalable and efficient web solutions.",
-    "id": "LY40KI3BA49I",
-    "date": "March, 2025",
-    "skills": [
-      { "text": "Node", "icon": "node" },
-      { "text": "React", "icon": "react" },
-      { "text": "Express", "icon": "expressjs" },
-      { "text": "Docker", "icon": "docker" },
-      { "text": "NoSQL Databases", "icon": "database" }
-    ],
-    "issuer": ["IBM", "Coursera"]
-  },
-  {
-    "title": "Meta React Native Developer Certificate",
-    "description": "I am a <b>Meta-trained React Native developer</b> skilled in <b>JavaScript, React</b>, and <b>mobile development principles</b>, with expertise in building cross-platform mobile applications and optimizing user experiences.",
-    "id": "NY92RRAPU10L",
-    "date": "December, 2024",
-    "skills": [
-      { "text": "React-Native", "icon": "react" },
-      { "text": "Expo Framework", "icon": "expo" },
-      { "text": "iOS App Development", "icon": "appstore" },
-      { "text": "Android App Development", "icon": "playstore" },
-      { "text": "Cross-Platform Development", "icon": "globe" }
-    ],
-    "issuer": ["Meta", "Coursera"]
-  },
-  {
-    "title": "Meta Front-End Developer Certificate",
-    "description": "I am a <b>Meta-trained front-end developer</b> skilled in <b>HTML, CSS, JavaScript, React</b>, and <b>UI/UX design</b>, with expertise in building responsive, dynamic, and user-friendly web applications.",
-    "id": "9CCJ5KFCJ45F",
-    "date": "May, 2024",
-    "skills": [
-      { "text": "React", "icon": "react" },
-      { "text": "HTML", "icon": "html" },
-      { "text": "JavaScript", "icon": "javascript" },
-      { "text": "UI/UX Design", "icon": "pen-ruler" },
-      { "text": "Cascading Style Sheets (CSS)", "icon": "css" }
-    ],
-    "issuer": ["Meta", "Coursera"]
-  },
-  {
-    "title": "Google UX Design Certificate",
-    "description": "I am a <b>Google-certified UX designer</b> skilled in <b>user research, ideation, wireframing, prototyping</b>, and <b>user testing</b> to create intuitive and user-friendly designs.",
-    "id": "NG39RJTUYVRE",
-    "date": "June, 2023",
-    "skills": [
-      { "text": "Prototyping", "icon": "pen-ruler" },
-      { "text": "Wireframes", "icon": "pen-ruler" },
-      { "text": "UX Research", "icon": "pen-ruler" },
-      { "text": "Figma, Adobe XD", "icon": "pen-ruler" },
-      { "text": "User Experience (UX)", "icon": "pen-ruler" }
-    ],
-    "issuer": ["Google", "Coursera"]
-  },
-  {
-    "title": "Google Data Analytics",
-    "description": "I am a Google-certified <b>Data Analytics Professional</b> with expertise in <b>spreadsheets, SQL, Tableau, R</b> and data-driven <b>problem solving.</b>",
-    "id": "WD6KGMH7CJA7",
-    "date": "January, 2025",
-    "skills": [
-      { "text": "R Programming", "icon": "r-project" },
-      { "text": "SQL Databases", "icon": "database" },
-      { "text": "Data Analytics", "icon": "chart" },
-      { "text": "Spreadsheets", "icon": "table" },
-      { "text": "Tableau", "icon": "tableau" }
-    ],
-    "issuer": ["Google", "Coursera"]
-  },
-  {
-    "title": "Google Cybersecurity Certificate",
-    "description": "I am a <b>Google-certified cybersecurity professional</b> skilled in <b>Python, Linux, SQL, SIEM tools, and Intrusion Detection Systems (IDS)</b> to protect networks and data from threats effectively.",
-    "id": "G7Z2FUBMV8U9",
-    "date": "August, 2023",
-    "skills": [
-      { "text": "SIEM Tools", "icon": "screwdriver-wrench" },
-      { "text": "SQL Database", "icon": "database" },
-      { "text": "Cybersecurity", "icon": "shield" },
-      { "text": "Linux Systems", "icon": "linux" },
-      { "text": "Intrusion Detection Systems (IDS)", "icon": "user-secret" }
-    ],
-    "issuer": ["Google", "Coursera"]
-  },
-  {
-    "title": "JavaScript Programming Certificate",
-    "description": "I am proficient in <b>JavaScript</b> and <b>jQuery</b>, with hands-on experience in <b>manipulating web content, handling data</b>, and <b>enhancing interactivity</b> for dynamic web applications.",
-    "id": "GP4W3YTB2LM3",
-    "date": "June, 2023",
-    "skills": [
-      { "text": "JavaScript", "icon": "javascript" },
-      { "text": "jQuery", "icon": "jquery" },
-      { "text": "Web Forms", "icon": "working" },
-      { "text": "Web Interactivity", "icon": "working" },
-      { "text": "Data Manipulation", "icon": "screwdriver-wrench" }
-    ],
-    "issuer": ["Google", "UC Davis"]
-  },
-  {
-    "title": "Google IT Automation with Python Certificate",
-    "description": "I am a <b>Google-certified IT professional</b> skilled in <b>Python programming, Git, IT automation, and Systems Administration</b> to streamline workflows and improve operational efficiency.",
-    "id": "PH9N4E46D3HU",
-    "date": "March, 2023",
-    "skills": [
-      { "text": "Automation", "icon": "screwdriver-wrench" },
-      { "text": "Version Control (Git)", "icon": "git" },
-      { "text": "Python Programming", "icon": "python" },
-      { "text": "Configuration Management", "icon": "gear" },
-      { "text": "Troubleshooting & Debugging", "icon": "screwdriver-wrench" }
-    ],
-    "issuer": ["Google", "Coursera"]
-  },
-  {
-    "title": "Google IT Support Professional Certificate",
-    "description": "I am a <b>Google-certified IT Support Professional</b> with expertise in <b>troubleshooting, networking, operating systems</b>, and <b>cybersecurity</b>.",
-    "id": "GKX5NPNLRMJC",
-    "date": "February, 2023",
-    "skills": [
-      { "text": "Cryptography", "icon": "lock" },
-      { "text": "Advanced Troubleshooting", "icon": "screwdriver-wrench" },
-      { "text": "Network Security", "icon": "globe" },
-      { "text": "Customer Support", "icon": "handshake" },
-      { "text": "Command-Line Interface (CLI)", "icon": "working" }
-    ],
-    "issuer": ["Google", "Coursera"]
-  }
+	{
+		"title": "IBM Full-Stack JavaScript Developer Certificate",
+		"description": "I am an <b>IBM-certified Full-Stack JavaScript Developer</b> with expertise in building, deploying, and managing cloud-native applications. I specialize in <b>React, Node.js, Express, and DevOps</b>, utilizing modern tools and methodologies to develop scalable and efficient web solutions.",
+		"id": "LY40KI3BA49I",
+		"date": "March, 2025",
+		"skills": [
+			{ "text": "Node", "icon": "node" },
+			{ "text": "React", "icon": "react" },
+			{ "text": "Express", "icon": "expressjs" },
+			{ "text": "Docker", "icon": "docker" },
+			{ "text": "NoSQL Databases", "icon": "database" }
+		],
+		"issuer": ["IBM", "Coursera"]
+	},
+	{
+		"title": "Meta React Native Developer Certificate",
+		"description": "I am a <b>Meta-trained React Native developer</b> skilled in <b>JavaScript, React</b>, and <b>mobile development principles</b>, with expertise in building cross-platform mobile applications and optimizing user experiences.",
+		"id": "NY92RRAPU10L",
+		"date": "December, 2024",
+		"skills": [
+			{ "text": "React-Native", "icon": "react" },
+			{ "text": "Expo Framework", "icon": "expo" },
+			{ "text": "iOS App Development", "icon": "appstore" },
+			{ "text": "Android App Development", "icon": "playstore" },
+			{ "text": "Cross-Platform Development", "icon": "globe" }
+		],
+		"issuer": ["Meta", "Coursera"]
+	},
+	{
+		"title": "Meta Front-End Developer Certificate",
+		"description": "I am a <b>Meta-trained front-end developer</b> skilled in <b>HTML, CSS, JavaScript, React</b>, and <b>UI/UX design</b>, with expertise in building responsive, dynamic, and user-friendly web applications.",
+		"id": "9CCJ5KFCJ45F",
+		"date": "May, 2024",
+		"skills": [
+			{ "text": "React", "icon": "react" },
+			{ "text": "HTML", "icon": "html" },
+			{ "text": "JavaScript", "icon": "javascript" },
+			{ "text": "UI/UX Design", "icon": "pen-ruler" },
+			{ "text": "Cascading Style Sheets (CSS)", "icon": "css" }
+		],
+		"issuer": ["Meta", "Coursera"]
+	},
+	{
+		"title": "Google UX Design Certificate",
+		"description": "I am a <b>Google-certified UX designer</b> skilled in <b>user research, ideation, wireframing, prototyping</b>, and <b>user testing</b> to create intuitive and user-friendly designs.",
+		"id": "NG39RJTUYVRE",
+		"date": "June, 2023",
+		"skills": [
+			{ "text": "Prototyping", "icon": "pen-ruler" },
+			{ "text": "Wireframes", "icon": "pen-ruler" },
+			{ "text": "UX Research", "icon": "pen-ruler" },
+			{ "text": "Figma, Adobe XD", "icon": "pen-ruler" },
+			{ "text": "User Experience (UX)", "icon": "pen-ruler" }
+		],
+		"issuer": ["Google", "Coursera"]
+	},
+	{
+		"title": "Google Data Analytics",
+		"description": "I am a Google-certified <b>Data Analytics Professional</b> with expertise in <b>spreadsheets, SQL, Tableau, R</b> and data-driven <b>problem solving.</b>",
+		"id": "WD6KGMH7CJA7",
+		"date": "January, 2025",
+		"skills": [
+			{ "text": "R Programming", "icon": "r-project" },
+			{ "text": "SQL Databases", "icon": "database" },
+			{ "text": "Data Analytics", "icon": "chart" },
+			{ "text": "Spreadsheets", "icon": "table" },
+			{ "text": "Tableau", "icon": "tableau" }
+		],
+		"issuer": ["Google", "Coursera"]
+	},
+	{
+		"title": "Google Cybersecurity Certificate",
+		"description": "I am a <b>Google-certified cybersecurity professional</b> skilled in <b>Python, Linux, SQL, SIEM tools, and Intrusion Detection Systems (IDS)</b> to protect networks and data from threats effectively.",
+		"id": "G7Z2FUBMV8U9",
+		"date": "August, 2023",
+		"skills": [
+			{ "text": "SIEM Tools", "icon": "screwdriver-wrench" },
+			{ "text": "SQL Database", "icon": "database" },
+			{ "text": "Cybersecurity", "icon": "shield" },
+			{ "text": "Linux Systems", "icon": "linux" },
+			{ "text": "Intrusion Detection Systems (IDS)", "icon": "user-secret" }
+		],
+		"issuer": ["Google", "Coursera"]
+	},
+	{
+		"title": "JavaScript Programming Certificate",
+		"description": "I am proficient in <b>JavaScript</b> and <b>jQuery</b>, with hands-on experience in <b>manipulating web content, handling data</b>, and <b>enhancing interactivity</b> for dynamic web applications.",
+		"id": "GP4W3YTB2LM3",
+		"date": "June, 2023",
+		"skills": [
+			{ "text": "JavaScript", "icon": "javascript" },
+			{ "text": "jQuery", "icon": "jquery" },
+			{ "text": "Web Forms", "icon": "working" },
+			{ "text": "Web Interactivity", "icon": "working" },
+			{ "text": "Data Manipulation", "icon": "screwdriver-wrench" }
+		],
+		"issuer": ["Google", "UC Davis"]
+	},
+	{
+		"title": "Google IT Automation with Python Certificate",
+		"description": "I am a <b>Google-certified IT professional</b> skilled in <b>Python programming, Git, IT automation, and Systems Administration</b> to streamline workflows and improve operational efficiency.",
+		"id": "PH9N4E46D3HU",
+		"date": "March, 2023",
+		"skills": [
+			{ "text": "Automation", "icon": "screwdriver-wrench" },
+			{ "text": "Version Control (Git)", "icon": "git" },
+			{ "text": "Python Programming", "icon": "python" },
+			{ "text": "Configuration Management", "icon": "gear" },
+			{ "text": "Troubleshooting & Debugging", "icon": "screwdriver-wrench" }
+		],
+		"issuer": ["Google", "Coursera"]
+	},
+	{
+		"title": "Google IT Support Professional Certificate",
+		"description": "I am a <b>Google-certified IT Support Professional</b> with expertise in <b>troubleshooting, networking, operating systems</b>, and <b>cybersecurity</b>.",
+		"id": "GKX5NPNLRMJC",
+		"date": "February, 2023",
+		"skills": [
+			{ "text": "Cryptography", "icon": "lock" },
+			{ "text": "Advanced Troubleshooting", "icon": "screwdriver-wrench" },
+			{ "text": "Network Security", "icon": "globe" },
+			{ "text": "Customer Support", "icon": "handshake" },
+			{ "text": "Command-Line Interface (CLI)", "icon": "working" }
+		],
+		"issuer": ["Google", "Coursera"]
+	}
 ]

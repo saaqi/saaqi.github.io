@@ -1,26 +1,26 @@
 [
-  {
-    "header": "Trusted by",
-    "level": 30,
-    "title": "Satisfied Clients to Grow Their Businesses.",
-    "icon": "happy-icon"
-  },
-  {
-    "header": "Completed",
-    "level": 45,
-    "title": "Projects, Delivered On Time and Budget.",
-    "icon": "project-icon"
-  },
-  {
-    "header": "Professional",
-    "level": 5,
-    "title": "years of Experience in Web Development.",
-    "icon": "working-icon"
-  },
-  {
-    "header": "Achieved",
-    "level": 8,
-    "title": "Certificates from Meta, Google & IBM.",
-    "icon": "certificate-icon"
-  }
+	{
+		"header": "Trusted by",
+		"level": 30,
+		"title": "Satisfied Clients to Grow Their Businesses.",
+		"icon": "happy-icon"
+	},
+	{
+		"header": "Completed",
+		"level": 45,
+		"title": "Projects, Delivered On Time and Budget.",
+		"icon": "project-icon"
+	},
+	{
+		"header": "Professional",
+		"level": 5,
+		"title": "years of Experience in Web Development.",
+		"icon": "working-icon"
+	},
+	{
+		"header": "Achieved",
+		"level": 8,
+		"title": "Certificates from Meta, Google & IBM.",
+		"icon": "certificate-icon"
+	}
 ]
