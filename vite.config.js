@@ -14,7 +14,7 @@ export default defineConfig({
 			content: [
 				'./src/app.html',
 				'./src/**/*.js',
-				'./src/**/*.svelte'
+				'./src/**/*.svelte',
 				// --- Import only the required components.
 				// `${bootstrap}/js/dist/alert.js`,
 				// `${bootstrap}/js/dist/base-component.js`,
@@ -22,7 +22,7 @@ export default defineConfig({
 				// `${bootstrap}/js/dist/carousel.js`,
 				// `${bootstrap}/js/dist/collapse.js`,
 				// `${bootstrap}/js/dist/dropdown.js`,
-				// `${bootstrap}/js/dist/modal.js`
+				`${bootstrap}/js/dist/modal.js`,
 				// `${bootstrap}/js/dist/offcanvas.js`,
 				// `${bootstrap}/js/dist/popover.js`,
 				// `${bootstrap}/js/dist/scrollspy.js`,

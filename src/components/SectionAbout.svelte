@@ -1,11 +1,14 @@
 <script>
+	import { onMount } from 'svelte';
 	import { darkTheme } from '$data/sharedState.js';
-	import icons from '$assets/icons.svg';
-	import statCounters from '$data/statCounters.json';
-	import skillsLevel from '$data/skillsLevel.json';
+	const color = $darkTheme ? 'warning' : 'primary';
 
-  const color = $derived($darkTheme ? 'warning' : 'primary')
-  // darkTheme.set(f)
+	onMount(async () => {
+		await import('bootstrap/js/dist/modal.js');
+	});
+
+	import StatsCounter from './StatsCounter.svelte';
+	import SkillLevels from './SkillLevels.svelte';
 </script>
 
 <section id="about" class="section about" data-bs-theme={$darkTheme ? 'dark' : 'light'}>
@@ -77,67 +80,9 @@
 			</div>
 		</div>
 
-		<article class="statistics mt-5">
-			<div class="heading-container">
-				<h3 class="h4 text-center">
-					<svg class="icon chart-icon">
-						<use xlink:href="/src/assets/icons.svg#chart-icon"></use>
-					</svg>
-					My Track Record
-				</h3>
-			</div>
-			<div id="statsCounters" class="row stats g-3 row-gap-4 mt-4">
-				{#each statCounters as { header, level, title, icon }, index (('stats-', index))}
-					<div class="col-lg-3 col-6 text-break">
-						<div class="count-box pt-4 pb-3 px-3 text-center border border-{color} rounded-3 h-100">
-							<div
-								class="stats-icon-container d-flex align-items-center justify-content-center fs-4 bg-{color} text-bg-{color} rounded-circle"
-							>
-								<svg class="icon {icon}"><use xlink:href={icons + '#' + icon}></use></svg>
-							</div>
-							<p class="mb-0 mt-2">{header}</p>
-							<span class="fs-2 fw-bold text-{color}">
-								<span class="statcounter">{level}</span>+
-							</span>
-							<p class="mb-0">{title}</p>
-						</div>
-					</div>
-				{/each}
-			</div>
-		</article>
+		<StatsCounter />
+		<SkillLevels />
 
-		<article class="expertise mt-5">
-			<div class="heading-container">
-				<h3 class="h4 text-center">
-					<svg class="icon coding-icon">
-						<use xlink:href="/src/assets/icons.svg#coding-icon"></use>
-					</svg>
-					My Skills
-				</h3>
-			</div>
-
-			<div id="skillLevelBars" class="row g-3 skills">
-				{#each skillsLevel as { title, level, icon }, index ('skills' + index)}
-					<div class="col-6 progress d-block h-auto bg-transparent">
-						<div class="skill pb-2 fs-6 fw-medium">
-							<svg class="icon {icon}"><use xlink:href={icons + '#' + icon}></use></svg>
-							{title}
-							<!-- <span class="val">${level}%</span> -->
-						</div>
-						<div class="progress-bar-wrap bg-{color}-subtle rounded-pill">
-							<div
-								class="progress-bar bg-{color} rounded-pill"
-								role="progressbar"
-								aria-label="{title} Skill"
-								aria-valuenow={level}
-								aria-valuemin="0"
-								aria-valuemax={level}
-							></div>
-						</div>
-					</div>
-				{/each}
-			</div>
-		</article>
 	</div>
 </section>
 
@@ -146,28 +91,6 @@
 		&:hover {
 			transform: scale(1.05);
 			transition: var(--transition);
-		}
-	}
-	.stats {
-		.count-box {
-			position: relative;
-
-			.stats-icon-container {
-				position: absolute;
-				top: -25px;
-				left: 50%;
-				height: 50px;
-				width: 50px;
-				transform: translateX(-50%);
-			}
-		}
-	}
-
-	.skills {
-		.progress-bar {
-			width: 1px;
-			height: 0.625rem;
-			transition: width ease-in 1s;
 		}
 	}
 </style>
