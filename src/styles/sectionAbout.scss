@@ -3,31 +3,4 @@
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-.profile {
-	&:hover {
-		transform: scale(1.05);
-		transition: v.$transition;
-	}
-}
-.stats {
-	.count-box {
-		position: relative;
 
-		.stats-icon-container {
-			position: absolute;
-			top: -25px;
-			left: 50%;
-			height: 50px;
-			width: 50px;
-			transform: translateX(-50%);
-		}
-	}
-}
-
-.skills {
-	.progress-bar {
-		width: 1px;
-		height: 0.625rem;
-		transition: width ease-in 1s;
-	}
-}
