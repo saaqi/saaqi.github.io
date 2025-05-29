@@ -1,64 +1,86 @@
-import { defineConfig } from "vite";
-import webfontDownload from "vite-plugin-webfont-dl";
-import { ViteMinifyPlugin } from "vite-plugin-minify";
-
-const IN_PRODUCTION = process.env.NODE_ENV === "production";
-const IN_DEVELOPMENT = process.env.NODE_ENV === "development";
-
-// Hide Preloader while in development.
-const hidePreloader = () => {
-  return {
-    name: "hide-preloader",
-    transformIndexHtml(html) {
-      return html.replace(
-        `<link rel="stylesheet" href="/src/styles/preloader.css" type="text/css">`,
-        `<!-- <link rel="stylesheet" href="/src/styles/preloader.css" type="text/css"> -->`
-      );
-    }
-  }
-}
+// const IN_PRODUCTION = process.env.NODE_ENV === 'production';
+import { defineConfig } from 'vite';
+import { sveltekit } from '@sveltejs/kit/vite';
+import path from 'path';
+import htmlPurge from 'vite-plugin-purgecss';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
+const bootstrap = 'node_modules/bootstrap';
 
 export default defineConfig({
-  plugins: [
+	plugins: [
+		sveltekit(),
+		htmlPurge({
+			content: [
+				'./src/app.html',
+				'./src/**/*.js',
+				'./src/**/*.svelte',
+				// --- Import only the required components.
+				// `${bootstrap}/js/dist/alert.js`,
+				// `${bootstrap}/js/dist/base-component.js`,
+				// `${bootstrap}/js/dist/button.js`,
+				// `${bootstrap}/js/dist/carousel.js`,
+				// `${bootstrap}/js/dist/collapse.js`,
+				// `${bootstrap}/js/dist/dropdown.js`,
+				// `${bootstrap}/js/dist/modal.js`
+				// `${bootstrap}/js/dist/offcanvas.js`,
+				// `${bootstrap}/js/dist/popover.js`,
+				// `${bootstrap}/js/dist/scrollspy.js`,
+				// `${bootstrap}/js/dist/tab.js`,
+				// `${bootstrap}/js/dist/toast.js`,
+				// `${bootstrap}/js/dist/tooltip.js`,
+			],
+			safelist: [/svelte-/, /modal-/],
+			defaultExtractor(content) {
+				const contentWithoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '');
+				return contentWithoutStyleBlocks.match(/[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g) || [];
+			},
+			keyframes: true,
+			variables: true
+		})
+	],
 
-    /* ## Hide Preloader while in Development
-    --------------------------------------------- */
-    IN_DEVELOPMENT && hidePreloader(),
+	resolve: {
+		alias: {
+			$assets: path.resolve('./src/assets'),
+			$components: path.resolve('./src/components'),
+			$data: path.resolve('./src/data'),
+			$styles: path.resolve('./src/styles'),
+			$lib: path.resolve('./src/lib'),
+		}
+	},
 
-    /* ## Download Google Fonts and attach them with production build for offline use
-    --------------------------------------------- */
-    IN_PRODUCTION && webfontDownload(
-      [
-        "https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap",
-      ]
-    ),
+	css: {
+		preprocessorOptions: {
+			scss: {
+				api: 'modern'
+			}
+		},
+		postcss: {
+			plugins: [
+				// --- CSSNano is a modern CSS minifier based on the PostCSS ecosystem.
+				cssnano({
+					preset: ['default', { discardComments: { removeAll: true } }]
+				}),
+				// --- Autoprefixer is used to add vendor prefixes to CSS rules using values from "Can I Use".
+				autoprefixer
+			]
+		}
+	},
 
-    /* ## Minify the output HTML files in production
-    --------------------------------------------- */
-    IN_PRODUCTION && ViteMinifyPlugin({}),
-  ],
+	// base: './',
+	server: {
+		port: 3000
+	},
 
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern'
-      }
-    }
-  },
-
-  base: "./",
-  server: {
-    port: 3000,
-  },
-
-  build: {
-    // outDir: "./docs",
-    minify: 'terser',
-    terserOptions: {
-      format: {
-        comments: false,
-      },
-    },
-  },
-
+	build: {
+		// outDir: './build',
+		emptyOutDir: true,
+		minify: 'terser',
+		terserOptions: {
+			format: {
+				comments: false
+			}
+		}
+	}
 });
