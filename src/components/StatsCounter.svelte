@@ -2,39 +2,50 @@
 	import { darkTheme } from '$data/sharedState.js';
 	import icons from '$assets/icons.svg';
 	import statCounters from '$data/statCounters.json';
-	const color = $darkTheme ? 'warning' : 'primary';
+	const color = $derived($darkTheme ? 'warning' : 'primary');
 
-	import { onMount } from 'svelte';
-	onMount(() => {
-		const countWhenVisible = (element, targetCount, speed) => {
-			let hasCounted = false;
-			let startTime = null;
-			const observer = new IntersectionObserver((entries) => {
-				if (entries[0].isIntersecting && !hasCounted) {
-					hasCounted = true;
-					startTime = performance.now();
-					let count = 0;
-					let duration = speed;
-					let interval = setInterval(() => {
-						let elapsedTime = performance.now() - startTime;
-						let progress = elapsedTime / duration;
-						if (progress >= 1) {
-							clearInterval(interval);
-							element.innerHTML = targetCount;
-						} else {
-							count = Math.floor(progress * targetCount);
-							element.innerHTML = count;
-						}
-					}, 20);
-				}
-			});
-			observer.observe(element);
+	// countWhenVisible.js
+	import observeWhenVisible from '../functions/observeWhenVisible.js';
+	function countWhenVisible(node) {
+		let hasCounted = false;
+		let startTime = null;
+
+		const targetCount = parseInt(node.textContent, 10);
+		const speed = 1500;
+
+		// Set initial visible value to 0
+		node.textContent = '0';
+
+		const observer = observeWhenVisible(
+			(__, observer) => {
+				if (hasCounted) return;
+				hasCounted = true;
+
+				startTime = performance.now();
+				let interval = setInterval(() => {
+					let elapsedTime = performance.now() - startTime;
+					let progress = elapsedTime / speed;
+					if (progress >= 1) {
+						clearInterval(interval);
+						node.textContent = targetCount;
+					} else {
+						node.textContent = Math.floor(progress * targetCount);
+					}
+				}, 20);
+
+				observer.unobserve(node);
+			},
+			{ threshold: 1.0 }
+		);
+
+		observer.observe(node);
+
+		return {
+			destroy() {
+				observer.unobserve(node);
+			}
 		};
-		const statsCounters = document.querySelectorAll('.statcounter');
-		statsCounters.forEach((statsCounter) => {
-			countWhenVisible(statsCounter, statsCounter.innerHTML, 1500);
-		});
-	});
+	}
 </script>
 
 <article class="statistics mt-5">
@@ -57,7 +68,7 @@
 					</div>
 					<p class="mb-0 mt-2">{header}</p>
 					<span class="fs-2 fw-bold text-{color}">
-						<span class="statcounter">{level}</span>+
+						<span class="statcounter" use:countWhenVisible>{level}</span>+
 					</span>
 					<p class="mb-0">{title}</p>
 				</div>

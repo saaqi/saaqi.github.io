@@ -8,10 +8,8 @@ const darkModeSetup = (switchSelector, buttonSelector) => {
 	const switchElement = document.querySelector(switchSelector);
 	const buttonElement = document.querySelector(buttonSelector);
 	const htmlElement = document.documentElement;
-	const deviceTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
 	!localStorage.getItem('theme') && localStorage.setItem('theme', 'auto');
-	const storedTheme = localStorage.getItem('theme');
 	const currTheme = storedTheme === 'auto' ? deviceTheme : storedTheme;
 	htmlElement.setAttribute('data-bs-theme', currTheme);
 

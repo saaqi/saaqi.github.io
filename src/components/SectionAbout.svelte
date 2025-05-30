@@ -1,8 +1,8 @@
 <script>
-	import { onMount } from 'svelte';
 	import { darkTheme } from '$data/sharedState.js';
-	const color = $darkTheme ? 'warning' : 'primary';
+	const color = $derived($darkTheme ? 'warning' : 'primary');
 
+	import { onMount } from 'svelte';
 	onMount(async () => {
 		await import('bootstrap/js/dist/modal.js');
 	});
@@ -82,7 +82,6 @@
 
 		<StatsCounter />
 		<SkillLevels />
-
 	</div>
 </section>
 

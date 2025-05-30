@@ -1,6 +1,4 @@
 <script>
-	// Loading Animation
-	/** Hide Preloader */
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	let hidePreloader = $state(false);

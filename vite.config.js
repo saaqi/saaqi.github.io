@@ -22,7 +22,7 @@ export default defineConfig({
 				// `${bootstrap}/js/dist/carousel.js`,
 				// `${bootstrap}/js/dist/collapse.js`,
 				// `${bootstrap}/js/dist/dropdown.js`,
-				`${bootstrap}/js/dist/modal.js`,
+				`${bootstrap}/js/dist/modal.js`
 				// `${bootstrap}/js/dist/offcanvas.js`,
 				// `${bootstrap}/js/dist/popover.js`,
 				// `${bootstrap}/js/dist/scrollspy.js`,

@@ -1,8 +1,8 @@
 <script>
 	import { menuExpanded } from '$data/sharedState.js';
-	import { darkTheme } from '$data/sharedState.js';
 	import navigationLinks from '$data/navigationLinks.json';
 	import icons from '$assets/icons.svg';
+	import { darkTheme } from '$data/sharedState.js';
 
 	const onclick = () => menuExpanded.set(!$menuExpanded);
 	const close = () => menuExpanded.set(false);
@@ -141,7 +141,6 @@
 		position: fixed;
 		top: 12px;
 		z-index: 1050;
-		background-color: rgba(var(--bs-body-bg-rgb), 0.5);
 
 		svg.icon {
 			transition: transform ease-in-out 0.3s;

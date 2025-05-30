@@ -2,28 +2,27 @@
 	import { darkTheme } from '$data/sharedState.js';
 	import icons from '$assets/icons.svg';
 	import skillsLevel from '$data/skillsLevel.json';
-	const color = $darkTheme ? 'warning' : 'primary';
+	const color = $derived($darkTheme ? 'warning' : 'primary');
 
-	import { onMount } from 'svelte';
-	onMount(() => {
-		const animateWhenVisible = new IntersectionObserver(
-			(entries, observer) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						const ariaValueNow = entry.target.getAttribute('aria-valuenow');
-						entry.target.style.width = `${ariaValueNow}%`;
-						observer.unobserve(entry.target);
-					}
-				});
+	import observeWhenVisible from '../functions/observeWhenVisible.js';
+	function animateProgress(node) {
+		const observer = observeWhenVisible(
+			(entry, observer) => {
+				entry.target.style.width = `${entry.target.getAttribute('aria-valuenow')}%`;
+				observer.unobserve(entry.target);
 			},
 			{ threshold: 1.0 }
 		);
-		const progressBars = document.querySelectorAll('.progress-bar');
-		progressBars.forEach((progressBar) => {
-			progressBar.style.transition = 'width ease-in 1.5s';
-			animateWhenVisible.observe(progressBar);
-		});
-	});
+
+		node.style.transition = 'width ease-in 1.5s';
+		observer.observe(node);
+
+		return {
+			destroy() {
+				observer.unobserve(node);
+			}
+		};
+	}
 </script>
 
 <article class="expertise mt-5">
@@ -46,6 +45,7 @@
 				</div>
 				<div class="progress-bar-wrap bg-{color}-subtle rounded-pill">
 					<div
+						use:animateProgress
 						class="progress-bar bg-{color} rounded-pill"
 						role="progressbar"
 						aria-label="{title} Skill"

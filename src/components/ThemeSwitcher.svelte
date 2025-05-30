@@ -1,14 +1,29 @@
 <script>
 	import icons from '$assets/icons.svg';
+	import { darkTheme } from '$data/sharedState.js';
+	import { onMount } from 'svelte';
+
+	const toggleTheme = () => {
+		darkTheme.set(!$darkTheme);
+		localStorage.setItem('theme', $darkTheme ? 'dark' : 'light');
+		console.log(localStorage.getItem('theme'));
+	}
+	const autoTheme = (event) => {
+		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false;
+		localStorage.setItem('theme', 'auto');
+		darkTheme.set(deviceThemeDark);
+		event.currentTarget.classList.add('active');
+	}
 </script>
 
-<div class="switchContainer d-flex align-items-center gap-2">
+<div class="switchContainer d-flex align-items-center gap-2" data-bs-theme={$darkTheme ? 'dark' : 'light'}>
 	<button
 		type="button"
 		class="autoModeButton btn btn-icon p-1 rounded-circle shadow-none"
-		aria-pressed="false"
 		title="Automatically Select Device Prefered Color Scheme"
+		aria-pressed="true"
 		aria-label="Automatically Select Device Prefered Color Scheme"
+		onclick={autoTheme}
 	>
 		<svg class="icon half-circle-icon">
 			<use xlink:href="{icons}#half-circle-icon"></use>
@@ -19,6 +34,10 @@
 		class="darkModeSwitcher form-check-input m-0"
 		id="darkModeSwitch"
 		title="Enable or Disable Dark Mode"
+		onclick={toggleTheme}
+		aria-label="Enable or Disable Dark Mode"
+		aria-checked={darkTheme}
+		checked={$darkTheme}
 	/>
 </div>
 
