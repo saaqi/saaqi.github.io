@@ -1,25 +1,36 @@
 <script>
 	import icons from '$assets/icons.svg';
 	import { darkTheme } from '$data/sharedState.js';
+	const theme = $derived($darkTheme ? 'dark' : 'light');
+	const auto = $state(false);
+
 	import { onMount } from 'svelte';
+	onMount(() => {
+		const storedTheme = localStorage.getItem('theme');
+		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false;
+		if (storedTheme === 'dark') darkTheme.set(true);
+		else if (storedTheme === 'light') darkTheme.set(false);
+		else {
+			darkTheme.set(deviceThemeDark);
+			auto.set(true);
+		}
+	})
 
 	const toggleTheme = () => {
 		darkTheme.set(!$darkTheme);
 		localStorage.setItem('theme', $darkTheme ? 'dark' : 'light');
-		console.log(localStorage.getItem('theme'));
 	}
-	const autoTheme = (event) => {
+	const autoTheme = () => {
 		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false;
 		localStorage.setItem('theme', 'auto');
 		darkTheme.set(deviceThemeDark);
-		event.currentTarget.classList.add('active');
 	}
 </script>
 
-<div class="switchContainer d-flex align-items-center gap-2" data-bs-theme={$darkTheme ? 'dark' : 'light'}>
+<div class="switchContainer d-flex align-items-center gap-2 {theme}" data-bs-theme={theme}>
 	<button
 		type="button"
-		class="autoModeButton btn btn-icon p-1 rounded-circle shadow-none"
+		class="autoModeButton btn btn-outline-{theme} btn-icon p-1 rounded-circle shadow-none"
 		title="Automatically Select Device Prefered Color Scheme"
 		aria-pressed="true"
 		aria-label="Automatically Select Device Prefered Color Scheme"
@@ -93,23 +104,23 @@
 		background-position: 100%;
 	}
 
-	.autoModeButton {
-		svg.icon {
-			--icon-fill: var(--bs-body-bg);
-		}
-		&.active,
-		&:hover {
-			background-color: var(--bs-warning);
-			svg.icon {
-				--icon-fill: var(--bs-body-color);
-			}
-		}
-	}
+	// .autoModeButton {
+	// 	svg.icon {
+	// 		--icon-fill: var(--bs-body-bg);
+	// 	}
+	// 	&.active,
+	// 	&:hover {
+	// 		background-color: var(--bs-warning);
+	// 		svg.icon {
+	// 			--icon-fill: var(--bs-body-color);
+	// 		}
+	// 	}
+	// }
 
-	html[data-bs-theme='dark'] {
-		.autoModeButton.active,
-		.autoModeButton:hover {
-			background-color: var(--bs-secondary);
-		}
-	}
+	// .light {
+	// 	.autoModeButton.active,
+	// 	.autoModeButton:hover {
+	// 		background-color: var(--bs-secondary);
+	// 	}
+	// }
 </style>
