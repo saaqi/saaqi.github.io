@@ -2,7 +2,6 @@
 	// import '$styles/toplink.scss';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { menuExpanded } from '$data/sharedState.js';
 	import icons from '$assets/icons.svg';
 	import { darkTheme } from '$data/sharedState.js';
 
@@ -21,7 +20,6 @@
 			title="Go to Top"
 			aria-label="Go to Top"
 			onclick={() => {
-				menuExpanded.set(false);
 				window.scrollTo({
 					top: 0,
 					behavior: 'smooth'

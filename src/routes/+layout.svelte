@@ -16,11 +16,11 @@
 	import { darkTheme } from '$data/sharedState.js';
 </script>
 
-<LoadingAnimation />
-<ThemeSwitcher />
-<TopLink />
 
 <Navigation />
 <main id="main" class="main-container" data-bs-theme={$darkTheme ? 'dark' : 'light'}>
+	<LoadingAnimation />
+	<ThemeSwitcher />
 	{@render children()}
+	<TopLink />
 </main>

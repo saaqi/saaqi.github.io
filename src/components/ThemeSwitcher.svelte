@@ -1,8 +1,12 @@
 <script>
+	const { ...props } = $props();
 	import icons from '$assets/icons.svg';
 	import { darkTheme } from '$data/sharedState.js';
-	const theme = $derived($darkTheme ? 'dark' : 'light');
-	const auto = $state(false);
+	let autoTheme = $state(false);
+	let autoActiveButton = $derived.by(() => {
+		if (autoTheme) return ($darkTheme ? 'btn-secondary' : 'btn-warning');
+		else return ($darkTheme ? 'btn-outline-dark' : 'btn-outline-light');
+	});
 
 	import { onMount } from 'svelte';
 	onMount(() => {
@@ -12,29 +16,31 @@
 		else if (storedTheme === 'light') darkTheme.set(false);
 		else {
 			darkTheme.set(deviceThemeDark);
-			auto.set(true);
+			autoTheme = true;
 		}
 	})
 
-	const toggleTheme = () => {
+	const toggleButton = () => {
 		darkTheme.set(!$darkTheme);
 		localStorage.setItem('theme', $darkTheme ? 'dark' : 'light');
+		autoTheme = false;
 	}
-	const autoTheme = () => {
+	const autoButton = () => {
 		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false;
 		localStorage.setItem('theme', 'auto');
 		darkTheme.set(deviceThemeDark);
+		autoTheme = true;
 	}
 </script>
 
-<div class="switchContainer d-flex align-items-center gap-2 {theme}" data-bs-theme={theme}>
+<div class="switchContainer d-flex align-items-center gap-2" {...props}>
 	<button
 		type="button"
-		class="autoModeButton btn btn-outline-{theme} btn-icon p-1 rounded-circle shadow-none"
+		class="autoModeButton btn {autoActiveButton} btn-icon p-1 rounded-circle shadow-none"
 		title="Automatically Select Device Prefered Color Scheme"
 		aria-pressed="true"
 		aria-label="Automatically Select Device Prefered Color Scheme"
-		onclick={autoTheme}
+		onclick={autoButton}
 	>
 		<svg class="icon half-circle-icon">
 			<use xlink:href="{icons}#half-circle-icon"></use>
@@ -45,7 +51,7 @@
 		class="darkModeSwitcher form-check-input m-0"
 		id="darkModeSwitch"
 		title="Enable or Disable Dark Mode"
-		onclick={toggleTheme}
+		onclick={toggleButton}
 		aria-label="Enable or Disable Dark Mode"
 		aria-checked={darkTheme}
 		checked={$darkTheme}
@@ -103,24 +109,4 @@
 	.darkModeSwitcher:checked {
 		background-position: 100%;
 	}
-
-	// .autoModeButton {
-	// 	svg.icon {
-	// 		--icon-fill: var(--bs-body-bg);
-	// 	}
-	// 	&.active,
-	// 	&:hover {
-	// 		background-color: var(--bs-warning);
-	// 		svg.icon {
-	// 			--icon-fill: var(--bs-body-color);
-	// 		}
-	// 	}
-	// }
-
-	// .light {
-	// 	.autoModeButton.active,
-	// 	.autoModeButton:hover {
-	// 		background-color: var(--bs-secondary);
-	// 	}
-	// }
 </style>
