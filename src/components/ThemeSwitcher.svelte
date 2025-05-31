@@ -35,6 +35,22 @@
 		darkTheme.set(deviceThemeDark);
 		autoTheme = true;
 	}
+
+	// Auto Set theme
+	const autoSetTheme = () => {
+		if (autoTheme) {
+			const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+				? true
+				: false;
+			darkTheme.set(deviceThemeDark);
+		}
+	};
+
+	// Listen for system theme changes
+	onMount(() => {
+		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+		mediaQuery.addEventListener('change', autoSetTheme);
+	});
 </script>
 
 <div class="switchContainer d-flex align-items-center gap-2">

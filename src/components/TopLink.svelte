@@ -1,17 +1,12 @@
 <script>
-	// import '$styles/toplink.scss';
-	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import icons from '$assets/icons.svg';
 	import { darkTheme } from '$data/sharedState.js';
 
 	let show = false;
-	onMount(() => {
-		window.addEventListener('scroll', () => {
-			window.scrollY >= 150 ? (show = true) : (show = false);
-		});
-	});
 </script>
+
+<svelte:window on:scroll={() => show = window.scrollY >= 250} />
 
 {#if show}
 	<div class="go-top" transition:fade>

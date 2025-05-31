@@ -10,10 +10,7 @@
 	const colorBtn2 = $derived($darkTheme ? 'warning' : 'secondary');
 	const colorBtn3 = $derived($darkTheme ? 'warning' : 'danger');
 
-	import { onMount } from 'svelte';
-	onMount(async () => {
-		await import('bootstrap/js/dist/modal.js');
-	});
+	$effect( async() => await import('bootstrap/js/dist/modal.js'))
 </script>
 
 <section id="services" class="section services {$darkTheme ? 'dark' : 'light'}">

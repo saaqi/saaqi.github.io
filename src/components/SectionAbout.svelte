@@ -3,14 +3,18 @@
 	import { darkTheme } from '$data/sharedState.js';
 	const color = $derived($darkTheme ? 'warning' : 'primary');
 
-	import { onMount } from 'svelte';
-	onMount(async () => {
-		await import('bootstrap/js/dist/modal.js');
-	});
+	// import { onMount } from 'svelte';
+	// onMount(async () => {
+	// 	await import('bootstrap/js/dist/modal.js');
+	// });
 
 	import StatsCounter from './StatsCounter.svelte';
 	import SkillLevels from './SkillLevels.svelte';
+
+	$effect( async() => await import('bootstrap/js/dist/modal.js'))
 </script>
+
+<!-- <svelte:window on:load={async () => await import ('bootstrap/js/dist/modal.js')} /> -->
 
 <section id="about" class="section about" data-bs-theme={$darkTheme ? 'dark' : 'light'}>
 	<div class="container">
