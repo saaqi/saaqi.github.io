@@ -28,7 +28,8 @@
 		</div>
 
 		<DraggableContainer
-			touchSensitivity="2"
+			touchSensitivity={2}
+			indicators={true}
 			id="servicesContainer"
 			class="servicesContainer row g-2 draggableContainer pb-lg-0 pb-3"
 		>
@@ -115,3 +116,19 @@
 		</DraggableContainer>
 	</div>
 </section>
+
+<style>
+	.draggableItem {
+		flex: 0 0 33.3333333%;
+	}
+	@media (max-width: 992px) {
+		.draggableItem {
+			flex: 0 0 48%;
+		}
+	}
+	@media (max-width: 768px) {
+		.draggableItem {
+			flex: 0 0 95%;
+		}
+	}
+</style>

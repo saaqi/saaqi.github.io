@@ -2,7 +2,7 @@
 	import icons from '$assets/icons.svg';
 	import { darkTheme } from '$data/sharedState.js';
 
-	const { touchSensitivity = 2, children, ...props } = $props();
+	const { touchSensitivity = 2, indicators = true, children, ...props } = $props();
 
 	/**
 	 * Svelte 5 action that enables horizontal dragging functionality for a container element.
@@ -80,16 +80,18 @@
 
 <div class="draggableOuterContainer {$darkTheme ? 'dark' : ''}">
 	<div use:draggableContainer={{ sensitivity: touchSensitivity }} {...props}>
-		{@render children() /* Render items using <div class="draggableItem"></div> */}
+		{@render children()}
 	</div>
-	<div class="directionIndicators d-flex justify-content-between text-primary fs-4 d-lg-none">
-		<svg class="icon swipe-indicator swipe-icon">
-			<use xlink:href="{icons}#swipe-icon"></use>
-		</svg>
-		<svg class="icon swipe-indicator swipe-icon">
-			<use xlink:href="{icons}#swipe-icon"></use>
-		</svg>
-	</div>
+	{#if indicators}
+		<div class="directionIndicators d-flex justify-content-between text-primary fs-4 d-lg-none">
+			<svg class="icon swipe-indicator swipe-icon">
+				<use xlink:href="{icons}#swipe-icon"></use>
+			</svg>
+			<svg class="icon swipe-indicator swipe-icon">
+				<use xlink:href="{icons}#swipe-icon"></use>
+			</svg>
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -97,10 +99,6 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: start;
-	}
-
-	.draggableItem {
-		flex: 0 0 33.3333333%;
 	}
 
 	.draggableOuterContainer {
@@ -148,15 +146,6 @@
 			&.dragging {
 				cursor: grabbing;
 			}
-		}
-		.draggableItem {
-			flex: 0 0 48%;
-		}
-	}
-
-	@media (max-width: 768px) {
-		.draggableItem {
-			flex: 0 0 95%;
 		}
 	}
 </style>
