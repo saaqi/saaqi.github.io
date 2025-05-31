@@ -17,7 +17,7 @@
 	});
 </script>
 
-<section id="services" class="section services">
+<section id="services" class="section services {$darkTheme ? 'dark' : 'light'}">
 	<div class="container">
 		<div class="heading-container">
 			<h2 class="section-heading">
