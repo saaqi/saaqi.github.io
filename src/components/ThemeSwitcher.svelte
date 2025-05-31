@@ -1,5 +1,4 @@
 <script>
-	const { ...props } = $props();
 	import icons from '$assets/icons.svg';
 	import { darkTheme } from '$data/sharedState.js';
 	let autoTheme = $state(false);
@@ -33,7 +32,7 @@
 	}
 </script>
 
-<div class="switchContainer d-flex align-items-center gap-2" {...props}>
+<div class="switchContainer d-flex align-items-center gap-2">
 	<button
 		type="button"
 		class="autoModeButton btn {autoActiveButton} btn-icon p-1 rounded-circle shadow-none"
