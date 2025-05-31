@@ -8,7 +8,11 @@
 	const close = () => menuExpanded.set(false);
 </script>
 
-<header id="header" class={$menuExpanded ? 'mobile-nav-active' : ''} data-bs-theme={$darkTheme ? 'dark' : 'light'}>
+<header
+	id="header"
+	class={$menuExpanded ? 'mobile-nav-active' : ''}
+	data-bs-theme={$darkTheme ? 'dark' : 'light'}
+>
 	<div class="header d-flex flex-column justify-content-center {$darkTheme ? 'dark' : 'light'}">
 		<button
 			type="button"
@@ -27,7 +31,7 @@
 		<nav id="navbar" class="navbar nav-menu {$menuExpanded ? '' : 'nav-visibility'}">
 			<ul id="mainNavigation" class="mainNavigation list-unstyled">
 				{#each navigationLinks as { link, text, icon }, index ('navlinks-' + index)}
-					<li>
+					<li class="item-nav">
 						<a
 							href={link}
 							class="link-nav btn btn-outline-primary shadow-sm scrollto {$darkTheme
@@ -78,56 +82,50 @@
 	.nav-menu {
 		padding: 0;
 		display: block;
+	}
+	.item-nav {
+		position: relative;
+		white-space: nowrap;
+	}
+	.link-nav {
+		line-height: normal;
+		display: flex;
+		align-items: center;
+		padding: 1em;
+		margin-bottom: 0.5em;
+		border-radius: 5em;
+		transition: var(--transition);
+		height: 3.5em;
+		width: 100%;
+		overflow: hidden;
 
-		> ul {
-			> li {
-				position: relative;
-				white-space: nowrap;
-			}
+		.icon {
+			font-size: calc(3.5em / 2);
 		}
 
-		a {
-			line-height: normal;
-			display: flex;
-			align-items: center;
-			padding: 1em;
-			margin-bottom: 0.5em;
-			border-radius: 5em;
-			transition: var(--transition);
-			height: 3.5em;
+		.text-nav {
+			padding-left: 0.8em;
+		}
+
+		&:hover {
 			width: 100%;
-			overflow: hidden;
+		}
 
-			svg.icon {
-				font-size: calc(3.5em / 2);
-			}
-
-			span.text-nav {
-				padding-left: 0.8em;
-			}
-
-			&:hover {
-				width: 100%;
-			}
-
-			&:hover span.text-nav {
-				display: block;
-			}
+		&:hover .text-nav {
+			display: block;
 		}
 	}
 
 	@media (min-width: 768px) {
-		.nav-menu {
-			a {
-				width: 3.5em;
+		.link-nav {
+			width: 3.5em;
 
-				svg.icon {
-					margin: 0 auto;
-				}
+			.icon {
+				margin: 0 auto;
+			}
 
-				span.text-nav {
-					display: none;
-				}
+			.text-nav {
+				display: none;
 			}
 		}
 	}
@@ -138,7 +136,7 @@
 		top: 12px;
 		z-index: 1050;
 
-		svg.icon {
+		.icon {
 			transition: transform ease-in-out 0.3s;
 		}
 	}
@@ -149,7 +147,7 @@
 		.mobile-nav-toggle {
 			font-size: 3em;
 
-			svg.icon {
+			.icon {
 				transform: rotate(90deg);
 			}
 		}

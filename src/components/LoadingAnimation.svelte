@@ -37,7 +37,7 @@
 		-webkit-animation: bounce05 var(--duration) linear infinite;
 		animation: bounce05 var(--duration) linear infinite;
 	}
-	.typewriter .slide {
+	.slide {
 		width: 92px;
 		height: 20px;
 		border-radius: 3px;
@@ -47,27 +47,27 @@
 		-webkit-animation: slide05 var(--duration) ease infinite;
 		animation: slide05 var(--duration) ease infinite;
 	}
-	.typewriter .slide:before,
-	.typewriter .slide:after,
-	.typewriter .slide i:before {
+	.slide::before,
+	.slide::after,
+	.slide i:before {
 		content: '';
 		position: absolute;
 		background: var(--tool);
 	}
-	.typewriter .slide:before {
+	.slide::before {
 		width: 2px;
 		height: 8px;
 		top: 6px;
 		left: 100%;
 	}
-	.typewriter .slide:after {
+	.slide::after {
 		left: 94px;
 		top: 3px;
 		height: 14px;
 		width: 6px;
 		border-radius: 3px;
 	}
-	.typewriter .slide i {
+	.slide i {
 		display: block;
 		position: absolute;
 		right: 100%;
@@ -76,14 +76,14 @@
 		top: 4px;
 		background: var(--tool);
 	}
-	.typewriter .slide i:before {
+	.slide i::before {
 		right: 100%;
 		top: -2px;
 		width: 4px;
 		border-radius: 2px;
 		height: 14px;
 	}
-	.typewriter .paper {
+	.paper {
 		position: absolute;
 		left: 24px;
 		top: -26px;
@@ -95,7 +95,7 @@
 		-webkit-animation: paper05 var(--duration) linear infinite;
 		animation: paper05 var(--duration) linear infinite;
 	}
-	.typewriter .paper:before {
+	.paper::before {
 		content: '';
 		position: absolute;
 		left: 6px;
@@ -110,19 +110,19 @@
 			0 24px 0 var(--text),
 			0 36px 0 var(--text);
 	}
-	.typewriter .keyboard {
+	.keyboard {
 		width: 120px;
 		height: 56px;
 		margin-top: -10px;
 		z-index: 1;
 		position: relative;
 	}
-	.typewriter .keyboard:before,
-	.typewriter .keyboard:after {
+	.keyboard::before,
+	.keyboard::after {
 		content: '';
 		position: absolute;
 	}
-	.typewriter .keyboard:before {
+	.keyboard::before {
 		top: 0;
 		left: 0;
 		right: 0;
@@ -132,7 +132,7 @@
 		transform: perspective(10px) rotateX(2deg);
 		transform-origin: 50% 100%;
 	}
-	.typewriter .keyboard:after {
+	.keyboard::after {
 		left: 2px;
 		top: 25px;
 		width: 11px;
