@@ -6,7 +6,7 @@
 	import socialLinks from '$data/socialLinks.json';
 </script>
 
-<section id="home" class="section home" data-bs-theme={$darkTheme ? 'dark' : 'light'}>
+<section id="home" class="section home {$darkTheme ? 'dark' : 'light'}">
 	<div class="container position-relative text-body">
 		<div class="row flex-lg-row-reverse align-items-center gap-5 gap-lg-0">
 			<div class="graphic-col col-lg-6">
@@ -88,7 +88,7 @@
 		color: var(--bs-primary);
 	}
 
-	.home[data-bs-theme='dark'] {
+	.home.dark {
 		background-image: url('$assets/repeated-square-dark.webp');
 		.hero-heading {
 			color: var(--bs-warning);

@@ -1,4 +1,5 @@
 <script>
+	import icons from '$assets/icons.svg';
 	import { darkTheme } from '$data/sharedState.js';
 	const color = $derived($darkTheme ? 'warning' : 'primary');
 
@@ -16,7 +17,7 @@
 		<div class="heading-container">
 			<h2 class="section-heading">
 				<svg class="icon user-icon">
-					<use xlink:href="/src/assets/icons.svg#user-icon"></use>
+					<use xlink:href="{icons}#user-icon"></use>
 				</svg>
 				About Me
 			</h2>
@@ -58,7 +59,7 @@
 								<div class="profile-container position-relative">
 									<img
 										src="/src/assets/profile.webp"
-										class="img-fluid rounded-bottom-3"
+										class="img-fluid rounded-3"
 										id="profile-picture-label"
 										alt="Saqib Islam Avatar"
 										loading="lazy"

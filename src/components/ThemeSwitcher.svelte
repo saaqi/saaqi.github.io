@@ -7,10 +7,12 @@
 		else return ($darkTheme ? 'btn-outline-dark' : 'btn-outline-light');
 	});
 
+  // Initial State
 	import { onMount } from 'svelte';
 	onMount(() => {
 		const storedTheme = localStorage.getItem('theme');
 		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false;
+
 		if (storedTheme === 'dark') darkTheme.set(true);
 		else if (storedTheme === 'light') darkTheme.set(false);
 		else {
@@ -19,11 +21,14 @@
 		}
 	})
 
+	// Toggle Dark Mode Button
 	const toggleButton = () => {
 		darkTheme.set(!$darkTheme);
 		localStorage.setItem('theme', $darkTheme ? 'dark' : 'light');
 		autoTheme = false;
 	}
+
+	// Auto Mode Button
 	const autoButton = () => {
 		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false;
 		localStorage.setItem('theme', 'auto');

@@ -1,6 +1,5 @@
 <script>
-	import { SectionHome } from '$components';
-	import { SectionAbout } from '$components';
+	import { SectionHome, SectionAbout, SectionServices } from '$components';
 </script>
 
 <svelte:head>
@@ -17,3 +16,4 @@
 
 <SectionHome />
 <SectionAbout />
+<SectionServices />

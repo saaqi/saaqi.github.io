@@ -45,6 +45,7 @@ export default defineConfig({
 			$assets: path.resolve('./src/assets'),
 			$components: path.resolve('./src/components'),
 			$data: path.resolve('./src/data'),
+			$functions: path.resolve('./src/functions'),
 			$styles: path.resolve('./src/styles'),
 			$lib: path.resolve('./src/lib')
 		}

@@ -8,12 +8,8 @@
 	const close = () => menuExpanded.set(false);
 </script>
 
-<div class={$menuExpanded ? 'mobile-nav-active' : ''}>
-	<header
-		id="header"
-		class="header d-flex flex-column justify-content-center"
-		data-bs-theme={$darkTheme ? 'dark' : 'light'}
-	>
+<header id="header" class={$menuExpanded ? 'mobile-nav-active' : ''} data-bs-theme={$darkTheme ? 'dark' : 'light'}>
+	<div class="header d-flex flex-column justify-content-center {$darkTheme ? 'dark' : 'light'}">
 		<button
 			type="button"
 			class="mobile-nav-toggle rounded-circle fs-1 shadow-sm p-1 btn btn-icon {$darkTheme
@@ -52,8 +48,8 @@
 				{/each}
 			</ul>
 		</nav>
-	</header>
-</div>
+	</div>
+</header>
 
 <style lang="scss">
 	.mobile-nav-active {
@@ -167,7 +163,7 @@
 			border-right: 1px solid var(--bs-primary-border-subtle);
 			left: -20em;
 		}
-		.header[data-bs-theme='dark'] {
+		.header.dark {
 			border-right: 1px solid var(--bs-warning-border-subtle);
 		}
 		.mobile-nav-active .header {
