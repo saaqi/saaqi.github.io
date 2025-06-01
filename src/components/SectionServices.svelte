@@ -5,10 +5,10 @@
 	// servicesContainer
 	import DraggableContainer from '$functions/DraggableContainer.svelte';
 
-	import { darkTheme } from '$data/sharedState.js';
-	const colorBtn1 = $derived($darkTheme ? 'light' : 'primary');
-	const colorBtn2 = $derived($darkTheme ? 'warning' : 'secondary');
-	const colorBtn3 = $derived($darkTheme ? 'warning' : 'danger');
+	import { store } from '$data/stores.svelte.js';
+	const colorBtn1 = $derived(store.darkMode ? 'light' : 'primary');
+	const colorBtn2 = $derived(store.darkMode ? 'warning' : 'secondary');
+	const colorBtn3 = $derived(store.darkMode ? 'warning' : 'danger');
 
 	$effect(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
@@ -97,7 +97,7 @@
 	{/each}
 {/snippet}
 
-<section id="services" class="section services {$darkTheme ? 'dark' : 'light'}">
+<section id="services" class="section services {store.darkMode ? 'dark' : 'light'}">
 	<div class="container">
 		<div class="heading-container">
 			<h2 class="section-heading">

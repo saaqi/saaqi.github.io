@@ -13,12 +13,16 @@
 	import { LoadingAnimation, TopLink, Navigation, ThemeSwitcher } from '$components';
 
 	// Handle Dark Mode
-	import { darkTheme } from '$data/sharedState.js';
+	import { store } from '$data/stores.svelte.js';
 </script>
 
-
 <Navigation />
-<main id="main" class="main-container" data-bs-theme={$darkTheme ? 'dark' : 'light'}>
+<main
+	id="main"
+	class="main-container"
+	class:dark={store.darkMode}
+	data-bs-theme={store.darkMode ? 'dark' : 'light'}
+>
 	<LoadingAnimation />
 	<ThemeSwitcher />
 	{@render children()}

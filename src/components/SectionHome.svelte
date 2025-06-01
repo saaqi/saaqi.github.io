@@ -2,11 +2,11 @@
 	import heroSvg from '$assets/hero.svg';
 	import iconsSvg from '$assets/icons.svg';
 	import resume from '$assets/resume-saqib-islam.pdf';
-	import { darkTheme } from '$data/sharedState.js';
+	import { store } from '$data/stores.svelte.js';
 	import socialLinks from '$data/socialLinks.json';
 </script>
 
-<section id="home" class="section home {$darkTheme ? 'dark' : 'light'}">
+<section id="home" class="section home {store.darkMode ? 'dark' : 'light'}">
 	<div class="container position-relative text-body">
 		<div class="row flex-lg-row-reverse align-items-center gap-5 gap-lg-0">
 			<div class="graphic-col col-lg-6">
@@ -52,7 +52,7 @@
 				>
 					<a
 						href="#contact"
-						class="btn {$darkTheme ? 'btn-warning' : 'btn-secondary'} scrollto"
+						class="btn {store.darkMode ? 'btn-warning' : 'btn-secondary'} scrollto"
 						title="Hire Me!"
 					>
 						<svg class="icon handshake-icon">
@@ -62,7 +62,7 @@
 					</a>
 					<a
 						href={resume}
-						class="btn {$darkTheme ? 'btn-light' : 'btn-primary'}"
+						class="btn {store.darkMode ? 'btn-light' : 'btn-primary'}"
 						title="Download My Resume"
 						target="_blank"
 					>

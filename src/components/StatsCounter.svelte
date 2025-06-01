@@ -1,8 +1,8 @@
 <script>
-	import { darkTheme } from '$data/sharedState.js';
+	import { store } from '$data/stores.svelte.js';
 	import icons from '$assets/icons.svg';
 	import statCounters from '$data/statCounters.json';
-	const color = $derived($darkTheme ? 'warning' : 'primary');
+	const color = $derived(store.darkMode ? 'warning' : 'primary');
 
 	// countWhenVisible.js
 	import observeWhenVisible from '../functions/observeWhenVisible.js';

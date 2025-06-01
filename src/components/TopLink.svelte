@@ -1,7 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import icons from '$assets/icons.svg';
-	import { darkTheme } from '$data/sharedState.js';
+	import { store } from '$data/stores.svelte.js';
 
 	let show = false;
 </script>
@@ -11,7 +11,7 @@
 {#if show}
 	<div class="go-top" transition:fade>
 		<button
-			class="top fs-4 rounded-circle p-1 btn btn-outline-{$darkTheme ? 'light' : 'secondary'}"
+			class="top fs-4 rounded-circle p-1 btn btn-outline-{store.darkMode ? 'light' : 'secondary'}"
 			title="Go to Top"
 			aria-label="Go to Top"
 			onclick={() => {

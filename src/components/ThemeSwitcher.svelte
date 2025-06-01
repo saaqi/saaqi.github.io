@@ -1,10 +1,10 @@
 <script>
 	import icons from '$assets/icons.svg';
-	import { darkTheme } from '$data/sharedState.js';
+	import { store } from '$data/stores.svelte.js';
 	let autoTheme = $state(false);
 	let autoActiveButton = $derived.by(() => {
-		if (autoTheme) return ($darkTheme ? 'btn-secondary' : 'btn-warning');
-		else return ($darkTheme ? 'btn-outline-dark' : 'btn-outline-light');
+		if (autoTheme) return (store.darkMode ? 'btn-secondary' : 'btn-warning');
+		else return (store.darkMode ? 'btn-outline-dark' : 'btn-outline-light');
 	});
 
   // Initial State
@@ -13,18 +13,19 @@
 		const storedTheme = localStorage.getItem('theme');
 		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false;
 
-		if (storedTheme === 'dark') darkTheme.set(true);
-		else if (storedTheme === 'light') darkTheme.set(false);
+		if (storedTheme === 'dark') store.darkMode = true;
+		else if (storedTheme === 'light') store.darkMode = false;
 		else {
-			darkTheme.set(deviceThemeDark);
+			localStorage.setItem('theme', 'auto');
+			store.darkMode = deviceThemeDark;
 			autoTheme = true;
 		}
 	})
 
 	// Toggle Dark Mode Button
 	const toggleButton = () => {
-		darkTheme.set(!$darkTheme);
-		localStorage.setItem('theme', $darkTheme ? 'dark' : 'light');
+		store.darkMode = !store.darkMode;
+		localStorage.setItem('theme', store.darkMode ? 'dark' : 'light');
 		autoTheme = false;
 	}
 
@@ -32,7 +33,7 @@
 	const autoButton = () => {
 		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false;
 		localStorage.setItem('theme', 'auto');
-		darkTheme.set(deviceThemeDark);
+		store.darkMode = deviceThemeDark;
 		autoTheme = true;
 	}
 
@@ -42,7 +43,7 @@
 			const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 				? true
 				: false;
-			darkTheme.set(deviceThemeDark);
+			store.darkMode = deviceThemeDark;
 		}
 	};
 
@@ -73,8 +74,8 @@
 		title="Enable or Disable Dark Mode"
 		onclick={toggleButton}
 		aria-label="Enable or Disable Dark Mode"
-		aria-checked={darkTheme}
-		checked={$darkTheme}
+		aria-checked={store.darkMode}
+		checked={store.darkMode}
 	/>
 </div>
 

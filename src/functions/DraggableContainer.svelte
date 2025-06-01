@@ -1,6 +1,6 @@
 <script>
 	import icons from '$assets/icons.svg';
-	import { darkTheme } from '$data/sharedState.js';
+	import { store } from '$data/stores.svelte.js';
 
 	const { touchSensitivity = 2, indicators = true, children, ...props } = $props();
 
@@ -78,7 +78,7 @@
 	}
 </script>
 
-<div class="draggableOuterContainer {$darkTheme ? 'dark' : ''}">
+<div class="draggableOuterContainer {store.darkMode ? 'dark' : ''}">
 	<div use:draggableContainer={{ sensitivity: touchSensitivity }} {...props}>
 		{@render children()}
 	</div>

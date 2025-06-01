@@ -1,47 +1,49 @@
 <script>
-	import { menuExpanded } from '$data/sharedState.js';
+	// import { menuExpanded } from '$data/sharedState.js';
 	import navigationLinks from '$data/navigationLinks.json';
 	import icons from '$assets/icons.svg';
-	import { darkTheme } from '$data/sharedState.js';
+	import { store } from '$data/stores.svelte.js';
 
-	const onclick = () => menuExpanded.set(!$menuExpanded);
-	const close = () => menuExpanded.set(false);
+	let menuExpanded = $state(false);
+	const onclick = () => (menuExpanded = !menuExpanded);
+	const close = () => (menuExpanded = false);
 </script>
 
 <header
 	id="header"
-	class={$menuExpanded ? 'mobile-nav-active' : ''}
-	data-bs-theme={$darkTheme ? 'dark' : 'light'}
+	class={menuExpanded ? 'mobile-nav-active' : ''}
+	data-bs-theme={store.darkMode ? 'dark' : 'light'}
 >
-	<div class="header d-flex flex-column justify-content-center {$darkTheme ? 'dark' : 'light'}">
+	<div class="header d-flex flex-column justify-content-center" class:dark={store.darkMode}>
 		<button
 			type="button"
-			class="mobile-nav-toggle rounded-circle fs-1 shadow-sm p-1 btn btn-icon {$darkTheme
-				? 'btn-outline-warning'
-				: 'btn-outline-primary'}"
+			class="mobile-nav-toggle rounded-circle fs-1 shadow-sm p-1 btn btn-icon"
+			class:btn-outline-warning={store.darkMode}
+			class:btn-outline-primary={!store.darkMode}
 			title="Navigation Menu"
 			aria-label="Navigation Menu"
 			aria-controls="navbar"
 			{onclick}
 		>
 			<svg class="icon menu-icon">
-				<use xlink:href="/src/assets/icons.svg#{$menuExpanded ? 'close' : 'menu'}-icon"></use>
+				<use xlink:href="/src/assets/icons.svg#{menuExpanded ? 'close' : 'menu'}-icon"></use>
 			</svg>
 		</button>
-		<nav id="navbar" class="navbar nav-menu {$menuExpanded ? '' : 'nav-visibility'}">
+		<nav id="navbar" class="navbar nav-menu" class:nav-visibility={!menuExpanded}>
 			<ul id="mainNavigation" class="mainNavigation list-unstyled">
 				{#each navigationLinks as { link, text, icon }, index ('navlinks-' + index)}
 					<li class="item-nav">
 						<a
 							href={link}
-							class="link-nav btn btn-outline-primary shadow-sm scrollto {$darkTheme
-								? 'border-warning-subtle text-warning'
-								: 'border-primary-subtle'}"
+							class="link-nav btn btn-outline-primary shadow-sm scrollto"
+							class:border-warning-subtle={store.darkMode}
+							class:text-warning={store.darkMode}
+							class:border-primary-subtle={!store.darkMode}
 							title={text}
 							onclick={close}
 						>
 							<svg
-								style="--icon-fill: var({$darkTheme ? '--bs-warning' : '--bs-body'})"
+								style="--icon-fill: var({store.darkMode ? '--bs-warning' : '--bs-body'})"
 								class="icon ${icon}"
 							>
 								<use xlink:href={icons + '#' + icon}></use>

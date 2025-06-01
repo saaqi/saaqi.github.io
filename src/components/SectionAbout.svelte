@@ -1,7 +1,7 @@
 <script>
 	import icons from '$assets/icons.svg';
-	import { darkTheme } from '$data/sharedState.js';
-	const color = $derived($darkTheme ? 'warning' : 'primary');
+	import { store } from '$data/stores.svelte.js';
+	const color = $derived(store.darkMode ? 'warning' : 'primary');
 
 	// import { onMount } from 'svelte';
 	// onMount(async () => {
@@ -16,7 +16,7 @@
 
 <!-- <svelte:window on:load={async () => await import ('bootstrap/js/dist/modal.js')} /> -->
 
-<section id="about" class="section about" data-bs-theme={$darkTheme ? 'dark' : 'light'}>
+<section id="about" class="section about" data-bs-theme={store.darkMode ? 'dark' : 'light'}>
 	<div class="container">
 		<div class="heading-container">
 			<h2 class="section-heading">

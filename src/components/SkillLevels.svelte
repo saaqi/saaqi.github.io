@@ -1,8 +1,8 @@
 <script>
-	import { darkTheme } from '$data/sharedState.js';
+	import { store } from '$data/stores.svelte.js';
 	import icons from '$assets/icons.svg';
 	import skillsLevel from '$data/skillsLevel.json';
-	const color = $derived($darkTheme ? 'warning' : 'primary');
+	const color = $derived(store.darkMode ? 'warning' : 'primary');
 
 	import observeWhenVisible from '../functions/observeWhenVisible.js';
 	function animateProgress(node) {
