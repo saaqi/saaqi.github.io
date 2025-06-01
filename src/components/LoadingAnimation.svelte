@@ -1,7 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
-	let hidePreloader = $state(false);
+	let hidePreloader = false;
 	onMount(() => (hidePreloader = true));
 </script>
 

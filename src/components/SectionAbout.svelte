@@ -1,7 +1,9 @@
 <script>
-	import icons from '$assets/icons.svg';
+	import SectionWrapper from '$components/SectionWrapper.svelte';
 	import { store } from '$data/stores.svelte.js';
 	const color = $derived(store.darkMode ? 'warning' : 'primary');
+
+	const { id = 'about', title = 'About Me', icon = 'user-icon' } = $props();
 
 	// import { onMount } from 'svelte';
 	// onMount(async () => {
@@ -11,22 +13,12 @@
 	import StatsCounter from './StatsCounter.svelte';
 	import SkillLevels from './SkillLevels.svelte';
 
-	$effect( async() => await import('bootstrap/js/dist/modal.js'))
+	$effect(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
 
 <!-- <svelte:window on:load={async () => await import ('bootstrap/js/dist/modal.js')} /> -->
-
-<section id="about" class="section about" data-bs-theme={store.darkMode ? 'dark' : 'light'}>
+<SectionWrapper id="about" title="About Me" icon="user-icon">
 	<div class="container">
-		<div class="heading-container">
-			<h2 class="section-heading">
-				<svg class="icon user-icon">
-					<use xlink:href="{icons}#user-icon"></use>
-				</svg>
-				About Me
-			</h2>
-		</div>
-
 		<div class="row justify-content-center">
 			<div class="col-2 col-lg-2">
 				<button
@@ -88,13 +80,11 @@
 		<StatsCounter />
 		<SkillLevels />
 	</div>
-</section>
+</SectionWrapper>
 
-<style lang="scss">
-	.profile {
-		&:hover {
-			transform: scale(1.05);
-			transition: var(--transition);
-		}
+<style>
+	.profile:hover {
+		transform: scale(1.02);
+		transition: var(--transition);
 	}
 </style>

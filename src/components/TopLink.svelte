@@ -6,7 +6,7 @@
 	let show = false;
 </script>
 
-<svelte:window on:scroll={() => show = window.scrollY >= 250} />
+<svelte:window on:scroll={() => (show = window.scrollY >= 250)} />
 
 {#if show}
 	<div class="go-top" transition:fade>

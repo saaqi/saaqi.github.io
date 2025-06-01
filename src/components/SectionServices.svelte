@@ -3,12 +3,15 @@
 	import icons from '$assets/icons.svg';
 
 	// servicesContainer
+	import SectionWrapper from '$components/SectionWrapper.svelte'
 	import DraggableContainer from '$functions/DraggableContainer.svelte';
 
 	import { store } from '$data/stores.svelte.js';
-	const colorBtn1 = $derived(store.darkMode ? 'light' : 'primary');
-	const colorBtn2 = $derived(store.darkMode ? 'warning' : 'secondary');
-	const colorBtn3 = $derived(store.darkMode ? 'warning' : 'danger');
+	const buttonColors = $derived({
+		btn1: store.darkMode ? 'light' : 'primary',
+		btn2: store.darkMode ? 'warning' : 'secondary',
+		btn3: store.darkMode ? 'warning' : 'danger'
+	});
 
 	$effect(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
@@ -33,7 +36,7 @@
 					<div class="btn-group w-100">
 						<a
 							href="#contact"
-							class="btn btn-outline-{colorBtn1} w-50 btn-icon d-flex align-items-center justify-content-center gap-1 scrollto"
+							class="btn btn-outline-{buttonColors.btn1} w-50 btn-icon d-flex align-items-center justify-content-center gap-1 scrollto"
 							title="Hire Me!"
 						>
 							<svg class="icon handshake-icon">
@@ -43,7 +46,7 @@
 						{#if more}
 							<button
 								type="button"
-								class="btn btn-outline-{colorBtn2} w-50 btn-icon d-flex align-items-center justify-content-center gap-1"
+								class="btn btn-outline-{buttonColors.btn2} w-50 btn-icon d-flex align-items-center justify-content-center gap-1"
 								data-bs-toggle="modal"
 								data-bs-target="#{`service-` + index}"
 								title="Get More Info"
@@ -82,7 +85,7 @@
 						<div class="modal-footer py-1">
 							<button
 								type="button"
-								class="btn btn-outline-{colorBtn3} py-2 px-3 d-flex align-items-center"
+								class="btn btn-outline-{buttonColors.btn3} py-2 px-3 d-flex align-items-center"
 								data-bs-dismiss="modal"
 							>
 								<svg class="icon close-icon fs-4">
@@ -97,17 +100,8 @@
 	{/each}
 {/snippet}
 
-<section id="services" class="section services {store.darkMode ? 'dark' : 'light'}">
+<SectionWrapper id="services" title="Services I Offer" icon="working-icon" class="services">
 	<div class="container">
-		<div class="heading-container">
-			<h2 class="section-heading">
-				<svg class="icon working-icon">
-					<use xlink:href="{icons}#working-icon"></use>
-				</svg>
-				Services I Offer
-			</h2>
-		</div>
-
 		<DraggableContainer
 			touchSensitivity={2}
 			indicators={true}
@@ -118,11 +112,15 @@
 		</DraggableContainer>
 		{@render serviceModals(services)}
 	</div>
-</section>
+</SectionWrapper>
 
 <style>
 	.draggableItem {
 		flex: 0 0 33.3333333%;
+	}
+	.draggableItem:hover {
+		transform: scale(1.02);
+		transition: var(--transition);
 	}
 	@media (max-width: 992px) {
 		.draggableItem {

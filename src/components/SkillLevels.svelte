@@ -59,12 +59,14 @@
 	</div>
 </article>
 
-<style lang="scss">
-	.skills {
-		.progress-bar {
-			width: 1px;
-			height: 0.625rem;
-			transition: width ease-in 1s;
-		}
+<style>
+	.progress:hover {
+		transform: scale(1.02);
+		transition: var(--transition);
+	}
+	.progress-bar {
+		width: 1px;
+		height: 0.625rem;
+		transition: width ease-in 1s;
 	}
 </style>

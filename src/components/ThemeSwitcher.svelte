@@ -3,15 +3,17 @@
 	import { store } from '$data/stores.svelte.js';
 	let autoTheme = $state(false);
 	let autoActiveButton = $derived.by(() => {
-		if (autoTheme) return (store.darkMode ? 'btn-secondary' : 'btn-warning');
-		else return (store.darkMode ? 'btn-outline-dark' : 'btn-outline-light');
+		if (autoTheme) return store.darkMode ? 'btn-secondary' : 'btn-warning';
+		else return store.darkMode ? 'btn-outline-dark' : 'btn-outline-light';
 	});
 
-  // Initial State
+	// Initial State
 	import { onMount } from 'svelte';
 	onMount(() => {
 		const storedTheme = localStorage.getItem('theme');
-		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false;
+		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+			? true
+			: false;
 
 		if (storedTheme === 'dark') store.darkMode = true;
 		else if (storedTheme === 'light') store.darkMode = false;
@@ -20,22 +22,24 @@
 			store.darkMode = deviceThemeDark;
 			autoTheme = true;
 		}
-	})
+	});
 
 	// Toggle Dark Mode Button
 	const toggleButton = () => {
 		store.darkMode = !store.darkMode;
 		localStorage.setItem('theme', store.darkMode ? 'dark' : 'light');
 		autoTheme = false;
-	}
+	};
 
 	// Auto Mode Button
 	const autoButton = () => {
-		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches ? true : false;
+		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+			? true
+			: false;
 		localStorage.setItem('theme', 'auto');
 		store.darkMode = deviceThemeDark;
 		autoTheme = true;
-	}
+	};
 
 	// Auto Set theme
 	const autoSetTheme = () => {

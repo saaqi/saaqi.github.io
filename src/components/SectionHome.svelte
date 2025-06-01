@@ -6,6 +6,7 @@
 	import socialLinks from '$data/socialLinks.json';
 </script>
 
+
 <section id="home" class="section home" class:dark={store.darkMode}>
 	<div class="container position-relative text-body">
 		<div class="row flex-lg-row-reverse align-items-center gap-5 gap-lg-0">
@@ -83,6 +84,8 @@
 
 <style>
 	.home {
+		display: flex;
+		align-items: center;
 		background-image: url('$assets/lined_paper.webp');
 		background-repeat: repeat;
 		min-height: 100svh;
