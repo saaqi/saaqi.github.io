@@ -6,7 +6,6 @@
 	import socialLinks from '$data/socialLinks.json';
 </script>
 
-
 <section id="home" class="section home py-5" class:dark={store.darkMode}>
 	<div class="container position-relative text-body">
 		<div class="row flex-lg-row-reverse align-items-center gap-5 gap-lg-0">

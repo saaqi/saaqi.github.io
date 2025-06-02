@@ -3,7 +3,7 @@
 	import icons from '$assets/icons.svg';
 
 	// servicesContainer
-	import SectionWrapper from '$components/SectionWrapper.svelte'
+	import SectionWrapper from '$components/SectionWrapper.svelte';
 	import DraggableContainer from '$functions/DraggableContainer.svelte';
 
 	import { store } from '$data/stores.svelte.js';
@@ -16,7 +16,7 @@
 	import { onMount } from 'svelte';
 	onMount(async () => {
 		await import('bootstrap/js/dist/modal.js');
-	})
+	});
 </script>
 
 <!-- Generate Cards -->

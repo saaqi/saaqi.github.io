@@ -1,6 +1,7 @@
 <script>
 	import icons from '$assets/icons.svg';
 	import { store } from '$data/stores.svelte.js';
+
 	let autoTheme = $state(false);
 	let autoActiveButton = $derived.by(() => {
 		if (autoTheme) return store.darkMode ? 'btn-secondary' : 'btn-warning';
@@ -12,11 +13,10 @@
 	// Initial State
 	import { onMount } from 'svelte';
 	onMount(() => {
-		deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+		deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 		const storedTheme = localStorage.getItem('theme');
 		// Listen for system theme changes
-		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-		mediaQuery.addEventListener('change', autoSetTheme);
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', autoSetTheme);
 
 		if (storedTheme === 'dark') store.darkMode = true;
 		else if (storedTheme === 'light') store.darkMode = false;
@@ -43,14 +43,8 @@
 
 	// Auto Set theme
 	const autoSetTheme = () => {
-		if (autoTheme) {
-			store.darkMode = deviceThemeDark;
-		}
+		if (autoTheme) store.darkMode = deviceThemeDark;
 	};
-
-	onMount(() => {
-
-	});
 </script>
 
 <div class="switchContainer d-flex align-items-center gap-2">

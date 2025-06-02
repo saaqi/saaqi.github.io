@@ -10,7 +10,6 @@
 
 	import StatsCounter from './StatsCounter.svelte';
 	import SkillLevels from './SkillLevels.svelte';
-
 </script>
 
 <SectionWrapper id="about" title="About Me" icon="user-icon">
