@@ -7,13 +7,16 @@
 		else return store.darkMode ? 'btn-outline-dark' : 'btn-outline-light';
 	});
 
+	let deviceThemeDark = $state(false);
+
 	// Initial State
 	import { onMount } from 'svelte';
 	onMount(() => {
+		deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 		const storedTheme = localStorage.getItem('theme');
-		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-			? true
-			: false;
+		// Listen for system theme changes
+		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+		mediaQuery.addEventListener('change', autoSetTheme);
 
 		if (storedTheme === 'dark') store.darkMode = true;
 		else if (storedTheme === 'light') store.darkMode = false;
@@ -33,9 +36,6 @@
 
 	// Auto Mode Button
 	const autoButton = () => {
-		const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-			? true
-			: false;
 		localStorage.setItem('theme', 'auto');
 		store.darkMode = deviceThemeDark;
 		autoTheme = true;
@@ -44,17 +44,12 @@
 	// Auto Set theme
 	const autoSetTheme = () => {
 		if (autoTheme) {
-			const deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-				? true
-				: false;
 			store.darkMode = deviceThemeDark;
 		}
 	};
 
-	// Listen for system theme changes
 	onMount(() => {
-		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-		mediaQuery.addEventListener('change', autoSetTheme);
+
 	});
 </script>
 
@@ -83,8 +78,7 @@
 	/>
 </div>
 
-<style lang="scss">
-	// Theme Switcher Styles
+<style>
 	.switchContainer {
 		padding: 0.4em 0.6em;
 		border-radius: 2rem;

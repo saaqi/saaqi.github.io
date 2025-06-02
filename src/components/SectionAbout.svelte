@@ -3,20 +3,16 @@
 	import { store } from '$data/stores.svelte.js';
 	const color = $derived(store.darkMode ? 'warning' : 'primary');
 
-	const { id = 'about', title = 'About Me', icon = 'user-icon' } = $props();
-
-	// import { onMount } from 'svelte';
-	// onMount(async () => {
-	// 	await import('bootstrap/js/dist/modal.js');
-	// });
+	import { onMount } from 'svelte';
+	onMount(async () => {
+		await import('bootstrap/js/dist/modal.js');
+	});
 
 	import StatsCounter from './StatsCounter.svelte';
 	import SkillLevels from './SkillLevels.svelte';
 
-	$effect(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
 
-<!-- <svelte:window on:load={async () => await import ('bootstrap/js/dist/modal.js')} /> -->
 <SectionWrapper id="about" title="About Me" icon="user-icon">
 	<div class="container">
 		<div class="row justify-content-center">

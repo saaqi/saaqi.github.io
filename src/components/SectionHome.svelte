@@ -1,13 +1,13 @@
 <script>
 	import heroSvg from '$assets/hero.svg';
-	import iconsSvg from '$assets/icons.svg';
+	import icons from '$assets/icons.svg';
 	import resume from '$assets/resume-saqib-islam.pdf';
 	import { store } from '$data/stores.svelte.js';
 	import socialLinks from '$data/socialLinks.json';
 </script>
 
 
-<section id="home" class="section home" class:dark={store.darkMode}>
+<section id="home" class="section home py-5" class:dark={store.darkMode}>
 	<div class="container position-relative text-body">
 		<div class="row flex-lg-row-reverse align-items-center gap-5 gap-lg-0">
 			<div class="graphic-col col-lg-6">
@@ -42,7 +42,7 @@
 								rel="nofollow noopener"
 							>
 								<svg class="icon {icon} fs-4" style="--icon-fill: var(--bs-body-color)">
-									<use xlink:href={iconsSvg + '#' + icon}></use>
+									<use xlink:href={icons + '#' + icon}></use>
 								</svg>
 							</a>
 						</li>
@@ -59,7 +59,7 @@
 						title="Hire Me!"
 					>
 						<svg class="icon handshake-icon">
-							<use xlink:href="{iconsSvg}#handshake-icon"></use>
+							<use xlink:href="{icons}#handshake-icon"></use>
 						</svg>
 						Hire Me!
 					</a>
@@ -72,7 +72,7 @@
 						target="_blank"
 					>
 						<svg class="icon download-icon">
-							<use xlink:href="{iconsSvg}#download-icon"></use>
+							<use xlink:href="{icons}#download-icon"></use>
 						</svg>
 						Resume
 					</a>

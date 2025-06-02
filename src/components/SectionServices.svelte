@@ -13,7 +13,10 @@
 		btn3: store.darkMode ? 'warning' : 'danger'
 	});
 
-	$effect(async () => await import('bootstrap/js/dist/modal.js'));
+	import { onMount } from 'svelte';
+	onMount(async () => {
+		await import('bootstrap/js/dist/modal.js');
+	})
 </script>
 
 <!-- Generate Cards -->
