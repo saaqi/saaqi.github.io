@@ -2,9 +2,7 @@
 	import services from '$data/services.json';
 	import icons from '$assets/icons.svg';
 
-	// servicesContainer
-	import SectionWrapper from '$components/SectionWrapper.svelte';
-	import DraggableContainer from '$functions/DraggableContainer.svelte';
+	import { SectionWrapper, DraggableContainer } from '$components';
 
 	import { store } from '$data/stores.svelte.js';
 	const buttonColors = $derived({
@@ -38,7 +36,7 @@
 				<div class="card-footer">
 					<div class="btn-group w-100">
 						<a
-							href="#contact"
+							href={"#" /* #TODO #contact */}
 							class="btn btn-outline-{buttonColors.btn1} w-50 btn-icon d-flex align-items-center justify-content-center gap-1 scrollto"
 							title="Hire Me!"
 						>

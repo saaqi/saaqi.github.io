@@ -1,6 +1,6 @@
 <script>
 	// import { menuExpanded } from '$data/sharedState.js';
-	import navigationLinks from '$data/navigationLinks.json';
+	import { navigationLinks } from '$data/navigationLinks.js';
 	import icons from '$assets/icons.svg';
 	import { store } from '$data/stores.svelte.js';
 

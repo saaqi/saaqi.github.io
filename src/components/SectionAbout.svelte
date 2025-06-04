@@ -1,7 +1,10 @@
 <script>
-	import SectionWrapper from '$components/SectionWrapper.svelte';
+	import { SectionWrapper } from '$components';
 	import { store } from '$data/stores.svelte.js';
 	const color = $derived(store.darkMode ? 'warning' : 'primary');
+
+	import profileThumb from '$assets/profile-thumb.webp'
+	import avatar from '$assets/profile.webp'
 
 	import { onMount } from 'svelte';
 	onMount(async () => {
@@ -24,7 +27,7 @@
 					title="Saqib Islam: Profile Photo"
 				>
 					<img
-						src="/src/assets/profile-thumb.webp"
+						src={profileThumb}
 						class="img-fluid profile rounded-3 shadow-sm border border-{color}-subtle"
 						alt="Saqib Islam Avatar"
 						loading="lazy"
@@ -49,7 +52,7 @@
 							<div class="modal-body p-0">
 								<div class="profile-container position-relative">
 									<img
-										src="/src/assets/profile.webp"
+										src={avatar}
 										class="img-fluid rounded-3"
 										id="profile-picture-label"
 										alt="Saqib Islam Avatar"

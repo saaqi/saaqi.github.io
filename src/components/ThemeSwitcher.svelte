@@ -13,10 +13,11 @@
 	// Initial State
 	import { onMount } from 'svelte';
 	onMount(() => {
-		deviceThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 		const storedTheme = localStorage.getItem('theme');
+		const deviceTheme = window.matchMedia('(prefers-color-scheme: dark)');
+		deviceThemeDark = deviceTheme.matches;
 		// Listen for system theme changes
-		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', autoSetTheme);
+		deviceTheme.addEventListener('change', autoSetTheme);
 
 		if (storedTheme === 'dark') store.darkMode = true;
 		else if (storedTheme === 'light') store.darkMode = false;

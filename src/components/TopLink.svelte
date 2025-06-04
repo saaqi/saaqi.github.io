@@ -1,7 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import icons from '$assets/icons.svg';
 	import { store } from '$data/stores.svelte.js';
+	import icons from '$assets/icons.svg';
 
 	let show = false;
 </script>
