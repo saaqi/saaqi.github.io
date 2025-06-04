@@ -3,8 +3,8 @@
 	import { store } from '$data/stores.svelte.js';
 	const color = $derived(store.darkMode ? 'warning' : 'primary');
 
-	import profileThumb from '$assets/profile-thumb.webp'
-	import avatar from '$assets/profile.webp'
+	import profileThumb from '$assets/profile-thumb.webp';
+	import avatar from '$assets/profile.webp';
 
 	import { onMount } from 'svelte';
 	onMount(async () => {

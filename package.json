@@ -11,6 +11,7 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
+		"check": "svelte-check",
 		"build-bootstrap": "sass --no-source-map ./src/styles/bs-dynamic.scss ./src/styles/bootstrap.css"
 	},
 	"devDependencies": {
@@ -30,6 +31,7 @@
 		"prettier-plugin-svelte": "^3.4.0",
 		"sass-embedded": "^1.89.1",
 		"svelte": "^5.33.13",
+		"svelte-check": "^4.2.1",
 		"terser": "^5.40.0",
 		"vite": "^6.3.5",
 		"vite-plugin-purgecss": "^0.2.13"

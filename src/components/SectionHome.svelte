@@ -51,7 +51,7 @@
 					class="col-12 m-0 hero-buttons d-flex gap-2 justify-content-lg-start justify-content-center"
 				>
 					<a
-						href={"#" /* #TODO #contact */}
+						href={'#'}
 						class="btn scrollto"
 						class:btn-warning={store.darkMode}
 						class:btn-secondary={!store.darkMode}

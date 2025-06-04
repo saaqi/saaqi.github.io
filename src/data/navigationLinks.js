@@ -1,19 +1,19 @@
 export const navigationLinks = [
 	{
-		"link": "#home",
-		"text": "Home",
-		"icon": "home-icon"
+		link: '#home',
+		text: 'Home',
+		icon: 'home-icon'
 	},
 	{
-		"link": "#about",
-		"text": "About Me",
-		"icon": "user-icon"
+		link: '#about',
+		text: 'About Me',
+		icon: 'user-icon'
 	},
 	{
-		"link": "#services",
-		"text": "Services",
-		"icon": "working-icon"
-	},
+		link: '#services',
+		text: 'Services',
+		icon: 'working-icon'
+	}
 	// {
 	// 	"link": "#portfolio",
 	// 	"text": "Portfolio",
@@ -29,4 +29,4 @@ export const navigationLinks = [
 	// 	"text": "Contact Me",
 	// 	"icon": "address-book-icon"
 	// }
-]
+];

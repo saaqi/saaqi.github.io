@@ -36,7 +36,7 @@
 				<div class="card-footer">
 					<div class="btn-group w-100">
 						<a
-							href={"#" /* #TODO #contact */}
+							href={'#'}
 							class="btn btn-outline-{buttonColors.btn1} w-50 btn-icon d-flex align-items-center justify-content-center gap-1 scrollto"
 							title="Hire Me!"
 						>
