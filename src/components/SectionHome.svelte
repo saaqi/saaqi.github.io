@@ -58,7 +58,7 @@
 						title="Hire Me!"
 					>
 						<svg class="icon handshake-icon">
-							<use xlink:href="{icons}#handshake-icon"></use>
+							<use xlink:href={icons + '#handshake-icon'}></use>
 						</svg>
 						Hire Me!
 					</a>
