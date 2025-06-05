@@ -13,12 +13,12 @@ export const navigationLinks = [
 		link: '#services',
 		text: 'Services',
 		icon: 'working-icon'
-	}
-	// {
-	// 	"link": "#portfolio",
-	// 	"text": "Portfolio",
-	// 	"icon": "briefcase-icon"
-	// },
+	},
+	{
+		"link": "#portfolio",
+		"text": "Portfolio",
+		"icon": "briefcase-icon"
+	},
 	// {
 	// 	"link": "#education",
 	// 	"text": "Education",

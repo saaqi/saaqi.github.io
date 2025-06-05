@@ -2,7 +2,10 @@
 	import { store } from '$data/stores.svelte.js';
 	import icons from '$assets/icons.svg';
 	import statCounters from '$data/statCounters.json';
-	const color = $derived(store.darkMode ? 'warning' : 'primary');
+	const borderColor = $derived(store.darkMode ? 'border-warning' : 'border-primary');
+	const bgColor = $derived(store.darkMode ? 'bg-warning' : 'bg-primary');
+	const textColor = $derived(store.darkMode ? 'text-warning' : 'text-primary');
+	const textBgColor = $derived(store.darkMode ? 'text-bg-warning' : 'text-bg-primary');
 
 	// countWhenVisible.js
 	import observeWhenVisible from '../functions/observeWhenVisible.js';
@@ -52,7 +55,7 @@
 	<div class="heading-container">
 		<h3 class="h4 text-center">
 			<svg class="icon chart-icon">
-				<use xlink:href="/src/assets/icons.svg#chart-icon"></use>
+				<use xlink:href={icons + "#chart-icon"}></use>
 			</svg>
 			My Track Record
 		</h3>
@@ -60,14 +63,14 @@
 	<div id="statsCounters" class="row stats g-3 row-gap-4 mt-4">
 		{#each statCounters as { header, level, title, icon }, index (('stats-', index))}
 			<div class="col-lg-3 col-6 text-break">
-				<div class="count-box pt-4 pb-3 px-3 text-center border border-{color} rounded-3 h-100">
+				<div class="count-box pt-4 pb-3 px-3 text-center border {borderColor} rounded-3 h-100">
 					<div
-						class="stats-icon-container d-flex align-items-center justify-content-center fs-4 bg-{color} text-bg-{color} rounded-circle"
+						class="stats-icon-container d-flex align-items-center justify-content-center fs-4 {bgColor} {textBgColor} rounded-circle"
 					>
 						<svg class="icon {icon}"><use xlink:href={icons + '#' + icon}></use></svg>
 					</div>
 					<p class="mb-0 mt-2">{header}</p>
-					<span class="fs-2 fw-bold text-{color}">
+					<span class="fs-2 fw-bold {textColor}">
 						<span class="statcounter" use:countWhenVisible>{level}</span>+
 					</span>
 					<p class="mb-0">{title}</p>

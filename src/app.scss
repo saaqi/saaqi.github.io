@@ -8,8 +8,40 @@
 	--transition-slow: all ease-in-out 0.35s;
 }
 
+
+
+
+/* ## Main Container Defaults
+--------------------------------------------- */
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100svh;
+	> * {
+		width: 100%;
+		flex-basis: 100%;
+	}
+}
+
+
 /* ## Section default
 --------------------------------------------- */
+.section:nth-child(even) {
+	background-color: var(--bs-gray-100);
+}
+.section:nth-child(odd) {
+	background-color: var(--bs-gray-200);
+}
+
+.section.dark:nth-child(even) {
+	color: var(--bs-light);
+	background-color: var(--bs-gray-900);
+}
+.section.dark:nth-child(odd) {
+	color: var(--bs-light);
+	background-color: var(--bs-gray-800);
+}
+
 .section-copy {
 	width: 100%;
 	max-width: 768px;
@@ -33,6 +65,14 @@
 		line-height: 0;
 		padding: 0.5rem;
 		letter-spacing: 0;
+		> svg.icon {
+			--icon-fill: var(--bs-btn-color);
+
+		}
+		&:hover svg.icon,
+		&:active svg.icon {
+			--icon-fill: var(--bs-btn-hover-color);
+		}
 
 		&:hover {
 			transform: none;

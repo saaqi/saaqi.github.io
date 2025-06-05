@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="heading-container">
 				<h2 class="section-heading">
-					<svg class="icon" class:{icon}={icon}>
+					<svg class="icon {icon}">
 						<use xlink:href="{icons}#{icon}"></use>
 					</svg>
 					{title}
@@ -20,12 +20,14 @@
 	</div>
 {/snippet}
 
+<!-- { .d-flex .flex-column : "keeps from purging"} -->
 <section
 	{id}
 	class:d-flex={true}
 	class:flex-column={true}
 	class:section={true}
 	class:dark={store.darkMode}
+	class:light={!store.darkMode}
 	data-bs-theme={store.darkMode ? 'dark' : 'light'}
 	{...props}
 >
@@ -44,25 +46,9 @@
 	}
 
 	@media (min-width: 768px) {
-		.section {
+	.section {
 			padding-left: 5.5em;
 		}
-	}
-
-	.section:nth-child(even) {
-		background-color: var(--bs-gray-100);
-	}
-	.section:nth-child(odd) {
-		background-color: var(--bs-gray-200);
-	}
-
-	.section.dark:nth-child(even) {
-		color: var(--bs-light);
-		background-color: var(--bs-gray-900);
-	}
-	.section.dark:nth-child(odd) {
-		color: var(--bs-light);
-		background-color: var(--bs-gray-800);
 	}
 
 	.heading-container {

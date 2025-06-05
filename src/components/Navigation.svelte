@@ -2,9 +2,16 @@
 	// import { menuExpanded } from '$data/sharedState.js';
 	import { navigationLinks } from '$data/navigationLinks.js';
 	import icons from '$assets/icons.svg';
+
 	import { store } from '$data/stores.svelte.js';
+	const mode = $derived(store.darkMode ? 'dark' : 'light');
+	const btn1 = $derived(
+		store.darkMode ? 'border-warning-subtle text-warning' : 'border-primary-subtle'
+	);
+	const btn2 = $derived(store.darkMode ? 'btn-outline-warning' : 'btn-outline-primary');
 
 	let menuExpanded = $state(false);
+	const menuIcon = $derived(menuExpanded ? `${icons}#close-icon` : `${icons}#menu-icon`);
 	const onclick = () => (menuExpanded = !menuExpanded);
 	const close = () => (menuExpanded = false);
 </script>
@@ -14,31 +21,25 @@
 	class={menuExpanded ? 'mobile-nav-active' : ''}
 	data-bs-theme={store.darkMode ? 'dark' : 'light'}
 >
-	<div class="header d-flex flex-column justify-content-center" class:dark={store.darkMode}>
+	<div class="header d-flex flex-column justify-content-center {mode}">
 		<button
 			type="button"
-			class="mobile-nav-toggle rounded-circle fs-1 shadow-sm p-1 btn btn-icon"
-			class:btn-outline-warning={store.darkMode}
-			class:btn-outline-primary={!store.darkMode}
+			class="mobile-nav-toggle rounded-circle fs-1 shadow-sm p-1 btn btn-icon {btn2}"
 			title="Navigation Menu"
 			aria-label="Navigation Menu"
 			aria-controls="navbar"
 			{onclick}
 		>
-			<svg class="icon menu-icon">
-				<use xlink:href="/src/assets/icons.svg#{menuExpanded ? 'close' : 'menu'}-icon"></use>
-			</svg>
+			<svg class="icon menu-icon"><use xlink:href={menuIcon}></use></svg>
 		</button>
+		<!-- { .nav-visibility : "keeps from purging"} -->
 		<nav id="navbar" class="navbar nav-menu" class:nav-visibility={!menuExpanded}>
 			<ul id="mainNavigation" class="mainNavigation list-unstyled">
 				{#each navigationLinks as { link, text, icon }, index ('navlinks-' + index)}
 					<li class="item-nav">
 						<a
 							href={link}
-							class="link-nav btn btn-outline-primary shadow-sm scrollto"
-							class:border-warning-subtle={store.darkMode}
-							class:text-warning={store.darkMode}
-							class:border-primary-subtle={!store.darkMode}
+							class="link-nav btn btn-outline-primary shadow-sm scrollto {btn1}"
 							title={text}
 							onclick={close}
 						>
@@ -71,7 +72,7 @@
 		position: fixed;
 		top: 0;
 		z-index: 1049;
-		transition: var(--transition);
+		transition: all ease-in-out 0.2s;
 	}
 
 	@media (min-width: 768px) {
@@ -96,7 +97,7 @@
 		padding: 1em;
 		margin-bottom: 0.5em;
 		border-radius: 5em;
-		transition: var(--transition);
+		transition: all ease-in-out 0.2s;
 		height: 3.5em;
 		width: 100%;
 		overflow: hidden;

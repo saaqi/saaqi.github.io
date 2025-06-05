@@ -6,9 +6,9 @@
 
 	import { store } from '$data/stores.svelte.js';
 	const buttonColors = $derived({
-		btn1: store.darkMode ? 'light' : 'primary',
-		btn2: store.darkMode ? 'warning' : 'secondary',
-		btn3: store.darkMode ? 'warning' : 'danger'
+		btn1: store.darkMode ? 'btn-outline-light' : 'btn-outline-primary',
+		btn2: store.darkMode ? 'btn-outline-warning' : 'btn-outline-secondary',
+		btn3: store.darkMode ? 'btn-outline-warning' : 'btn-outline-danger'
 	});
 
 	import { onMount } from 'svelte';
@@ -37,7 +37,7 @@
 					<div class="btn-group w-100">
 						<a
 							href={'#'}
-							class="btn btn-outline-{buttonColors.btn1} w-50 btn-icon d-flex align-items-center justify-content-center gap-1 scrollto"
+							class="btn {buttonColors.btn1} w-50 btn-icon d-flex align-items-center justify-content-center gap-1 scrollto"
 							title="Hire Me!"
 						>
 							<svg class="icon handshake-icon">
@@ -47,7 +47,7 @@
 						{#if more}
 							<button
 								type="button"
-								class="btn btn-outline-{buttonColors.btn2} w-50 btn-icon d-flex align-items-center justify-content-center gap-1"
+								class="btn {buttonColors.btn2} w-50 btn-icon d-flex align-items-center justify-content-center gap-1"
 								data-bs-toggle="modal"
 								data-bs-target="#{`service-` + index}"
 								title="Get More Info"
@@ -86,7 +86,7 @@
 						<div class="modal-footer py-1">
 							<button
 								type="button"
-								class="btn btn-outline-{buttonColors.btn3} py-2 px-3 d-flex align-items-center"
+								class="btn {buttonColors.btn3} py-2 px-3 d-flex align-items-center"
 								data-bs-dismiss="modal"
 							>
 								<svg class="icon close-icon fs-4">

@@ -2,11 +2,16 @@
 	import heroSvg from '$assets/hero.svg';
 	import icons from '$assets/icons.svg';
 	import resume from '$assets/resume-saqib-islam.pdf';
+
 	import { store } from '$data/stores.svelte.js';
+	const mode = $derived(store.darkMode ? 'dark' : 'light');
+  const btn1 = $derived(store.darkMode ? 'btn-warning' : 'btn-secondary');
+  const btn2 = $derived(store.darkMode ? 'btn-light' : 'btn-primary');
+
 	import socialLinks from '$data/socialLinks.json';
 </script>
 
-<section id="home" class="section home py-5" class:dark={store.darkMode}>
+<section id="home" class="section home py-5 {mode}">
 	<div class="container position-relative text-body">
 		<div class="row flex-lg-row-reverse align-items-center gap-5 gap-lg-0">
 			<div class="graphic-col col-lg-6">
@@ -52,9 +57,7 @@
 				>
 					<a
 						href={'#'}
-						class="btn scrollto"
-						class:btn-warning={store.darkMode}
-						class:btn-secondary={!store.darkMode}
+						class="btn scrollto {btn1}"
 						title="Hire Me!"
 					>
 						<svg class="icon handshake-icon">
@@ -64,9 +67,7 @@
 					</a>
 					<a
 						href={resume}
-						class="btn"
-						class:btn-light={store.darkMode}
-						class:btn-primary={!store.darkMode}
+						class="btn {btn2}"
 						title="Download My Resume"
 						target="_blank"
 					>

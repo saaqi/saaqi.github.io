@@ -1,7 +1,7 @@
 <script>
 	import { SectionWrapper } from '$components';
 	import { store } from '$data/stores.svelte.js';
-	const color = $derived(store.darkMode ? 'warning' : 'primary');
+	const borderColor = $derived(store.darkMode ? 'border-warning-subtle' : 'border-primary-subtle');
 
 	import profileThumb from '$assets/profile-thumb.webp';
 	import avatar from '$assets/profile.webp';
@@ -28,7 +28,7 @@
 				>
 					<img
 						src={profileThumb}
-						class="img-fluid profile rounded-3 shadow-sm border border-{color}-subtle"
+						class="img-fluid profile rounded-3 shadow-sm border {borderColor}"
 						alt="Saqib Islam Avatar"
 						loading="lazy"
 						draggable="false"

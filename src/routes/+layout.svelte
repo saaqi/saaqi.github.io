@@ -10,21 +10,22 @@
 	import '@fontsource-variable/montserrat/wght-italic.css';
 
 	// Import Components
-	import { LoadingAnimation, TopLink, Navigation, ThemeSwitcher } from '$components';
+	import { LoadingAnimation, TopLink, Navigation, ThemeSwitcher, Footer } from '$components';
 
 	// Handle Dark Mode
 	import { store } from '$data/stores.svelte.js';
+	const mode = $derived(store.darkMode ? 'dark' : 'light');
 </script>
 
 <Navigation />
 <main
 	id="main"
-	class="main-container"
-	class:dark={store.darkMode}
-	data-bs-theme={store.darkMode ? 'dark' : 'light'}
+	class="main-container {mode}"
+	data-bs-theme={mode}
 >
 	<LoadingAnimation />
 	<ThemeSwitcher />
 	{@render children()}
 	<TopLink />
 </main>
+<Footer />

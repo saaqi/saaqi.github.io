@@ -2,7 +2,8 @@
 	import { store } from '$data/stores.svelte.js';
 	import icons from '$assets/icons.svg';
 	import skillsLevel from '$data/skillsLevel.json';
-	const color = $derived(store.darkMode ? 'warning' : 'primary');
+	const color = $derived(store.darkMode ? 'bg-warning' : 'bg-primary');
+	const bgColor = $derived(store.darkMode ? 'bg-warning-subtle' : 'bg-primary-subtle');
 
 	import observeWhenVisible from '../functions/observeWhenVisible.js';
 	function animateProgress(node) {
@@ -29,7 +30,7 @@
 	<div class="heading-container">
 		<h3 class="h4 text-center">
 			<svg class="icon coding-icon">
-				<use xlink:href="/src/assets/icons.svg#coding-icon"></use>
+				<use xlink:href={icons + "#coding-icon"}></use>
 			</svg>
 			My Skills
 		</h3>
@@ -43,10 +44,10 @@
 					{title}
 					<!-- <span class="val">${level}%</span> -->
 				</div>
-				<div class="progress-bar-wrap bg-{color}-subtle rounded-pill">
+				<div class="progress-bar-wrap {bgColor} rounded-pill">
 					<div
 						use:animateProgress
-						class="progress-bar bg-{color} rounded-pill"
+						class="progress-bar {color} rounded-pill"
 						role="progressbar"
 						aria-label="{title} Skill"
 						aria-valuenow={level}

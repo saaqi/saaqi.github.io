@@ -18,7 +18,7 @@ export default defineConfig({
 				// --- Import only the required components.
 				// `${bootstrap}/js/dist/alert.js`,
 				// `${bootstrap}/js/dist/base-component.js`,
-				// `${bootstrap}/js/dist/button.js`,
+				`${bootstrap}/js/dist/button.js`,
 				// `${bootstrap}/js/dist/carousel.js`,
 				// `${bootstrap}/js/dist/collapse.js`,
 				// `${bootstrap}/js/dist/dropdown.js`,
