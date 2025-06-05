@@ -42,7 +42,9 @@ export default defineConfig({
 							`${bootstrap}/js/dist/modal.js`
 						],
 						css: ['./src/styles/bootstrap.css'],
-						safelist: [/svelte/, /modal/, /icon/, /use/],
+						safelist: [
+							/svelte/, /modal/,
+						],
 						defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
 						keyframes: true,
 						variables: true
@@ -50,7 +52,7 @@ export default defineConfig({
 					cssnano({
 						preset: ['default', { discardComments: { removeAll: true } }]
 					}),
-					autoprefixer
+					autoprefixer()
 				]
 				: []
 		}

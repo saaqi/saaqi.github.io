@@ -12,8 +12,8 @@
 	);
 	const button = $derived(
 		store.darkMode
-			? 'btn-outline-light'
-			: 'btn-outline-secondary'
+			? 'btn-light'
+			: 'btn-secondary'
 	);
 </script>
 
@@ -58,11 +58,3 @@
 	</div>
 </footer>
 
-<style>
-	a.btn > svg > use {
-		--icon-fill: var(--bs-btn-color) !important;
-	}
-	a.btn:hover > svg > use {
-		--icon-fill: var(--bs-btn-hover-color) !important;
-	}
-</style>
