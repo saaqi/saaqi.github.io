@@ -107,6 +107,13 @@ body {
 	}
 }
 
+a.btn > svg > use {
+	--icon-fill: var(--bs-btn-color) !important;
+}
+a.btn:hover > svg > use {
+	--icon-fill: var(--bs-btn-hover-color) !important;
+}
+
 // Icons
 svg.icon {
 	display: inline-block;

@@ -40,7 +40,7 @@
 								rel="nofollow noopener"
 							>
 								<svg class="icon {icon}">
-									<use xlink:href={icons + '#' + icon} style="--icon-fill: var(--bs-btn-color)"></use>
+									<use xlink:href={icons + '#' + icon}></use>
 								</svg>
 							</a>
 						</li>
@@ -59,7 +59,10 @@
 </footer>
 
 <style>
-	.btn:hover, .btn:active {
-		background-color: transparent !important;
+	a.btn > svg > use {
+		--icon-fill: var(--bs-btn-color) !important;
+	}
+	a.btn:hover > svg > use {
+		--icon-fill: var(--bs-btn-hover-color) !important;
 	}
 </style>
