@@ -43,7 +43,7 @@ export default defineConfig({
 						],
 						css: ['./src/styles/bootstrap.css'],
 						safelist: [
-							/svelte-/, /s-/, /modal-/,
+							/svelte-/, /modal-/,
 						],
 						defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
 						keyframes: true,
