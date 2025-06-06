@@ -5,16 +5,14 @@
 	import projects from '$data/projects.json';
 	import icons from '$assets/icons.svg';
 
-	const themeBtn = $derived({
-		btn1: !store.darkMode ? 'btn-outline-primary' : 'btn-outline-light',
-		btn2: !store.darkMode ? 'btn-outline-danger' : 'btn-outline-warning'
-	});
+	const btn1 = $derived(!store.darkMode ? 'btn-outline-primary' : 'btn-outline-light');
+	const btn2 = $derived(!store.darkMode ? 'btn-outline-danger' : 'btn-outline-warning');
 
 	// Import Portfolio Media Folder
 	const portfolioMedia = import.meta.glob('$assets/portfolio/*', { eager: true });
 </script>
 
-{#snippet portfolio(list)}
+{#snippet portfolioCard(list)}
 	{#each list as { coverImage, title, copy, github, link, caseStudy, techStack }, index ('project-' + index)}
 		<div class="draggableItem">
 			<div class="card portfolioCard h-100 shadow-sm">
@@ -47,7 +45,7 @@
 						{#if github}
 							<a
 								href={github}
-								class={'btn btn-icon fs-5 ' + themeBtn.btn1}
+								class={'btn btn-icon fs-5 ' + btn1}
 								title={'View ' + title + ' Project on GitHub'}
 								aria-label={'View ' + title + ' Project on GitHub'}
 								rel="nofollow"
@@ -59,7 +57,7 @@
 						{#if link}
 							<a
 								href={link}
-								class={'btn btn-icon fs-5 ' + themeBtn.btn1}
+								class={'btn btn-icon fs-5 ' + btn1}
 								title={'Viesw ' + title + ' Live Project'}
 								aria-label={'View ' + title + ' Live Project'}
 								rel="nofollow"
@@ -73,9 +71,9 @@
 						{#if caseStudy}
 							<button
 								type="button"
-								class={'btn btn-icon fs-5 ' + themeBtn.btn1}
+								class={'btn btn-icon fs-5 ' + btn1}
 								data-bs-toggle="modal"
-								data-bs-target={`#cc-` + index}
+								data-bs-target={`#case-study-` + index}
 								{title}
 								aria-label={title}
 							>
@@ -86,41 +84,52 @@
 						{/if}
 					</div>
 				</div>
-				{#if caseStudy}
-					<div class="modal fade" id={`cc-` + index} tabindex="-1" aria-label={`label-cc-` + index}>
-						<div class="modal-dialog modal-dialog-centered modal-fullscreen">
-							<div class="modal-content">
-								<div class="modal-header">
-									<div class="modal-title fs-5" id={`label-cc-` + index}>
-										{title}: Case Study
-									</div>
-									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-									></button>
-								</div>
-								<div class="modal-body p-0" style="scrollbar-width: none; overflow-y: hidden;">
-									<embed
-										src={portfolioMedia['/src/assets/portfolio/' + caseStudy]?.default || ''}
-										type="application/pdf"
-										style="width: 100%; height: 100%;"
-									/>
-								</div>
-								<div class="modal-footer py-1">
-									<button
-										type="button"
-										class={'btn py-2 px-3 d-flex align-items-center ' + themeBtn.btn2}
-										data-bs-dismiss="modal"
-									>
-										<svg class="icon close-icon fs-4">
-											<use xlink:href={icons + '#close-icon'}></use>
-										</svg> Close
-									</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				{/if}
 			</div>
 		</div>
+	{/each}
+{/snippet}
+
+{#snippet caseStudy(list)}
+	{#each list as { title, caseStudy }, index ('case-study-' + index)}
+		{#if caseStudy}
+			<div
+				class="modal fade"
+				id={`case-study-` + index}
+				tabindex="-1"
+				aria-labelledby={`case-study-` + index}
+				aria-hidden="true"
+			>
+				<div class="modal-dialog modal-dialog-centered modal-fullscreen">
+					<div class="modal-content">
+						<div class="modal-header">
+							<div class="modal-title fs-5" id={`case-study-` + index}>
+								{title}: Case Study
+							</div>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body p-0" style="scrollbar-width: none; overflow-y: hidden;">
+							<embed
+								src={portfolioMedia['/src/assets/portfolio/' + caseStudy]?.default || ''}
+								type="application/pdf"
+								style="width: 100%; height: 100%;"
+							/>
+						</div>
+						<div class="modal-footer py-1">
+							<button
+								type="button"
+								class={'btn py-2 px-3 d-flex align-items-center ' + btn2}
+								data-bs-dismiss="modal"
+							>
+								<svg class="icon close-icon fs-4">
+									<use xlink:href={icons + '#close-icon'}></use>
+								</svg> Close
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		{/if}
 	{/each}
 {/snippet}
 
@@ -132,7 +141,8 @@
 			id="portfolioContainer"
 			class="portfolioContainer row g-2 draggableContainer pb-lg-0 pb-3"
 		>
-			{@render portfolio(projects)}
+			{@render portfolioCard(projects)}
+			{@render caseStudy(projects)}
 		</DraggableContainer>
 	</div>
 </SectionWrapper>
