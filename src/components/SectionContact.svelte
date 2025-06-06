@@ -1,0 +1,71 @@
+<script>
+	import icons from '$assets/icons.svg';
+	import { SectionWrapper, ContactForm } from '$components';
+	import { store } from '$data/stores.svelte.js';
+	const btn = $derived(store.darkMode ? 'btn-light' : 'btn-primary');
+
+	// import ContactForm from '$components';
+</script>
+
+<SectionWrapper id="contact" title="Contact Me" icon="address-book-icon">
+	<div class="container">
+		<p class="section-copy mb-5">
+			I'd love to hear from you! If you have any questions, project inquiries, or just want to say
+			hello, please don't hesitate to reach out. I look forward to connecting with you!
+		</p>
+
+		<div class="row mt-4">
+			<div class="contactList col-lg-3 info d-flex flex-column gap-4 gap-lg-5">
+				<a
+					href="mailto:saaqi.grw@gmail.com?subject=Hi,&nbsp;Saqib&nbsp;Let's&nbsp;talk!"
+					class="text-decoration-none"
+					target="_blank"
+				>
+					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
+						<svg class="icon email-icon" style="--icon-fill: var(--bs-btn-color)">
+							<use xlink:href={icons + '#email-icon'}></use>
+						</svg>
+					</div>
+					<div class="h4 text-heading">Email</div>
+					<div class="text-body">saaqi.grw@gmail.com</div>
+				</a>
+				<a href="https://wa.me/+923006412193" class="text-decoration-none" target="_blank">
+					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
+						<svg class="icon whatsapp-icon" style="--icon-fill: var(--bs-btn-color)">
+							<use xlink:href={icons + '#whatsapp-icon'}></use>
+						</svg>
+					</div>
+					<div class="h4 text-heading">WhatsApp</div>
+					<div class="text-body">+92 300 6412193</div>
+				</a>
+				<a href="tel:+923006412193" class="text-decoration-none">
+					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
+						<svg class="icon phone-icon" style="--icon-fill: var(--bs-btn-color)">
+							<use xlink:href={icons + '#phone-icon'}></use>
+						</svg>
+					</div>
+					<div class="h4 text-heading">Call</div>
+					<div class="text-body">+92 300 6412193</div>
+				</a>
+			</div>
+
+			<div class="col-lg-9 col-12 mt-5 mt-lg-0">
+				<ContactForm />
+			</div>
+		</div>
+	</div>
+</SectionWrapper>
+
+<style>
+	.icon-container {
+		float: left;
+		display: flex;
+	}
+
+	.text-heading {
+		padding: 0 0 0 60px;
+		font-size: 22px;
+		font-weight: 700;
+		margin-bottom: 5px;
+	}
+</style>

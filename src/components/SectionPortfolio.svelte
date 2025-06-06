@@ -10,6 +10,11 @@
 
 	// Import Portfolio Media Folder
 	const portfolioMedia = import.meta.glob('$assets/portfolio/*', { eager: true });
+
+	import { onMount } from 'svelte';
+	onMount(async () => {
+		await import('bootstrap/js/dist/modal.js');
+	});
 </script>
 
 {#snippet portfolioCard(list)}
@@ -142,8 +147,8 @@
 			class="portfolioContainer row g-2 draggableContainer pb-lg-0 pb-3"
 		>
 			{@render portfolioCard(projects)}
-			{@render caseStudy(projects)}
 		</DraggableContainer>
+		{@render caseStudy(projects)}
 	</div>
 </SectionWrapper>
 

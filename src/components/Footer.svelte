@@ -56,10 +56,12 @@
 
 <style>
 	.social-links .btn-icon > svg.icon {
-		fill: var(--bs-btn-color);
+		--icon-fill: var(--bs-btn-color);
+		fill: var(--icon-fill)
 	}
 	.social-links .btn-icon:hover > svg.icon,
 	.social-links .btn-icon:active > svg.icon {
-		fill: ar(--bs-btn-hover-color);
+		--icon-fill: var(--bs-btn-hover-color);
+		fill: var(--icon-fill)
 	}
 </style>
