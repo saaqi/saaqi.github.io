@@ -5,11 +5,13 @@
 	import projects from '$data/projects.json';
 	import icons from '$assets/icons.svg';
 
-	const btn1 = $derived(!store.darkMode ? 'btn-outline-primary' : 'btn-outline-light');
-	const btn2 = $derived(!store.darkMode ? 'btn-outline-danger' : 'btn-outline-warning');
+	const themeBtn = $derived({
+		btn1: !store.darkMode ? 'btn-outline-primary' : 'btn-outline-light',
+		btn2: !store.darkMode ? 'btn-outline-danger' : 'btn-outline-warning'
+	});
 
-  // Import Portfolio Media Folder
-  const portfolioMedia = import.meta.glob('$assets/portfolio/*', { eager: true });
+	// Import Portfolio Media Folder
+	const portfolioMedia = import.meta.glob('$assets/portfolio/*', { eager: true });
 </script>
 
 {#snippet portfolio(list)}
@@ -45,7 +47,7 @@
 						{#if github}
 							<a
 								href={github}
-								class={"btn btn-icon fs-5 " + btn1}
+								class={'btn btn-icon fs-5 ' + themeBtn.btn1}
 								title={'View ' + title + ' Project on GitHub'}
 								aria-label={'View ' + title + ' Project on GitHub'}
 								rel="nofollow"
@@ -57,7 +59,7 @@
 						{#if link}
 							<a
 								href={link}
-								class={"btn btn-icon fs-5 " + btn1}
+								class={'btn btn-icon fs-5 ' + themeBtn.btn1}
 								title={'Viesw ' + title + ' Live Project'}
 								aria-label={'View ' + title + ' Live Project'}
 								rel="nofollow"
@@ -71,7 +73,7 @@
 						{#if caseStudy}
 							<button
 								type="button"
-								class={"btn btn-icon fs-5 " + btn1}
+								class={'btn btn-icon fs-5 ' + themeBtn.btn1}
 								data-bs-toggle="modal"
 								data-bs-target={`#cc-` + index}
 								{title}
@@ -85,13 +87,7 @@
 					</div>
 				</div>
 				{#if caseStudy}
-					<div
-						class="modal fade"
-						id={`cc-` + index}
-						tabindex="-1"
-						aria-labelledby={`label-cc-` + index}
-						aria-hidden="true"
-					>
+					<div class="modal fade" id={`cc-` + index} tabindex="-1" aria-label={`label-cc-` + index}>
 						<div class="modal-dialog modal-dialog-centered modal-fullscreen">
 							<div class="modal-content">
 								<div class="modal-header">
@@ -111,7 +107,7 @@
 								<div class="modal-footer py-1">
 									<button
 										type="button"
-										class={"btn py-2 px-3 d-flex align-items-center " + btn2}
+										class={'btn py-2 px-3 d-flex align-items-center ' + themeBtn.btn2}
 										data-bs-dismiss="modal"
 									>
 										<svg class="icon close-icon fs-4">

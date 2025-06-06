@@ -43,7 +43,7 @@ export default defineConfig({
 						],
 						css: ['./src/styles/bootstrap.css'],
 						safelist: [
-							/svelte/, /modal/,
+							/svelte-/, /s-/, /modal-/,
 						],
 						defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
 						keyframes: true,
@@ -53,8 +53,7 @@ export default defineConfig({
 						preset: ['default', { discardComments: { removeAll: true } }]
 					}),
 					autoprefixer()
-				]
-				: []
+				] : []
 		}
 	},
 

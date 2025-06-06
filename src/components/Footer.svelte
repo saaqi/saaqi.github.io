@@ -10,11 +10,7 @@
 			? 'dark text-bg-dark text-bg-dark'
 			: 'light bg-secondary-subtle text-bg-secondary-subtle'
 	);
-	const button = $derived(
-		store.darkMode
-			? 'btn-light'
-			: 'btn-secondary'
-	);
+	const button = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-secondary');
 </script>
 
 <footer id="footer" class="footer bg-gradient py-5 mt-auto {mode}">
@@ -58,3 +54,14 @@
 	</div>
 </footer>
 
+<style>
+	.social-links .btn-icon > svg.icon {
+		--icon-fill: var(--bs-btn-color);
+		fill: var(--icon-fill);
+	}
+	.social-links .btn-icon:hover > svg.icon,
+	.social-links .btn-icon:active > svg.icon {
+		--icon-fill: var(--bs-btn-hover-color);
+		fill: var(--icon-fill);
+	}
+</style>
