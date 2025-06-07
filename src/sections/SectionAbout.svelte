@@ -1,5 +1,5 @@
 <script>
-	import { SectionWrapper } from '$components';
+	import { SectionWrapper, StatsCounter, SkillLevels } from '$components';
 	import { store } from '$data/stores.svelte.js';
 	const borderColor = $derived(store.darkMode ? 'border-warning-subtle' : 'border-primary-subtle');
 
@@ -11,8 +11,6 @@
 		await import('bootstrap/js/dist/modal.js');
 	});
 
-	import StatsCounter from './StatsCounter.svelte';
-	import SkillLevels from './SkillLevels.svelte';
 </script>
 
 <SectionWrapper id="about" title="About Me" icon="user-icon">

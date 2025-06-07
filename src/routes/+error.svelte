@@ -31,7 +31,7 @@
 			exist at all. Before you venture further, double-check the URL in your browser. If all seems
 			well, consider navigating back to our homepage to explore anew. Thanks for your understanding!
 		</p>
-		<a class="btn-primary btn btn-lg" href="{base}/">Go To Homepage</a>
+		<a class="btn-primary btn btn-lg" href={base + "/"}>Go To Homepage</a>
 	</div>
 </div>
 

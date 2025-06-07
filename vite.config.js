@@ -9,9 +9,7 @@ const bootstrap = 'node_modules/bootstrap';
 const IN_PRODUCTION = process.env.NODE_ENV === 'production';
 
 export default defineConfig({
-	plugins: [
-		sveltekit(),
-	],
+	plugins: [sveltekit()],
 
 	resolve: {
 		alias: {
@@ -19,6 +17,7 @@ export default defineConfig({
 			$components: path.resolve('./src/components'),
 			$data: path.resolve('./src/data'),
 			$functions: path.resolve('./src/functions'),
+			$sections: path.resolve('./src/sections'),
 			$styles: path.resolve('./src/styles'),
 			$lib: path.resolve('./src/lib')
 		}
@@ -33,26 +32,25 @@ export default defineConfig({
 		postcss: {
 			plugins: IN_PRODUCTION
 				? [
-					purgeCSSPlugin({
-						content: [
-							'./src/app.html',
-							'./src/**/*.js',
-							'./src/**/*.svelte',
-							`${bootstrap}/js/dist/modal.js`
-						],
-						css: ['./src/styles/bootstrap.css'],
-						safelist: [
-							/svelte-/, /modal-/,
-						],
-						defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-						keyframes: true,
-						variables: true
-					}),
-					cssnano({
-						preset: ['default', { discardComments: { removeAll: true } }]
-					}),
-					autoprefixer()
-				] : []
+						purgeCSSPlugin({
+							content: [
+								'./src/app.html',
+								'./src/**/*.js',
+								'./src/**/*.svelte',
+								`${bootstrap}/js/dist/modal.js`
+							],
+							css: ['./src/styles/bootstrap.css'],
+							safelist: [/svelte-/, /modal-/],
+							defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+							keyframes: true,
+							variables: true
+						}),
+						cssnano({
+							preset: ['default', { discardComments: { removeAll: true } }]
+						}),
+						autoprefixer()
+					]
+				: []
 		}
 	},
 

@@ -29,7 +29,7 @@
 						<li>
 							<a
 								href={url}
-								class="{name} {button} btn btn-icon rounded-circle shadow-none"
+								class="btn btn-icon {name} {button} rounded-circle shadow-none"
 								{title}
 								aria-label={title}
 								target="_blank"
@@ -57,11 +57,11 @@
 <style>
 	.social-links .btn-icon > svg.icon {
 		--icon-fill: var(--bs-btn-color);
-		fill: var(--icon-fill)
+		fill: var(--icon-fill);
 	}
 	.social-links .btn-icon:hover > svg.icon,
 	.social-links .btn-icon:active > svg.icon {
 		--icon-fill: var(--bs-btn-hover-color);
-		fill: var(--icon-fill)
+		fill: var(--icon-fill);
 	}
 </style>

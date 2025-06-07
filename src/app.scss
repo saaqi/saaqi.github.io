@@ -8,9 +8,6 @@
 	--transition-slow: all ease-in-out 0.35s;
 }
 
-
-
-
 /* ## Main Container Defaults
 --------------------------------------------- */
 body {
@@ -22,7 +19,6 @@ body {
 		flex-basis: 100%;
 	}
 }
-
 
 /* ## Section default
 --------------------------------------------- */
@@ -67,7 +63,6 @@ body {
 		letter-spacing: 0;
 		> svg.icon {
 			--icon-fill: var(--bs-btn-color);
-
 		}
 		&:hover svg.icon,
 		&:active svg.icon {
@@ -106,7 +101,6 @@ body {
 		box-shadow: none;
 	}
 }
-
 
 // Icons
 svg.icon {

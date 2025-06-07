@@ -1,6 +1,5 @@
 <script>
 	import { slide } from 'svelte/transition';
-
 	import icons from '$assets/icons.svg';
 	import { store } from '$data/stores.svelte.js';
 
@@ -11,17 +10,6 @@
 
 	let disableSubmit = $state(true);
 	let emailValid = $state(false);
-	let mailtoUrl = '';
-	const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-	$effect(() => {
-		const fallbackSubject = `[Contact-Form] ${name}`;
-		emailValid = email !== '' && emailRegex.test(email);
-		disableSubmit = !(name !== '' && emailValid && message !== '');
-		mailtoUrl =
-			`mailto:${email}?subject=${encodeURIComponent(subject || fallbackSubject)}&` +
-			`body=${encodeURIComponent(message)}`;
-	});
 
 	const btn = $derived.by(() => {
 		switch (true) {
@@ -34,6 +22,17 @@
 			default:
 				return 'btn-primary';
 		}
+	});
+
+	let mailtoUrl = '';
+	$effect(() => {
+		const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+		const fallbackSubject = `[Contact-Form] ${name}`;
+		emailValid = email !== '' && emailRegex.test(email);
+		disableSubmit = !(name !== '' && emailValid && message !== '');
+		mailtoUrl =
+			`mailto:${email}?subject=${encodeURIComponent(subject || fallbackSubject)}&` +
+			`body=${encodeURIComponent(message)}`;
 	});
 
 	const alert = $derived(store.darkMode ? 'alert-warning' : 'alert-danger');
@@ -81,7 +80,7 @@
 					required
 				/>
 				{#if !emailValid && email}
-					<div class="alert {alert} mt-3 mb-0" role="alert" transition:slide={{duration: 100}}>
+					<div class="alert {alert} mt-3 mb-0" role="alert" transition:slide={{ duration: 100 }}>
 						Please enter a Valid E-Mail Address to continue.
 					</div>
 				{/if}

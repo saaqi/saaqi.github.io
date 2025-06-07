@@ -58,7 +58,7 @@
 		onclick={autoButton}
 	>
 		<svg class="icon half-circle-icon">
-			<use xlink:href="{icons}#half-circle-icon"></use>
+			<use xlink:href={icons + "#half-circle-icon"}></use>
 		</svg>
 	</button>
 	<input

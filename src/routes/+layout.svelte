@@ -18,11 +18,7 @@
 </script>
 
 <Navigation />
-<main
-	id="main"
-	class="main-container {mode}"
-	data-bs-theme={mode}
->
+<main id="main" class="main-container {mode}" data-bs-theme={mode}>
 	<LoadingAnimation />
 	<ThemeSwitcher />
 	{@render children()}

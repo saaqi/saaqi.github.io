@@ -85,10 +85,10 @@
 	{#if indicators}
 		<div class="directionIndicators d-flex justify-content-between text-primary fs-4 d-lg-none">
 			<svg class="icon swipe-indicator swipe-icon">
-				<use xlink:href="{icons}#swipe-icon"></use>
+				<use xlink:href={icons + "#swipe-icon"}></use>
 			</svg>
 			<svg class="icon swipe-indicator swipe-icon">
-				<use xlink:href="{icons}#swipe-icon"></use>
+				<use xlink:href={icons + "#swipe-icon"}></use>
 			</svg>
 		</div>
 	{/if}

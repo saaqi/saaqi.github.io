@@ -26,6 +26,7 @@ const config = {
 			$components: 'src/components',
 			$data: 'src/data',
 			$functions: 'src/functions',
+			$sections: 'src/sections',
 			$styles: 'src/styles'
 		}
 	}

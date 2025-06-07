@@ -41,7 +41,7 @@
 							title="Hire Me!"
 						>
 							<svg class="icon handshake-icon">
-								<use xlink:href="{icons}#handshake-icon"></use>
+								<use xlink:href={icons + "#handshake-icon"}></use>
 							</svg> Hire Me!
 						</a>
 						{#if more}
@@ -53,7 +53,7 @@
 								title="Get More Info"
 							>
 								<svg class="icon content-icon">
-									<use xlink:href="{icons}#content-icon"></use>
+									<use xlink:href={icons + "#content-icon"}></use>
 								</svg> Info
 							</button>
 						{/if}
@@ -90,7 +90,7 @@
 								data-bs-dismiss="modal"
 							>
 								<svg class="icon close-icon fs-4">
-									<use xlink:href="{icons}#close-icon"></use>
+									<use xlink:href={icons + "#close-icon"}></use>
 								</svg> Close
 							</button>
 						</div>

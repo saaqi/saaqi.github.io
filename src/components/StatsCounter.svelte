@@ -55,7 +55,7 @@
 	<div class="heading-container">
 		<h3 class="h4 text-center">
 			<svg class="icon chart-icon">
-				<use xlink:href={icons + "#chart-icon"}></use>
+				<use xlink:href={icons + '#chart-icon'}></use>
 			</svg>
 			My Track Record
 		</h3>

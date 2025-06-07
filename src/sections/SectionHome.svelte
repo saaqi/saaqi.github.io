@@ -5,8 +5,8 @@
 
 	import { store } from '$data/stores.svelte.js';
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
-  const btn1 = $derived(store.darkMode ? 'btn-warning' : 'btn-secondary');
-  const btn2 = $derived(store.darkMode ? 'btn-light' : 'btn-primary');
+	const btn1 = $derived(store.darkMode ? 'btn-warning' : 'btn-secondary');
+	const btn2 = $derived(store.darkMode ? 'btn-light' : 'btn-primary');
 
 	import socialLinks from '$data/socialLinks.json';
 </script>
@@ -55,24 +55,15 @@
 				<div
 					class="col-12 m-0 hero-buttons d-flex gap-2 justify-content-lg-start justify-content-center"
 				>
-					<a
-						href={'#'}
-						class="btn scrollto {btn1}"
-						title="Hire Me!"
-					>
+					<a href={'#'} class="btn scrollto {btn1}" title="Hire Me!">
 						<svg class="icon handshake-icon">
 							<use xlink:href={icons + '#handshake-icon'}></use>
 						</svg>
 						Hire Me!
 					</a>
-					<a
-						href={resume}
-						class="btn {btn2}"
-						title="Download My Resume"
-						target="_blank"
-					>
+					<a href={resume} class="btn {btn2}" title="Download My Resume" target="_blank">
 						<svg class="icon download-icon">
-							<use xlink:href="{icons}#download-icon"></use>
+							<use xlink:href={icons + "#download-icon"}></use>
 						</svg>
 						Resume
 					</a>
