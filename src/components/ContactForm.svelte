@@ -9,33 +9,36 @@
 	let message = $state('');
 
 	let disableSubmit = $state(true);
+
+	const btn = $derived(
+		disableSubmit
+			? store.darkMode
+				? 'btn-outline-light'
+				: 'btn-outline-primary'
+			: store.darkMode
+				? 'btn-light'
+				: 'btn-primary'
+	);
+
 	let emailValid = $state(false);
-
-	const btn = $derived.by(() => {
-		switch (true) {
-			case disableSubmit && store.darkMode:
-				return 'btn-outline-light';
-			case disableSubmit && !store.darkMode:
-				return 'btn-outline-primary';
-			case !disableSubmit && store.darkMode:
-				return 'btn-light';
-			default:
-				return 'btn-primary';
-		}
-	});
-
 	let mailtoUrl = '';
 	$effect(() => {
 		const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-		const fallbackSubject = `[Contact-Form] ${name}`;
+		const fallbackSubject = `[Contact-Form] saqibtech.com`;
 		emailValid = email !== '' && emailRegex.test(email);
 		disableSubmit = !(name !== '' && emailValid && message !== '');
 		mailtoUrl =
-			`mailto:${email}?subject=${encodeURIComponent(subject || fallbackSubject)}&` +
-			`body=${encodeURIComponent(message)}`;
+			`mailto:saqib@saqibtech.com?subject=${encodeURIComponent(subject || fallbackSubject)}&` +
+			`body=${encodeURIComponent(message)}%0D%0A%0D%0AFrom: ${name}%0D%0A${email}`;
 	});
 
 	const alert = $derived(store.darkMode ? 'alert-warning' : 'alert-danger');
+	const border = $derived({
+		name: name ? 'border-success-subtle' : 'border-danger-subtle',
+		email: emailValid ? 'border-success-subtle' : 'border-danger-subtle',
+		message: message ? 'border-success-subtle' : 'border-danger-subtle',
+		submit: disableSubmit ? 'border-danger-subtle' : 'border-success-subtle'
+	});	
 
 	const onclick = (e) => {
 		e.preventDefault();
@@ -57,7 +60,7 @@
 					bind:value={name}
 					type="text"
 					name="contact-form-name"
-					class="form-control"
+					class="form-control {border.name}"
 					id="contact-form-name"
 					placeholder="Enter Your Full Name *"
 					required
@@ -73,18 +76,20 @@
 				<input
 					bind:value={email}
 					type="email"
-					class="form-control"
+					class="form-control {border.email}"
 					name="contact-form-email"
 					id="contact-form-email"
 					placeholder="Enter Your Email *"
 					required
 				/>
-				{#if !emailValid && email}
-					<div class="alert {alert} mt-3 mb-0" role="alert" transition:slide={{ duration: 100 }}>
+			</div>
+			{#if !emailValid && email}
+				<div class="col mt-3">
+					<div class="alert {alert} m-0" role="alert" transition:slide={{ duration: 100 }}>
 						Please enter a Valid E-Mail Address to continue.
 					</div>
-				{/if}
-			</div>
+				</div>
+			{/if}
 		</div>
 		<div class="mt-3">
 			<label for="contact-form-subject">
@@ -111,7 +116,7 @@
 			</label>
 			<textarea
 				bind:value={message}
-				class="form-control"
+				class="form-control {border.message}"
 				name="contact-form-message"
 				id="contact-form-message"
 				rows="5"
@@ -123,7 +128,7 @@
 			<button
 				{onclick}
 				type="submit"
-				class="btn {btn}"
+				class="btn {btn} {border.submit}"
 				disabled={disableSubmit}
 				aria-disabled={disableSubmit}
 			>
