@@ -1,13 +1,8 @@
 <script>
+	import { slide } from 'svelte/transition';
+
 	import icons from '$assets/icons.svg';
 	import { store } from '$data/stores.svelte.js';
-	const btn = $derived(store.darkMode ? 'btn-light' : 'btn-primary');
-	const alert = $derived(store.darkMode ? 'alert-warning' : 'alert-danger');
-
-	import { onMount } from 'svelte';
-	onMount(async () => {
-		await import('bootstrap/js/dist/button.js');
-	});
 
 	let name = $state('');
 	let email = $state('');
@@ -27,95 +22,118 @@
 			`mailto:${email}?subject=${encodeURIComponent(subject || fallbackSubject)}&` +
 			`body=${encodeURIComponent(message)}`;
 	});
+
+	const btn = $derived.by(() => {
+		switch (true) {
+			case disableSubmit && store.darkMode:
+				return 'btn-outline-light';
+			case disableSubmit && !store.darkMode:
+				return 'btn-outline-primary';
+			case !disableSubmit && store.darkMode:
+				return 'btn-light';
+			default:
+				return 'btn-primary';
+		}
+	});
+
+	const alert = $derived(store.darkMode ? 'alert-warning' : 'alert-danger');
+
 	const onclick = (e) => {
 		e.preventDefault();
-		if(!disableSubmit) window.open(mailtoUrl, '_blank');
+		if (!disableSubmit) window.open(mailtoUrl, '_blank');
 	};
 </script>
 
 <form id="contact-email-form" class="contact-email-form">
-	<div class="row">
-		<div class="col-md-6">
-			<label for="contact-form-name">
-				<svg class="icon user-icon small">
-					<use xlink:href={icons + '#user-icon'}></use>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<label for="contact-form-name">
+					<svg class="icon user-icon small">
+						<use xlink:href={icons + '#user-icon'}></use>
+					</svg>
+					Name:
+				</label>
+				<input
+					bind:value={name}
+					type="text"
+					name="contact-form-name"
+					class="form-control"
+					id="contact-form-name"
+					placeholder="Enter Your Full Name *"
+					required
+				/>
+			</div>
+			<div class="col-md-6 mt-3 mt-md-0">
+				<label for="contact-form-email">
+					<svg class="icon email-icon small" style="--icon-fill: var(--bs-body-color)">
+						<use xlink:href={icons + '#email-icon'}></use>
+					</svg>
+					Email Address:
+				</label>
+				<input
+					bind:value={email}
+					type="email"
+					class="form-control"
+					name="contact-form-email"
+					id="contact-form-email"
+					placeholder="Enter Your Email *"
+					required
+				/>
+				{#if !emailValid && email}
+					<div class="alert {alert} mt-3 mb-0" role="alert" transition:slide={{duration: 100}}>
+						Please enter a Valid E-Mail Address to continue.
+					</div>
+				{/if}
+			</div>
+		</div>
+		<div class="mt-3">
+			<label for="contact-form-subject">
+				<svg class="icon subject-icon small">
+					<use xlink:href={icons + '#subject-icon'}></use>
 				</svg>
-				Name:
+				Subject:
 			</label>
 			<input
-				bind:value={name}
+				bind:value={subject}
 				type="text"
-				name="contact-form-name"
 				class="form-control"
-				id="contact-form-name"
-				placeholder="Enter Your Full Name *"
-				required
+				name="contact-form-subject"
+				id="contact-form-subject"
+				placeholder="Enter The subject"
 			/>
 		</div>
-		<div class="col-md-6 mt-3 mt-md-0">
-			<label for="contact-form-email">
-				<svg class="icon email-icon small" style="--icon-fill: var(--bs-body-color)">
+		<div class="mt-3">
+			<label for="contact-form-message">
+				<svg class="icon message-icon small">
+					<use xlink:href={icons + '#message-icon'}></use>
+				</svg>
+				Message:
+			</label>
+			<textarea
+				bind:value={message}
+				class="form-control"
+				name="contact-form-message"
+				id="contact-form-message"
+				rows="5"
+				placeholder="What is on your mind? *"
+				required
+			></textarea>
+		</div>
+		<div class="text-end text-md-start mt-4">
+			<button
+				{onclick}
+				type="submit"
+				class="btn {btn}"
+				disabled={disableSubmit}
+				aria-disabled={disableSubmit}
+			>
+				<svg class="icon email-icon">
 					<use xlink:href={icons + '#email-icon'}></use>
 				</svg>
-				Email Address:
-			</label>
-			<input
-				bind:value={email}
-				type="email"
-				class="form-control"
-				name="contact-form-email"
-				id="contact-form-email"
-				placeholder="Enter Your Email *"
-				required
-			/>
-			{#if !emailValid && email}
-				<div class="alert {alert} mt-3 mb-0" role="alert">
-					Please enter a Valid E-Mail Address to continue.
-				</div>
-			{/if}
+				Send Message
+			</button>
 		</div>
-	</div>
-	<div class="mt-3">
-		<label for="contact-form-subject">
-			<svg class="icon subject-icon small">
-				<use xlink:href={icons + '#subject-icon'}></use>
-			</svg>
-			Subject:
-		</label>
-		<input
-			bind:value={subject}
-			type="text"
-			class="form-control"
-			name="contact-form-subject"
-			id="contact-form-subject"
-			placeholder="Enter The subject"
-		/>
-	</div>
-	<div class="mt-3">
-		<label for="contact-form-message">
-			<svg class="icon message-icon small">
-				<use xlink:href={icons + '#message-icon'}></use>
-			</svg>
-			Message:
-		</label>
-		<textarea
-			bind:value={message}
-			class="form-control"
-			name="contact-form-message"
-			id="contact-form-message"
-			rows="5"
-			placeholder="What is on your mind? *"
-			required
-		></textarea>
-	</div>
-	<div id="errorAlerts" class="mt-3"></div>
-	<div class="text-end text-md-start mt-4">
-		<button {onclick} type="submit" class="btn {btn}" disabled={disableSubmit} aria-disabled={disableSubmit}>
-			<svg class="icon email-icon">
-				<use xlink:href={icons + '#email-icon'}></use>
-			</svg>
-			Send Message
-		</button>
 	</div>
 </form>
 
@@ -132,6 +150,10 @@
 		border-color: var(--bs-dark-border);
 		box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
 		transition: var(--transition);
+	}
+
+	.btn:disabled {
+		box-shadow: none;
 	}
 
 	.btn:disabled:hover {

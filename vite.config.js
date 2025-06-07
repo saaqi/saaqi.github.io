@@ -38,7 +38,6 @@ export default defineConfig({
 							'./src/app.html',
 							'./src/**/*.js',
 							'./src/**/*.svelte',
-							`${bootstrap}/js/dist/button.js`,
 							`${bootstrap}/js/dist/modal.js`
 						],
 						css: ['./src/styles/bootstrap.css'],
