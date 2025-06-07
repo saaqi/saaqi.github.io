@@ -45,6 +45,17 @@ body {
 	margin-right: auto;
 }
 
+// Components
+.shortDescription {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-clamp: 3;
+	max-height: 4.5em;
+}
+
 // BUTTONS ---------------------------
 .btn {
 	box-shadow:

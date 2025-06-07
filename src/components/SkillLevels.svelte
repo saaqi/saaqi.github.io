@@ -49,9 +49,9 @@
 						use:animateProgress
 						class="progress-bar {color} rounded-pill"
 						role="progressbar"
-						aria-label={title + " Skill"}
+						aria-label={title + ' Skill'}
 						aria-valuenow={level}
-						aria-valuemin=0
+						aria-valuemin="0"
 						aria-valuemax={level}
 					></div>
 				</div>

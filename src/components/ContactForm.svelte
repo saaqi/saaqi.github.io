@@ -38,7 +38,7 @@
 		email: emailValid ? 'border-success-subtle' : 'border-danger-subtle',
 		message: message ? 'border-success-subtle' : 'border-danger-subtle',
 		submit: disableSubmit ? 'border-danger-subtle' : 'border-success-subtle'
-	});	
+	});
 
 	const onclick = (e) => {
 		e.preventDefault();

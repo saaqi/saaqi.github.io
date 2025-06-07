@@ -11,7 +11,7 @@
 			<div class="heading-container">
 				<h2 class="section-heading">
 					<svg class="icon {icon}">
-						<use xlink:href={icons + "#" + icon}></use>
+						<use xlink:href={icons + '#' + icon}></use>
 					</svg>
 					{title}
 				</h2>

@@ -19,14 +19,14 @@ export const navigationLinks = [
 		text: 'Portfolio',
 		icon: 'briefcase-icon'
 	},
-	// {
-	// 	"link": "#education",
-	// 	"text": "Education",
-	// 	"icon": "user-graduate-icon"
-	// },
 	{
-		"link": "#contact",
-		"text": "Contact Me",
-		"icon": "address-book-icon"
+		link: '#education',
+		text: 'Education',
+		icon: 'user-graduate-icon'
+	},
+	{
+		link: '#contact',
+		text: 'Contact Me',
+		icon: 'address-book-icon'
 	}
 ];

@@ -25,7 +25,7 @@
 			}}
 		>
 			<svg class="icon top-icon">
-				<use xlink:href={icons + "#top-icon"}></use>
+				<use xlink:href={icons + '#top-icon'}></use>
 			</svg>
 		</button>
 	</div>

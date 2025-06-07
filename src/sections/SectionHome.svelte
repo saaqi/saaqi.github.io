@@ -55,7 +55,7 @@
 				<div
 					class="col-12 m-0 hero-buttons d-flex gap-2 justify-content-lg-start justify-content-center"
 				>
-					<a href={'#'} class="btn scrollto {btn1}" title="Hire Me!">
+					<a href="#contact" class="btn scrollto {btn1}" title="Hire Me!">
 						<svg class="icon handshake-icon">
 							<use xlink:href={icons + '#handshake-icon'}></use>
 						</svg>
@@ -63,7 +63,7 @@
 					</a>
 					<a href={resume} class="btn {btn2}" title="Download My Resume" target="_blank">
 						<svg class="icon download-icon">
-							<use xlink:href={icons + "#download-icon"}></use>
+							<use xlink:href={icons + '#download-icon'}></use>
 						</svg>
 						Resume
 					</a>

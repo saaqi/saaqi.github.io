@@ -36,12 +36,12 @@
 				<div class="card-footer">
 					<div class="btn-group w-100">
 						<a
-							href={'#'}
+							href="#contact"
 							class="btn {buttonColors.btn1} w-50 btn-icon d-flex align-items-center justify-content-center gap-1 scrollto"
 							title="Hire Me!"
 						>
 							<svg class="icon handshake-icon">
-								<use xlink:href={icons + "#handshake-icon"}></use>
+								<use xlink:href={icons + '#handshake-icon'}></use>
 							</svg> Hire Me!
 						</a>
 						{#if more}
@@ -53,7 +53,7 @@
 								title="Get More Info"
 							>
 								<svg class="icon content-icon">
-									<use xlink:href={icons + "#content-icon"}></use>
+									<use xlink:href={icons + '#content-icon'}></use>
 								</svg> Info
 							</button>
 						{/if}
@@ -90,7 +90,7 @@
 								data-bs-dismiss="modal"
 							>
 								<svg class="icon close-icon fs-4">
-									<use xlink:href={icons + "#close-icon"}></use>
+									<use xlink:href={icons + '#close-icon'}></use>
 								</svg> Close
 							</button>
 						</div>

@@ -56,7 +56,7 @@
 								rel="nofollow"
 								target="_blank"
 							>
-								<svg class="icon github-icon"><use xlink:href={icons + "#github-icon"}></use></svg>
+								<svg class="icon github-icon"><use xlink:href={icons + '#github-icon'}></use></svg>
 							</a>
 						{/if}
 						{#if link}
@@ -69,7 +69,7 @@
 								target="_blank"
 							>
 								<svg class="icon globe-icon">
-									<use xlink:href={icons + "#globe-icon"}></use>
+									<use xlink:href={icons + '#globe-icon'}></use>
 								</svg>
 							</a>
 						{/if}

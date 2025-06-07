@@ -4,6 +4,7 @@
 		SectionAbout,
 		SectionServices,
 		SectionPortfolio,
+		SectionEducation,
 		SectionContact
 	} from '$sections';
 </script>
@@ -24,4 +25,5 @@
 <SectionAbout />
 <SectionServices />
 <SectionPortfolio />
+<SectionEducation />
 <SectionContact />

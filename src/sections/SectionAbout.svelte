@@ -10,7 +10,6 @@
 	onMount(async () => {
 		await import('bootstrap/js/dist/modal.js');
 	});
-
 </script>
 
 <SectionWrapper id="about" title="About Me" icon="user-icon">
