@@ -10,7 +10,7 @@
 			? 'dark text-bg-dark text-bg-dark'
 			: 'light bg-secondary-subtle text-bg-secondary-subtle'
 	);
-	const button = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-secondary');
+	const button = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-dark');
 </script>
 
 <footer id="footer" class="footer bg-gradient py-5 mt-auto {mode}">

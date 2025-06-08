@@ -2,9 +2,7 @@
 	import icons from '$assets/icons.svg';
 	import { SectionWrapper, ContactForm } from '$components';
 	import { store } from '$data/stores.svelte.js';
-	const btn = $derived(store.darkMode ? 'btn-light' : 'btn-primary');
-
-	// import ContactForm from '$components';
+	const btn = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-primary');
 </script>
 
 <SectionWrapper id="contact" title="Contact Me" icon="address-book-icon">
@@ -22,7 +20,7 @@
 					target="_blank"
 				>
 					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
-						<svg class="icon email-icon" style="--icon-fill: var(--bs-btn-color)">
+						<svg class="icon email-icon">
 							<use xlink:href={icons + '#email-icon'}></use>
 						</svg>
 					</div>
@@ -31,7 +29,7 @@
 				</a>
 				<a href="https://wa.me/+923006412193" class="text-decoration-none" target="_blank">
 					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
-						<svg class="icon whatsapp-icon" style="--icon-fill: var(--bs-btn-color)">
+						<svg class="icon whatsapp-icon">
 							<use xlink:href={icons + '#whatsapp-icon'}></use>
 						</svg>
 					</div>
@@ -40,7 +38,7 @@
 				</a>
 				<a href="tel:+923006412193" class="text-decoration-none">
 					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
-						<svg class="icon phone-icon" style="--icon-fill: var(--bs-btn-color)">
+						<svg class="icon phone-icon">
 							<use xlink:href={icons + '#phone-icon'}></use>
 						</svg>
 					</div>
@@ -56,10 +54,20 @@
 	</div>
 </SectionWrapper>
 
-<style>
+<style lang="scss">
 	.icon-container {
 		float: left;
 		display: flex;
+
+		svg.icon {
+			--icon-fill: var(--bs-btn-color);
+			fill: var(--icon-fill);
+		}
+		&:active svg.icon,
+		&:hover svg.icon {
+			--icon-fill: var(--bs-btn-hover-color);
+			fill: var(--icon-fill);
+		}
 	}
 
 	.text-heading {

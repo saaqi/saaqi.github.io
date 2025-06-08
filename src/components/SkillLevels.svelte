@@ -2,8 +2,8 @@
 	import { store } from '$data/stores.svelte.js';
 	import icons from '$assets/icons.svg';
 	import skillsLevel from '$data/skillsLevel.json';
-	const color = $derived(store.darkMode ? 'bg-warning' : 'bg-primary');
-	const bgColor = $derived(store.darkMode ? 'bg-warning-subtle' : 'bg-primary-subtle');
+	const color = $derived(store.darkMode ? 'bg-secondary' : 'bg-primary');
+	const bgColor = $derived(store.darkMode ? 'bg-secondary-subtle' : 'bg-primary-subtle');
 
 	import observeWhenVisible from '../functions/observeWhenVisible.js';
 	function animateProgress(node) {

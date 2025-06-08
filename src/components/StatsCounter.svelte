@@ -2,10 +2,7 @@
 	import { store } from '$data/stores.svelte.js';
 	import icons from '$assets/icons.svg';
 	import statCounters from '$data/statCounters.json';
-	const borderColor = $derived(store.darkMode ? 'border-warning' : 'border-primary');
-	const bgColor = $derived(store.darkMode ? 'bg-warning' : 'bg-primary');
-	const textColor = $derived(store.darkMode ? 'text-warning' : 'text-primary');
-	const textBgColor = $derived(store.darkMode ? 'text-bg-warning' : 'text-bg-primary');
+	const textColor = $derived(store.darkMode ? 'text-secondary' : 'text-primary');
 
 	// countWhenVisible.js
 	import observeWhenVisible from '../functions/observeWhenVisible.js';
@@ -63,9 +60,9 @@
 	<div id="statsCounters" class="row stats g-3 row-gap-4 mt-4">
 		{#each statCounters as { header, level, title, icon }, index (('stats-', index))}
 			<div class="col-lg-3 col-6 text-break">
-				<div class="count-box pt-4 pb-3 px-3 text-center border {borderColor} rounded-3 h-100">
+				<div class="count-box pt-4 pb-3 px-3 text-center rounded-3 h-100">
 					<div
-						class="stats-icon-container d-flex align-items-center justify-content-center fs-4 {bgColor} {textBgColor} rounded-circle"
+						class="stats-icon-container d-flex align-items-center justify-content-center fs-4 rounded-circle"
 					>
 						<svg class="icon {icon}"><use xlink:href={icons + '#' + icon}></use></svg>
 					</div>
@@ -83,6 +80,7 @@
 <style lang="scss">
 	.statistics {
 		.count-box {
+			border: 1px solid var(--bs-body-color);
 			&:hover {
 				transform: scale(1.05);
 				transition: var(--transition);
@@ -91,8 +89,9 @@
 		.stats-icon-container {
 			width: 3rem;
 			height: 3rem;
-			border-radius: 50%;
-			svg {
+			background-color: var(--bs-body-color);
+			color: var(--bs-body-bg);
+			svg.icon {
 				width: 1.5rem;
 				height: 1.5rem;
 			}

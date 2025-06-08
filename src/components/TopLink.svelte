@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 
 	import { store } from '$data/stores.svelte.js';
-	const button = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-secondary');
+	const button = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-dark');
 
 	import icons from '$assets/icons.svg';
 

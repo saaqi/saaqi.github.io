@@ -7,7 +7,7 @@
 
 	const theme = $derived({
 		button: store.darkMode ? 'btn-outline-light' : 'btn-outline-primary',
-		text: store.darkMode ? 'text-warning' : 'text-secondary'
+		text: store.darkMode ? 'text-secondary' : 'text-primary'
 	});
 </script>
 

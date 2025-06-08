@@ -5,10 +5,8 @@
 
 	import { store } from '$data/stores.svelte.js';
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
-	const btn1 = $derived(
-		store.darkMode ? 'border-warning-subtle text-warning' : 'border-primary-subtle'
-	);
-	const btn2 = $derived(store.darkMode ? 'btn-outline-warning' : 'btn-outline-primary');
+	const btn1 = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-dark');
+	const btn2 = $derived(store.darkMode ? 'btn-secondary' : 'btn-primary');
 
 	let menuExpanded = $state(false);
 	const menuIcon = $derived(menuExpanded ? `${icons}#close-icon` : `${icons}#menu-icon`);
@@ -39,14 +37,11 @@
 					<li class="item-nav">
 						<a
 							href={link}
-							class="link-nav btn btn-outline-primary shadow-sm scrollto {btn1}"
+							class="link-nav btn {btn1} shadow-sm scrollto"
 							title={text}
 							onclick={close}
 						>
-							<svg
-								style="--icon-fill: var({store.darkMode ? '--bs-warning' : '--bs-body'})"
-								class="icon ${icon}"
-							>
+							<svg class="icon ${icon}">
 								<use xlink:href={icons + '#' + icon}></use>
 							</svg>
 							<span class="text-nav">{text}</span>
@@ -165,7 +160,7 @@
 			left: -20em;
 		}
 		.header.dark {
-			border-right: 1px solid var(--bs-warning-border-subtle);
+			border-right: 1px solid var(--bs-tertiary-color);
 		}
 		.mobile-nav-active .header {
 			left: 0;

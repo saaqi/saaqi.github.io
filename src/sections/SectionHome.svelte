@@ -5,8 +5,8 @@
 
 	import { store } from '$data/stores.svelte.js';
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
-	const btn1 = $derived(store.darkMode ? 'btn-warning' : 'btn-secondary');
-	const btn2 = $derived(store.darkMode ? 'btn-light' : 'btn-primary');
+	const btn1 = $derived(store.darkMode ? 'btn-secondary' : 'btn-primary');
+	const btn2 = $derived(store.darkMode ? 'btn-outline-secondary' : 'btn-outline-primary');
 
 	import socialLinks from '$data/socialLinks.json';
 </script>
@@ -25,7 +25,7 @@
 			</div>
 			<div class="text-col d-flex flex-column gap-2 text-center text-lg-start col-lg-6 fw-medium">
 				<p class="mb-0">Hi there, I'm</p>
-				<h1 class="hero-heading display-3 fw-bold">Saqib Islam</h1>
+				<h1 class="hero-heading display-1 fw-bold">Saqib Islam</h1>
 				<p class="mb-0">
 					A Front-end Web Developer, UI/UX Designer, SEO Specialist and Digital Marketing Expert. I
 					specialize in creating custom tailored solutions to help you achieve your goals. Let's
@@ -55,7 +55,7 @@
 				<div
 					class="col-12 m-0 hero-buttons d-flex gap-2 justify-content-lg-start justify-content-center"
 				>
-					<a href="#contact" class="btn scrollto {btn1}" title="Hire Me!">
+					<a href="#contact" class="btn scrollto {btn1} shadow-none" title="Hire Me!">
 						<svg class="icon handshake-icon">
 							<use xlink:href={icons + '#handshake-icon'}></use>
 						</svg>
@@ -82,15 +82,8 @@
 		min-height: 100svh;
 	}
 
-	.hero-heading {
-		color: var(--bs-primary);
-	}
-
 	.home.dark {
 		background-image: url('$assets/repeated-square-dark.webp');
-		.hero-heading {
-			color: var(--bs-warning);
-		}
 	}
 
 	.hero-buttons {

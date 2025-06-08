@@ -1,7 +1,5 @@
 <script>
 	import { SectionWrapper, StatsCounter, SkillLevels } from '$components';
-	import { store } from '$data/stores.svelte.js';
-	const borderColor = $derived(store.darkMode ? 'border-warning-subtle' : 'border-primary-subtle');
 
 	import profileThumb from '$assets/profile-thumb.webp';
 	import avatar from '$assets/profile.webp';
@@ -25,7 +23,7 @@
 				>
 					<img
 						src={profileThumb}
-						class="img-fluid profile rounded-3 shadow-sm border {borderColor}"
+						class="img-fluid profile rounded-3 shadow-sm"
 						alt="Saqib Islam Avatar"
 						loading="lazy"
 						draggable="false"
@@ -81,5 +79,8 @@
 	.profile:hover {
 		transform: scale(1.02);
 		transition: var(--transition);
+	}
+	.profile {
+		border: 1px solid var(--bs-tertiary-color);
 	}
 </style>

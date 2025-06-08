@@ -6,8 +6,7 @@
 
 	import { store } from '$data/stores.svelte.js';
 	const buttonColors = $derived({
-		btn1: store.darkMode ? 'btn-outline-light' : 'btn-outline-primary',
-		btn2: store.darkMode ? 'btn-outline-warning' : 'btn-outline-secondary',
+		btn1: store.darkMode ? 'btn-outline-secondary' : 'btn-outline-primary',
 		btn3: store.darkMode ? 'btn-outline-warning' : 'btn-outline-danger'
 	});
 
@@ -47,7 +46,7 @@
 						{#if more}
 							<button
 								type="button"
-								class="btn {buttonColors.btn2} w-50 btn-icon d-flex align-items-center justify-content-center gap-1"
+								class="btn {buttonColors.btn1} w-50 btn-icon d-flex align-items-center justify-content-center gap-1"
 								data-bs-toggle="modal"
 								data-bs-target="#{`service-` + index}"
 								title="Get More Info"
