@@ -113,12 +113,12 @@
 			svg.swipe-indicator {
 				--icon-fill: var(--bs-tertiary-color);
 				fill: var(--icon-fill);
-				border: 1px solid var(--bs-tertiary-color);
-				background-color: rgba(var(--bs-body-bg-rgb), 0.5);
+				// background-color: var(--bs-tertiary-bg);
+				// border: 1px solid var(--bs-tertiary-color);
+				// border-radius: 4.8em;
 				padding: 0.2em;
 				height: 1.1em;
 				width: 1.1em;
-				border-radius: 4.8em;
 			}
 		}
 	}
