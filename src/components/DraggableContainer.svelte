@@ -111,25 +111,14 @@
 			pointer-events: none;
 
 			svg.swipe-indicator {
-				--icon-fill: var(--bs-primary-border-subtle);
-				border: 1px solid var(--bs-primary-border-subtle);
+				--icon-fill: var(--bs-tertiary-color);
+				fill: var(--icon-fill);
+				border: 1px solid var(--bs-tertiary-color);
 				background-color: rgba(var(--bs-body-bg-rgb), 0.5);
 				padding: 0.2em;
 				height: 1.1em;
 				width: 1.1em;
 				border-radius: 4.8em;
-			}
-		}
-	}
-
-	.dark.draggableOuterContainer {
-		position: relative;
-
-		.directionIndicators {
-			svg.swipe-indicator {
-				--icon-fill: var(--bs-warning-border-subtle);
-				border: 1px solid var(--bs-warning-border-subtle);
-				background-color: rgba(var(--bs-body-bg-rgb), 0.5);
 			}
 		}
 	}

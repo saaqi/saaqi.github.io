@@ -39,7 +39,6 @@ export default defineConfig({
 								'./src/**/*.svelte',
 								`${bootstrap}/js/dist/modal.js`
 							],
-							css: ['./src/styles/bootstrap.css'],
 							safelist: [/svelte-/, /modal-/],
 							defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
 							keyframes: true,
