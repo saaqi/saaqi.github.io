@@ -128,7 +128,7 @@
 			<button
 				{onclick}
 				type="submit"
-				class="btn {btn} {border.submit}"
+				class="btn {btn}"
 				disabled={disableSubmit}
 				aria-disabled={disableSubmit}
 			>
@@ -148,6 +148,7 @@
 	}
 	.form-control {
 		border-color: var(--bs-dark-border-subtle);
+
 	}
 
 	.form-control:focus {

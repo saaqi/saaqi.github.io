@@ -3,10 +3,11 @@
 	import { store } from '$data/stores.svelte.js';
 
 	let autoTheme = $state(false);
-	let autoActiveButton = $derived.by(() => {
-		if (autoTheme) return store.darkMode ? 'btn-secondary' : 'btn-warning';
-		else return store.darkMode ? 'btn-outline-dark' : 'btn-outline-light';
-	});
+	let autoActiveButton = $derived(
+		autoTheme
+			? (store.darkMode ? 'btn-primary' : 'btn-warning')
+			: (store.darkMode ? 'btn-outline-dark' : 'btn-outline-light')
+	);
 
 	let deviceThemeDark = $state(false);
 

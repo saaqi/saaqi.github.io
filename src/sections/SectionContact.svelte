@@ -25,7 +25,7 @@
 						</svg>
 					</div>
 					<div class="h4 text-heading">Email</div>
-					<div class="text-body">saaqi.grw@gmail.com</div>
+					<div class="text-body">saqib@saqibtech.com</div>
 				</a>
 				<a href="https://wa.me/+923006412193" class="text-decoration-none" target="_blank">
 					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
@@ -71,6 +71,7 @@
 	}
 
 	.text-heading {
+		color: var(--bs-body-color);
 		padding: 0 0 0 60px;
 		font-size: 22px;
 		font-weight: 700;
