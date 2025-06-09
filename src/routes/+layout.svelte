@@ -18,8 +18,7 @@
 </script>
 
 <svelte:head>
-	<meta name="theme-color" media="(prefers-color-scheme: dark)" content={store.primaryColor}>
-	<meta name="theme-color" media="(prefers-color-scheme: light)" content={store.secondaryColor}>
+	<meta name="theme-color" content={store.darkMode ? '#212529' : '#ffffff'} />
 </svelte:head>
 
 <Navigation />
