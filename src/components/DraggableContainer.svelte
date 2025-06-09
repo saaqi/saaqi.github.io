@@ -84,10 +84,10 @@
 	</div>
 	{#if indicators}
 		<div class="directionIndicators d-flex justify-content-between text-primary fs-4 d-lg-none">
-			<svg class="icon swipe-indicator swipe-icon">
+			<svg class="icon swipe-indicator swipe-icon text-body-tertiary">
 				<use xlink:href={icons + '#swipe-icon'}></use>
 			</svg>
-			<svg class="icon swipe-indicator swipe-icon">
+			<svg class="icon swipe-indicator swipe-icon text-body-tertiary">
 				<use xlink:href={icons + '#swipe-icon'}></use>
 			</svg>
 		</div>
@@ -111,8 +111,6 @@
 			pointer-events: none;
 
 			svg.swipe-indicator {
-				--icon-fill: var(--bs-tertiary-color);
-				fill: var(--icon-fill);
 				// background-color: var(--bs-tertiary-bg);
 				// border: 1px solid var(--bs-tertiary-color);
 				// border-radius: 4.8em;

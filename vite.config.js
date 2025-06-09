@@ -42,7 +42,7 @@ export default defineConfig({
 							safelist: [/svelte-/, /modal-/],
 							defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
 							keyframes: true,
-							// variables: true
+							variables: true
 						}),
 						cssnano({
 							preset: ['default', { discardComments: { removeAll: true } }]
