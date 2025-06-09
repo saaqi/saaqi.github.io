@@ -18,6 +18,7 @@
 					href="mailto:saqib@saqibtech.com?subject=Hi,%20Saqib%20Let%27s%20talk!"
 					class="text-decoration-none"
 					target="_blank"
+					rel="nofollow noopener noreferrer"
 				>
 					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
 						<svg class="icon email-icon">
@@ -27,7 +28,12 @@
 					<div class="h4 text-heading">Email</div>
 					<div class="text-body">saqib@saqibtech.com</div>
 				</a>
-				<a href="https://wa.me/+923006412193" class="text-decoration-none" target="_blank">
+				<a
+					href="https://wa.me/+923006412193"
+					class="text-decoration-none"
+					rel="nofollow noopener noreferrer"
+					target="_blank"
+				>
 					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
 						<svg class="icon whatsapp-icon">
 							<use xlink:href={icons + '#whatsapp-icon'}></use>

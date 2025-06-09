@@ -68,7 +68,7 @@
 						title={'Verify ' + title}
 						class="text-body fw-medium"
 						target="_blank"
-						rel="noopener noreferrer"
+						rel="nofollow noopener noreferrer"
 					>
 						{id}
 					</a>
@@ -79,7 +79,7 @@
 						class="btn {theme.button} py-3 rounded-0 rounded-bottom-2 border-0 w-100"
 						title={'Download ' + title}
 						target="_blank"
-						rel="noopener noreferrer"
+						rel="nofollow noopener noreferrer"
 					>
 						<svg class="icon download-icon">
 							<use xlink:href={icons + '#download-icon'}></use>

@@ -43,7 +43,7 @@
 								{title}
 								aria-label={title}
 								target="_blank"
-								rel="nofollow noopener"
+								rel="nofollow noopener noreferrer"
 							>
 								<svg class="icon {icon} fs-4" style="--icon-fill: var(--bs-body-color)">
 									<use xlink:href={icons + '#' + icon}></use>

@@ -53,7 +53,7 @@
 								class={'btn btn-icon fs-5 ' + btn1}
 								title={'View ' + title + ' Project on GitHub'}
 								aria-label={'View ' + title + ' Project on GitHub'}
-								rel="nofollow"
+								rel="nofollow noopener noreferrer"
 								target="_blank"
 							>
 								<svg class="icon github-icon"><use xlink:href={icons + '#github-icon'}></use></svg>
@@ -65,7 +65,7 @@
 								class={'btn btn-icon fs-5 ' + btn1}
 								title={'Viesw ' + title + ' Live Project'}
 								aria-label={'View ' + title + ' Live Project'}
-								rel="nofollow"
+								rel="nofollow noopener noreferrer"
 								target="_blank"
 							>
 								<svg class="icon globe-icon">

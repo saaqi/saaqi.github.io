@@ -33,7 +33,7 @@
 								{title}
 								aria-label={title}
 								target="_blank"
-								rel="nofollow noopener"
+								rel="nofollow noopener noreferrer"
 							>
 								<svg class="icon {icon}">
 									<use xlink:href={icons + '#' + icon}></use>
