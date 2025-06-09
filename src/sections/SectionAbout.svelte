@@ -23,7 +23,7 @@
 				>
 					<img
 						src={profileThumb}
-						class="img-fluid profile rounded-3 shadow-sm"
+						class="img-fluid profile rounded-3 shadow-sm hoverTransition"
 						alt="Saqib Islam Avatar"
 						loading="lazy"
 						draggable="false"
@@ -76,10 +76,6 @@
 </SectionWrapper>
 
 <style>
-	.profile:hover {
-		transform: scale(1.02);
-		transition: var(--transition);
-	}
 	.profile {
 		border: 1px solid var(--bs-tertiary-color);
 	}

@@ -13,7 +13,7 @@
 
 {#snippet educationCards(list)}
 	{#each list as { title, description, id, date, issuer, skills }, index (('certificate-', index))}
-		<div class="draggableItem">
+		<div class="draggableItem hoverTransition">
 			<div class="card certificateCard h-100 shadow-sm">
 				<div class="card-body d-flex flex-column h-100">
 					<svg class="icon award-icon h2 {theme.text}">
@@ -107,11 +107,6 @@
 <style>
 	.draggableItem {
 		flex: 0 0 33.3333333%;
-		transition: var(--transition);
-	}
-	.draggableItem:hover {
-		transform: scale(1.01);
-		transition: var(--transition);
 	}
 	@media (max-width: 992px) {
 		.draggableItem {

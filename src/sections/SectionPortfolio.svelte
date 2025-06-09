@@ -19,7 +19,7 @@
 
 {#snippet portfolioCard(list)}
 	{#each list as { coverImage, title, copy, github, link, caseStudy, techStack }, index ('project-' + index)}
-		<div class="draggableItem">
+		<div class="draggableItem hoverTransition">
 			<div class="card portfolioCard h-100 shadow-sm">
 				<img
 					src={portfolioMedia['/src/assets/portfolio/' + coverImage]?.default || ''}
@@ -155,11 +155,6 @@
 <style>
 	.draggableItem {
 		flex: 0 0 33.3333333%;
-		transition: var(--transition);
-	}
-	.draggableItem:hover {
-		transform: scale(1.01);
-		transition: var(--transition);
 	}
 	@media (max-width: 992px) {
 		.draggableItem {

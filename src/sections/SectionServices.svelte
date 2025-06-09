@@ -19,7 +19,7 @@
 <!-- Generate Cards -->
 {#snippet serviceCards(list)}
 	{#each list as { title, copy, more, iconsList }, index ('card-' + index)}
-		<div class="draggableItem">
+		<div class="draggableItem hoverTransition">
 			<div class="card serviceCard h-100 shadow-sm">
 				<div class="card-header fs-4 d-flex gap-4">
 					{#each iconsList as icon, index ('icon-' + index)}
@@ -117,11 +117,6 @@
 <style>
 	.draggableItem {
 		flex: 0 0 33.3333333%;
-		transition: var(--transition);
-	}
-	.draggableItem:hover {
-		transform: scale(1.01);
-		transition: var(--transition);
 	}
 	@media (max-width: 992px) {
 		.draggableItem {

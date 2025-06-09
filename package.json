@@ -5,15 +5,15 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
 		"build": "vite build --emptyOutDir",
-		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''",
-		"publish": "sh -c 'git checkout main && git merge sveltekit && git push && git checkout sveltekit'",
+		"build-bootstrap": "sass --no-source-map ./src/styles/bs-dynamic.scss ./src/styles/bootstrap.css",
+		"check": "svelte-check",
+		"dev": "vite dev",
+		"deploy": "sh -c 'git checkout main && git merge sveltekit && git push && git checkout sveltekit'",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"check": "svelte-check",
-		"build-bootstrap": "sass --no-source-map ./src/styles/bs-dynamic.scss ./src/styles/bootstrap.css"
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.9",

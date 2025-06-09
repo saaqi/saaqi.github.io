@@ -38,7 +38,7 @@
 
 	<div id="skillLevelBars" class="row g-3 skills">
 		{#each skillsLevel as { title, level, icon }, index ('skills' + index)}
-			<div class="col-6 progress d-block h-auto bg-transparent">
+			<div class="col-6 progress d-block h-auto bg-transparent hoverTransition">
 				<div class="skill pb-2 fs-6 fw-medium">
 					<svg class="icon {icon}"><use xlink:href={icons + '#' + icon}></use></svg>
 					{title}
@@ -61,10 +61,6 @@
 </article>
 
 <style>
-	.progress:hover {
-		transform: scale(1.02);
-		transition: var(--transition);
-	}
 	.progress-bar {
 		width: 1px;
 		height: 0.625rem;

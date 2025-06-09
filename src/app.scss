@@ -3,8 +3,6 @@
 
 /* Define Variables */
 :root {
-	--box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-	--text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 	--transition: all ease-in-out 0.2s;
 	--transition-slow: all ease-in-out 0.35s;
 }
@@ -55,6 +53,14 @@ body {
 	text-overflow: ellipsis;
 	line-clamp: 3;
 	max-height: 4.5em;
+}
+
+.hoverTransition {
+	transition: var(--transition);
+	&:hover {
+		transition: var(--transition);
+		transform: translateY(-2px);
+	}
 }
 
 // BUTTONS ---------------------------

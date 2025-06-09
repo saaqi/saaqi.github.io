@@ -60,7 +60,7 @@
 	<div id="statsCounters" class="row stats g-3 row-gap-4 mt-4">
 		{#each statCounters as { header, level, title, icon }, index (('stats-', index))}
 			<div class="col-lg-3 col-6 text-break">
-				<div class="count-box pt-4 pb-3 px-3 text-center rounded-3 h-100">
+				<div class="count-box pt-4 pb-3 px-3 text-center rounded-3 h-100 hoverTransition">
 					<div
 						class="stats-icon-container d-flex align-items-center justify-content-center fs-4 rounded-circle"
 					>
@@ -81,10 +81,6 @@
 	.statistics {
 		.count-box {
 			border: 1px solid var(--bs-body-color);
-			&:hover {
-				transform: scale(1.05);
-				transition: var(--transition);
-			}
 		}
 		.stats-icon-container {
 			width: 3rem;

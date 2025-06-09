@@ -153,7 +153,6 @@
 	.form-control:focus {
 		border-color: var(--bs-dark-border);
 		box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
-		transition: var(--transition);
 	}
 
 	.btn:disabled {
