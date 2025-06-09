@@ -155,9 +155,10 @@
 <style>
 	.draggableItem {
 		flex: 0 0 33.3333333%;
+		transition: var(--transition);
 	}
 	.draggableItem:hover {
-		transform: scale(1.02);
+		transform: scale(1.01);
 		transition: var(--transition);
 	}
 	@media (max-width: 992px) {
