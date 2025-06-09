@@ -107,7 +107,7 @@
 				<div class="modal-dialog modal-dialog-centered modal-fullscreen">
 					<div class="modal-content">
 						<div class="modal-header">
-							<div class="modal-title fs-5" id={`case-study-` + index}>
+							<div class="modal-title fs-5">
 								{title}: Case Study
 							</div>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"

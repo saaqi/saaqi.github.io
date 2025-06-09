@@ -13,7 +13,9 @@
 	},
 	{
 		"name": "email",
-		"url": "mailto:saaqi.grw@gmail.com?subject=Hi,&nbsp;Saqib&nbsp;Let's&nbsp;talk!",
+		"url": "mailto:saqib@saqibtech.com?subject=Hi,%20Saqib%20Let%27s%20talk!"
+
+		,
 		"title": "Send me and E-Mail",
 		"icon": "email-icon"
 	},

@@ -69,7 +69,6 @@
 		title="Enable or Disable Dark Mode"
 		onclick={toggleButton}
 		aria-label="Enable or Disable Dark Mode"
-		aria-checked={store.darkMode}
 		checked={store.darkMode}
 	/>
 </div>

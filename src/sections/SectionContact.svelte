@@ -15,7 +15,7 @@
 		<div class="row mt-4">
 			<div class="contactList col-lg-3 info d-flex flex-column gap-4 gap-lg-5">
 				<a
-					href="mailto:saaqi.grw@gmail.com?subject=Hi,&nbsp;Saqib&nbsp;Let's&nbsp;talk!"
+					href="mailto:saqib@saqibtech.com?subject=Hi,%20Saqib%20Let%27s%20talk!"
 					class="text-decoration-none"
 					target="_blank"
 				>

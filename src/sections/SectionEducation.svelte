@@ -96,8 +96,8 @@
 		<DraggableContainer
 			touchSensitivity={2}
 			indicators={true}
-			id="portfolioContainer"
-			class="portfolioContainer row g-2 draggableContainer pb-lg-0 pb-3"
+			id="educationContainer"
+			class="educationContainer row g-2 draggableContainer pb-lg-0 pb-3"
 		>
 			{@render educationCards(certificates)}
 		</DraggableContainer>
