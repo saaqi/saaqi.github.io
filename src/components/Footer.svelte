@@ -23,7 +23,7 @@
 					src={logo}
 					alt="Logo"
 					width="900"
-					height="569.04"
+					height="569"
 					loading="lazy"
 					draggable="false"
 				/>
