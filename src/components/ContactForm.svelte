@@ -68,7 +68,7 @@
 			</div>
 			<div class="col-md-6 mt-3 mt-md-0">
 				<label for="contact-form-email">
-					<svg class="icon email-icon small" style="--icon-fill: var(--bs-body-color)">
+					<svg class="icon email-icon small">
 						<use xlink:href={icons + '#email-icon'}></use>
 					</svg>
 					Email Address:
@@ -143,12 +143,11 @@
 
 <style>
 	svg.icon {
-		--icon-fill: var(--bs-btn-color);
+		--icon-fill: var(--bs-body-color);
 		fill: var(--icon-fill);
 	}
 	.form-control {
 		border-color: var(--bs-dark-border-subtle);
-
 	}
 
 	.form-control:focus {

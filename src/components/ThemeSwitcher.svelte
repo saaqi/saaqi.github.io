@@ -5,8 +5,12 @@
 	let autoTheme = $state(false);
 	let autoActiveButton = $derived(
 		autoTheme
-			? (store.darkMode ? 'btn-primary' : 'btn-warning')
-			: (store.darkMode ? 'btn-outline-dark' : 'btn-outline-light')
+			? store.darkMode
+				? 'btn-primary'
+				: 'btn-warning'
+			: store.darkMode
+				? 'btn-outline-dark'
+				: 'btn-outline-light'
 	);
 
 	let deviceThemeDark = $state(false);

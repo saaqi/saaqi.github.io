@@ -25,6 +25,8 @@
 						src={profileThumb}
 						class="img-fluid profile rounded-3 shadow-sm hoverTransition"
 						alt="Saqib Islam Avatar"
+						width="256"
+						height="256"
 						loading="lazy"
 						draggable="false"
 					/>
@@ -51,6 +53,8 @@
 										class="img-fluid rounded-3"
 										id="profile-picture-label"
 										alt="Saqib Islam Avatar"
+										width="1024"
+										height="1024"
 										loading="lazy"
 										draggable="false"
 									/>
@@ -62,10 +66,9 @@
 			</div>
 			<div class="col-10 col-lg-7">
 				<p class="mb-0">
-					I have a solid grasp of UX design principles and a talent for creating user focused
-					interfaces, I blend creativity with technical expertise in every project, whether it's
-					website development, cross-platform mobile app development, or digital marketing. I am
-					certified by Google, Meta, IBM among others.
+					With expertise in React, React Native, Svelte, Shopify, WooCommerce, and WordPress, I
+					deliver end-to-end digital solutions tailored to your business goals. Let's build a
+					user-centered, high-performing web presence that drives real results.
 				</p>
 			</div>
 		</div>

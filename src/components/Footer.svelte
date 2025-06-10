@@ -2,6 +2,7 @@
 	const currentYear = new Date().getFullYear();
 	import socialLinks from '$data/socialLinks.json';
 	import icons from '$assets/icons.svg';
+	import logo from '$assets/logo.svg';
 
 	// Handle Dark Mode
 	import { store } from '$data/stores.svelte.js';
@@ -17,7 +18,15 @@
 	<div class="container py-2">
 		<div class="row align-items-center gap-md-0 gap-3">
 			<div class="col-md-4 text-center text-lg-start">
-				<img src="/favicon.svg" alt="Logo" height="150" draggable="false" />
+				<img
+					class="img-fluid"
+					src={logo}
+					alt="Logo"
+					width="900"
+					height="569.04"
+					loading="lazy"
+					draggable="false"
+				/>
 			</div>
 			<div class="col-md-4 m-0 my-4">
 				<div class="h4 text-center mb-3">Say, Hello!</div>

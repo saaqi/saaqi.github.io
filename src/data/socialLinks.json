@@ -13,9 +13,8 @@
 	},
 	{
 		"name": "email",
-		"url": "mailto:saqib@saqibtech.com?subject=Hi,%20Saqib%20Let%27s%20talk!"
+		"url": "mailto:saqib@saqibtech.com?subject=Hi,%20Saqib%20Let%27s%20talk!",
 
-		,
 		"title": "Send me and E-Mail",
 		"icon": "email-icon"
 	},

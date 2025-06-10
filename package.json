@@ -5,7 +5,7 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"build": "vite build --emptyOutDir",
+		"build": "vite build --emptyOutDir && bun ./src/sitemap.js",
 		"build-bootstrap": "sass --no-source-map ./src/styles/bs-dynamic.scss ./src/styles/bootstrap.css",
 		"check": "svelte-check",
 		"dev": "vite dev",

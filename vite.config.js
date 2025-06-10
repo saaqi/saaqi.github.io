@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import path from 'path';
-import { purgeCSSPlugin } from '@fullhuman/postcss-purgecss';
-import autoprefixer from 'autoprefixer';
-import cssnano from 'cssnano';
 
 const bootstrap = 'node_modules/bootstrap';
 const IN_PRODUCTION = process.env.NODE_ENV === 'production';
+import { purgeCSSPlugin } from '@fullhuman/postcss-purgecss';
+import cssnano from 'cssnano';
+import autoprefixer from 'autoprefixer';
 
 export default defineConfig({
 	plugins: [sveltekit()],

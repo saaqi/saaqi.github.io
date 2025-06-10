@@ -4,6 +4,7 @@
 
 	import projects from '$data/projects.json';
 	import icons from '$assets/icons.svg';
+	import logo from '$assets/logo.svg';
 
 	const btn1 = $derived(!store.darkMode ? 'btn-outline-primary' : 'btn-outline-light');
 	const btn2 = $derived(!store.darkMode ? 'btn-outline-danger' : 'btn-outline-warning');
@@ -22,10 +23,12 @@
 		<div class="draggableItem hoverTransition">
 			<div class="card portfolioCard h-100 shadow-sm">
 				<img
-					src={portfolioMedia['/src/assets/portfolio/' + coverImage]?.default || ''}
-					class="card-img-top border-bottom"
+					src={portfolioMedia['/src/assets/portfolio/' + coverImage]?.default || logo}
+					class="img-fluid card-img-top border-bottom"
 					alt={'Screenshot of ' + title}
 					loading="lazy"
+					width="500"
+					height="281"
 					draggable="false"
 				/>
 				<div class="card-body d-flex flex-column">

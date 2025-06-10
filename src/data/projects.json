@@ -24,17 +24,6 @@
 		]
 	},
 	{
-		"coverImage": "o2clothing.webp",
-		"title": "O2 Clothing Studio",
-		"copy": "Built a sleek and modern e-commerce website for O2 Clothing Studio using Shopify.",
-		"link": "https://o2clothingstudio.com/",
-		"techStack": [
-			{ "text": "Shopify", "icon": "shopify-icon" },
-			{ "text": "", "icon": "" },
-			{ "text": "", "icon": "" }
-		]
-	},
-	{
 		"coverImage": "ll-restaurant.webp",
 		"title": "Little Lemon: Cross-platform Mobile App",
 		"copy": "A cross-paltform mobile app for a restaurant, developed using React Native with the Expo framework!",
@@ -68,6 +57,16 @@
 			{ "text": "Vite (Bundler)", "icon": "vite-icon" },
 			{ "text": "Javascript", "icon": "javascript-icon" },
 			{ "text": "Bootstrap", "icon": "bootstrap-icon" }
+		]
+	},
+	{
+		"coverImage": "o2clothing.webp",
+		"title": "O2 Clothing Studio",
+		"copy": "Built a sleek and modern e-commerce website for O2 Clothing Studio using Shopify.",
+		"techStack": [
+			{ "text": "Shopify", "icon": "shopify-icon" },
+			{ "text": "", "icon": "" },
+			{ "text": "", "icon": "" }
 		]
 	}
 ]
