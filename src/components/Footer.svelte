@@ -62,15 +62,3 @@
 		</div>
 	</div>
 </footer>
-
-<style>
-	.social-links .btn-icon > svg.icon {
-		--icon-fill: var(--bs-btn-color);
-		fill: var(--icon-fill);
-	}
-	.social-links .btn-icon:hover > svg.icon,
-	.social-links .btn-icon:active > svg.icon {
-		--icon-fill: var(--bs-btn-hover-color);
-		fill: var(--icon-fill);
-	}
-</style>

@@ -1,8 +1,8 @@
 <script>
 	import { SectionWrapper, StatsCounter, SkillLevels } from '$components';
 
-	import profileThumb from '$assets/profile-thumb.webp';
-	import avatar from '$assets/profile.webp';
+	import profileThumb from '$assets/profile-thumb.webp?enhanced&format=avif;webp';
+	import avatar from '$assets/profile.webp?enhanced&format=avif;webp';
 
 	import { onMount } from 'svelte';
 	onMount(async () => {
@@ -19,14 +19,14 @@
 					class="profile-image border-0 bg-transparent p-0"
 					data-bs-toggle="modal"
 					data-bs-target="#profile-picture"
+					aria-label="Saqib Islam Avatar"
 					title="Saqib Islam: Profile Photo"
 				>
-					<img
+					<enhanced:img
 						src={profileThumb}
+						sizes="min(256px, 100vw)"
 						class="img-fluid profile rounded-3 shadow-sm hoverTransition"
 						alt="Saqib Islam Avatar"
-						width="256"
-						height="256"
 						loading="lazy"
 						draggable="false"
 					/>
@@ -48,13 +48,12 @@
 							></button>
 							<div class="modal-body p-0">
 								<div class="profile-container position-relative">
-									<img
+									<enhanced:img
 										src={avatar}
+										sizes="min(1280px, 100vw)"
 										class="img-fluid rounded-3"
 										id="profile-picture-label"
 										alt="Saqib Islam Avatar"
-										width="1024"
-										height="1024"
 										loading="lazy"
 										draggable="false"
 									/>

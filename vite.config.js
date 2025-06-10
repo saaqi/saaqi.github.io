@@ -1,5 +1,6 @@
-import { defineConfig } from 'vite';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { enhancedImages } from '@sveltejs/enhanced-img';
+import { defineConfig } from 'vite';
 import path from 'path';
 
 const bootstrap = 'node_modules/bootstrap';
@@ -9,7 +10,10 @@ import cssnano from 'cssnano';
 import autoprefixer from 'autoprefixer';
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [
+		enhancedImages(), // must come before the SvelteKit plugin
+		sveltekit()
+	],
 
 	resolve: {
 		alias: {

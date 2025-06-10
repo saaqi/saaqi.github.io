@@ -64,16 +64,6 @@
 	.icon-container {
 		float: left;
 		display: flex;
-
-		svg.icon {
-			--icon-fill: var(--bs-btn-color);
-			fill: var(--icon-fill);
-		}
-		&:active svg.icon,
-		&:hover svg.icon {
-			--icon-fill: var(--bs-btn-hover-color);
-			fill: var(--icon-fill);
-		}
 	}
 
 	.text-heading {

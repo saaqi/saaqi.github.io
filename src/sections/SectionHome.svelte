@@ -106,6 +106,6 @@
 	}
 	.social-links svg.icon {
 		--icon-fill: var(--bs-body-color);
-		fill: var(--icon-fill);
+		fill: var(--bs-body-color);
 	}
 </style>

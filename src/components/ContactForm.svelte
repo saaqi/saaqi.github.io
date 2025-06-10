@@ -142,16 +142,7 @@
 </form>
 
 <style>
-	svg.icon {
-		--icon-fill: var(--bs-body-color);
-		fill: var(--icon-fill);
-	}
-	.form-control {
-		border-color: var(--bs-dark-border-subtle);
-	}
-
 	.form-control:focus {
-		border-color: var(--bs-dark-border);
 		box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
 	}
 
