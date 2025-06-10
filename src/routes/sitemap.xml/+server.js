@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { data } from '../../src/app.js'; // Adjust the path as needed
+import { data } from '/src/app.js'; // Adjust the path as needed
 
 const siteUrl = data.baseURL;
 
