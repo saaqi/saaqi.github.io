@@ -66,9 +66,13 @@
 			</div>
 			<div class="col-10 col-lg-7">
 				<p class="mb-0">
-					With expertise in React, React Native, Svelte, Shopify, WooCommerce, and WordPress, I
-					deliver end-to-end digital solutions tailored to your business goals. Let's build a
-					user-centered, high-performing web presence that drives real results.
+					As a Full-Stack Web Developer, UI/UX Designer, and Digital Marketing Strategist, my
+					passion is creating powerful online presences. I focus on developing fast, beautiful, and
+					SEO-optimized websites, leveraging modern frameworks like React and Svelte for dynamic
+					user experiences. Additionally, I build cross-platform mobile applications with React
+					Native, and create robust e-commerce solutions with platforms such as WooCommerce and
+					Shopify. My goal is to help your brand connect, convert, and ultimately, thrive in the
+					digital landscape.
 				</p>
 			</div>
 		</div>

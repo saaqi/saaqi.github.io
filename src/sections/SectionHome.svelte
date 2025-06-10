@@ -28,9 +28,10 @@
 			<div class="text-col d-flex flex-column gap-2 text-center text-lg-start col-lg-6 fw-medium">
 				<p class="mb-0">Hi there, I'm</p>
 				<h1 class="hero-heading display-1 fw-bold">Saqib Islam</h1>
-				<h2 class="h4">
-					Crafting fast, sleek, and SEO-optimized websites that convert visitors into loyal
-					customers and help your brand grow online.
+				<h2 class="h5">
+					Combining full-stack web development, intuitive UI/UX design, and strategic digital
+					marketing with SEO expertise, I build high-converting, sleek websites that don't just
+					perform, they propel your business forward.
 				</h2>
 				<ul
 					id="heroSocialLinks"
