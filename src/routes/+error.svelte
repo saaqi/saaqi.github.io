@@ -34,11 +34,13 @@
 				well, consider navigating back to our homepage to explore anew. Thanks for your
 				understanding!
 			</p>
-			<a class="btn btn-secondary btn-lg col-md-6" href={base + '/'}>
-				<svg class="icon top-icon">
-					<use xlink:href={icons + '#home-icon'}></use>
-				</svg> Go To Homepage
-			</a>
+			<div class="col">
+				<a class="btn btn-secondary" href={base + '/'}>
+					<svg class="icon top-icon">
+						<use xlink:href={icons + '#home-icon'}></use>
+					</svg> Go To Homepage
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
