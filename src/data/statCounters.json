@@ -1,25 +1,25 @@
 [
 	{
 		"header": "Trusted by",
-		"level": 30,
+		"level": 40,
 		"title": "Satisfied Clients to Grow Their Businesses.",
 		"icon": "happy-icon"
 	},
 	{
 		"header": "Completed",
-		"level": 45,
+		"level": 60,
 		"title": "Projects, Delivered On Time and Budget.",
 		"icon": "project-icon"
 	},
 	{
 		"header": "Professional",
-		"level": 5,
+		"level": 6,
 		"title": "years of Experience in Web Development.",
 		"icon": "working-icon"
 	},
 	{
 		"header": "Achieved",
-		"level": 8,
+		"level": 10,
 		"title": "Certificates from Meta, Google & IBM.",
 		"icon": "certificate-icon"
 	}

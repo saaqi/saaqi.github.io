@@ -20,13 +20,23 @@
 		"icon": "wordpress-icon"
 	},
 	{
-		"title": "React/Native",
-		"level": 80,
-		"icon": "react-icon"
+		"title": "Sveltekit",
+		"level": 90,
+		"icon": "svelte-icon"
 	},
 	{
 		"title": "Shopify",
 		"level": 80,
 		"icon": "shopify-icon"
+	},
+	{
+		"title": "Reacte",
+		"level": 80,
+		"icon": "react-icon"
+	},
+	{
+		"title": "React Native",
+		"level": 80,
+		"icon": "react-icon"
 	}
 ]

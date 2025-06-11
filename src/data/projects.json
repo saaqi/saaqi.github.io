@@ -54,7 +54,7 @@
 		"link": "https://ikramsteel.com/",
 		"github": "https://github.com/saaqi/ikram-steel-industries",
 		"techStack": [
-			{ "text": "Vite (Bundler)", "icon": "vite-icon" },
+			{ "text": "Svelte", "icon": "svelte-icon" },
 			{ "text": "Javascript", "icon": "javascript-icon" },
 			{ "text": "Bootstrap", "icon": "bootstrap-icon" }
 		]

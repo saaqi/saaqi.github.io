@@ -34,8 +34,8 @@
 
 								{#each issuer as authority, index (('issuer-', index))}
 									<div class="issuer-item">
-										<svg class="icon {authority.toLowerCase()}-icon small">
-											<use xlink:href={icons + '#' + authority.toLowerCase() + '-icon'}></use>
+										<svg class="icon {authority.toLowerCase().replace(/\s+/g, '')}-icon small">
+											<use xlink:href={icons + '#' + authority.toLowerCase().replace(/\s+/g, '') + '-icon'}></use>
 										</svg>
 										{authority}
 									</div>
