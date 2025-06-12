@@ -161,7 +161,7 @@
 			background: var(--bs-body-bg);
 			border-right: 1px solid var(--bs-primary-border-subtle);
 			left: -20em;
-			z-index: 2;
+			z-index: 4;
 		}
 		.header.dark {
 			border-right: 1px solid var(--bs-tertiary-color);
@@ -176,7 +176,7 @@
 		}
 		.mobile-nav-toggle {
 			display: block;
-			z-index: 3;
+			z-index: 5;
 		}
 
 		.mobile-nav-overlay {
@@ -186,7 +186,7 @@
 			position: fixed;
 			top: 0;
 			width: 100vw;
-			z-index: 1;
+			z-index: 3;
 		}
 	}
 </style>
