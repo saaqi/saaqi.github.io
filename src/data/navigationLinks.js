@@ -1,31 +1,31 @@
 export const navigationLinks = [
 	{
-		link: '#home',
+		link: '/#home',
 		text: 'Home',
 		icon: 'home-icon'
 	},
 	{
-		link: '#about',
+		link: '/#about',
 		text: 'About Me',
 		icon: 'user-icon'
 	},
 	{
-		link: '#services',
+		link: '/#services',
 		text: 'Services',
 		icon: 'working-icon'
 	},
 	{
-		link: '#portfolio',
+		link: '/#portfolio',
 		text: 'Portfolio',
 		icon: 'briefcase-icon'
 	},
 	{
-		link: '#education',
+		link: '/#education',
 		text: 'Education',
 		icon: 'user-graduate-icon'
 	},
 	{
-		link: '#contact',
+		link: '/#contact',
 		text: 'Contact Me',
 		icon: 'address-book-icon'
 	}

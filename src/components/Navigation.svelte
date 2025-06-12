@@ -15,11 +15,14 @@
 </script>
 
 <header
-	id="header"
 	class={menuExpanded ? 'mobile-nav-active' : ''}
 	data-bs-theme={store.darkMode ? 'dark' : 'light'}
 >
-	<div class="header d-flex flex-column justify-content-center {mode}">
+	{#if menuExpanded}
+		<button class="mobile-nav-overlay" onclick={close} tabindex="0" aria-label="overlay"></button>
+	{/if}
+
+	<div id="header" class="header d-flex flex-column justify-content-center {mode}">
 		<button
 			type="button"
 			class="mobile-nav-toggle rounded-circle fs-1 shadow-sm p-1 btn btn-icon {btn2}"
@@ -34,7 +37,7 @@
 		<nav id="navbar" class="navbar nav-menu" class:nav-visibility={!menuExpanded}>
 			<ul id="mainNavigation" class="mainNavigation list-unstyled">
 				{#each navigationLinks as { link, text, icon }, index ('navlinks-' + index)}
-					<li class="item-nav">
+					<li class="item-nav" data-target={link.replace('/', '')}>
 						<a
 							href={link}
 							class="link-nav btn {btn1} shadow-sm scrollto"
@@ -158,6 +161,7 @@
 			background: var(--bs-body-bg);
 			border-right: 1px solid var(--bs-primary-border-subtle);
 			left: -20em;
+			z-index: 2;
 		}
 		.header.dark {
 			border-right: 1px solid var(--bs-tertiary-color);
@@ -172,16 +176,17 @@
 		}
 		.mobile-nav-toggle {
 			display: block;
+			z-index: 3;
 		}
-		.mobile-nav-active::before {
-			background: rgba(var(--bs-dark-rgb), 0.9);
-			content: '';
+
+		.mobile-nav-overlay {
+			background: rgba(var(--bs-dark-rgb), 0.95);
 			height: 100vh;
 			left: 0;
 			position: fixed;
 			top: 0;
 			width: 100vw;
-			z-index: 3;
+			z-index: 1;
 		}
 	}
 </style>
