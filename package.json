@@ -9,7 +9,7 @@
 		"build-bootstrap": "sass --no-source-map ./src/styles/bs-dynamic.scss ./src/styles/bootstrap.css",
 		"check": "svelte-check",
 		"dev": "vite dev",
-		"deploy": "sh -c 'git checkout main && git merge sveltekit && git push && git checkout sveltekit'",
+		"deploy": "git checkout main && git merge sveltekit && git push && git checkout sveltekit",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"preview": "vite preview",
