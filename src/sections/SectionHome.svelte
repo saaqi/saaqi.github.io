@@ -28,11 +28,11 @@
 			<div class="text-col d-flex flex-column gap-2 text-center text-lg-start col-lg-6 fw-medium">
 				<p class="mb-0">Hi there, I'm</p>
 				<h1 class="hero-heading display-1 fw-bold">Saqib Islam</h1>
-				<h2 class="h6 intro">
+				<p class="intro mb-0">
 					Combining full-stack web development, intuitive UI/UX design, and strategic digital
 					marketing with SEO expertise, I build high-converting, sleek websites that don't just
 					perform, they propel your business forward.
-				</h2>
+				</p>
 				<ul
 					id="heroSocialLinks"
 					class="social-links list-unstyled d-flex flex-wrap gap-4 justify-content-center justify-content-lg-start my-4"
