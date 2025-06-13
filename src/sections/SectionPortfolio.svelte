@@ -10,15 +10,15 @@
 	const btn2 = $derived(!store.darkMode ? 'btn-outline-danger' : 'btn-outline-warning');
 
 	// Import Portfolio Media Folder
-	const portfolioPdf = import.meta.glob('$assets/portfolio/*.pdf', {eager: true});
+	const portfolioPdf = import.meta.glob('$assets/portfolio/*.pdf', { eager: true });
 	const portfolioPics = import.meta.glob('$assets/portfolio/*.webp', {
 		eager: true,
 		query: {
 			enhanced: true,
 			w: '500;250',
-			format: 'avif;webp',
+			format: 'avif;webp'
 		}
-	 });
+	});
 
 	import { onMount } from 'svelte';
 	onMount(async () => await import('bootstrap/js/dist/modal.js'));
