@@ -4,7 +4,7 @@
 </script>
 
 {#if !hidePreloader}
-	<div {@attach () => hidePreloader = true} id="preloader" out:fade>
+	<div {@attach () => (hidePreloader = true)} id="preloader" out:fade>
 		<div class="typewriter">
 			<div class="slide"><i></i></div>
 			<div class="paper"></div>
