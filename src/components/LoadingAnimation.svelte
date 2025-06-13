@@ -1,12 +1,10 @@
 <script>
 	import { fade } from 'svelte/transition';
-	import { onMount } from 'svelte';
 	let hidePreloader = false;
-	onMount(() => (hidePreloader = true));
 </script>
 
 {#if !hidePreloader}
-	<div id="preloader" out:fade>
+	<div {@attach () => hidePreloader = true} id="preloader" out:fade>
 		<div class="typewriter">
 			<div class="slide"><i></i></div>
 			<div class="paper"></div>

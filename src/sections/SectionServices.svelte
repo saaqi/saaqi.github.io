@@ -11,9 +11,7 @@
 	});
 
 	import { onMount } from 'svelte';
-	onMount(async () => {
-		await import('bootstrap/js/dist/modal.js');
-	});
+	onMount(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
 
 <!-- Generate Cards -->

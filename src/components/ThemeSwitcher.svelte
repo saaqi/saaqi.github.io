@@ -16,8 +16,7 @@
 	let deviceThemeDark = $state(false);
 
 	// Initial State
-	import { onMount } from 'svelte';
-	onMount(() => {
+	const initState = () => {
 		const storedTheme = localStorage.getItem('theme');
 		const deviceTheme = window.matchMedia('(prefers-color-scheme: dark)');
 		deviceThemeDark = deviceTheme.matches;
@@ -31,7 +30,7 @@
 			store.darkMode = deviceThemeDark;
 			autoTheme = true;
 		}
-	});
+	};
 
 	// Toggle Dark Mode Button
 	const toggleButton = () => {
@@ -53,7 +52,7 @@
 	};
 </script>
 
-<div class="switchContainer d-flex align-items-center gap-2">
+<div {@attach initState} class="switchContainer d-flex align-items-center gap-2">
 	<button
 		type="button"
 		class="autoModeButton btn {autoActiveButton} btn-icon p-1 rounded-circle shadow-none"

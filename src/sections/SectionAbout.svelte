@@ -1,7 +1,7 @@
 <script>
 	import { SectionWrapper, StatsCounter, SkillLevels } from '$components';
 
-	import profileThumb from '$assets/profile-thumb.webp?enhanced&format=avif;webp';
+	import profileThumb from '$assets/profile-thumb.webp?enhanced&w=256&format=avif;webp';
 	import avatar from '$assets/profile.webp?enhanced&w=1024;512;256&format=avif;webp';
 
 	import { onMount } from 'svelte';
