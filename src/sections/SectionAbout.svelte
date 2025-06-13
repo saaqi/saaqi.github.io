@@ -27,8 +27,6 @@
 						alt="Saqib Islam Avatar"
 						loading="lazy"
 						draggable="false"
-						width="256"
-						height="256"
 					/>
 				</button>
 				<div
