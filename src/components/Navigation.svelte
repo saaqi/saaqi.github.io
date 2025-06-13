@@ -2,6 +2,7 @@
 	// import { menuExpanded } from '$data/sharedState.js';
 	import { navigationLinks } from '$data/navigationLinks.js';
 	import icons from '$assets/icons.svg';
+	import { onMount } from 'svelte';
 
 	import { store } from '$data/stores.svelte.js';
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
@@ -9,9 +10,57 @@
 	const btn2 = $derived(store.darkMode ? 'btn-secondary' : 'btn-primary');
 
 	let menuExpanded = $state(false);
+	let activeSection = $state('');
+
 	const menuIcon = $derived(menuExpanded ? `${icons}#close-icon` : `${icons}#menu-icon`);
 	const onclick = () => (menuExpanded = !menuExpanded);
 	const close = () => (menuExpanded = false);
+
+	// Scroll spy functionality -----------------
+	let sections = $state([]);
+	let observer = $state();
+
+	onMount(() => {
+		// Get all sections that have data-scroll-spy attribute
+		sections = document.querySelectorAll('[data-scroll-spy]');
+
+		if (sections.length === 0) return;
+
+		// Intersection Observer options
+		const observerOptions = {
+			root: null,
+			rootMargin: '-20% 0px -100% 0px',
+			threshold: 0
+		};
+
+		// Create intersection observer
+		observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					const sectionId = entry.target.getAttribute('data-scroll-spy');
+					activeSection = sectionId;
+				}
+			});
+		}, observerOptions);
+
+		// Observe all sections
+		sections.forEach((section) => {
+			observer.observe(section);
+		});
+
+		// Cleanup function
+		return () => {
+			if (observer) {
+				observer.disconnect();
+			}
+		};
+	});
+
+	// Helper function to check if a nav item should be active
+	const isActive = (link) => {
+		const target = link.replace('/', '').replace('#', '');
+		return activeSection === target;
+	};
 </script>
 
 <header
@@ -38,9 +87,11 @@
 			<ul id="mainNavigation" class="mainNavigation list-unstyled">
 				{#each navigationLinks as { link, text, icon }, index ('navlinks-' + index)}
 					<li class="item-nav" data-target={link.replace('/', '')}>
+						<!-- Keep class: .active -->
 						<a
 							href={link}
 							class="link-nav btn {btn1} shadow-sm scrollto"
+							class:active={isActive(link)}
 							title={text}
 							onclick={close}
 						>

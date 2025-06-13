@@ -4,7 +4,6 @@
 
 	import projects from '$data/projects.json';
 	import icons from '$assets/icons.svg';
-	import logo from '$assets/logo.svg';
 
 	const btn1 = $derived(!store.darkMode ? 'btn-outline-primary' : 'btn-outline-light');
 	const btn2 = $derived(!store.darkMode ? 'btn-outline-danger' : 'btn-outline-warning');
@@ -152,7 +151,12 @@
 	{/each}
 {/snippet}
 
-<SectionWrapper id="portfolio" title="My Portfolio" icon="briefcase-icon">
+<SectionWrapper
+	id="portfolio"
+	data-scroll-spy="portfolio"
+	title="My Portfolio"
+	icon="briefcase-icon"
+>
 	<div class="container">
 		<DraggableContainer
 			touchSensitivity={2}

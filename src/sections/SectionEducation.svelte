@@ -96,7 +96,12 @@
 	{/each}
 {/snippet}
 
-<SectionWrapper id="education" title="My Education" icon="user-graduate-icon">
+<SectionWrapper
+	id="education"
+	data-scroll-spy="education"
+	title="My Education"
+	icon="user-graduate-icon"
+>
 	<div class="container">
 		<DraggableContainer
 			touchSensitivity={2}
