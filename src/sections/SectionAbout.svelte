@@ -1,13 +1,11 @@
 <script>
 	import { SectionWrapper, StatsCounter, SkillLevels } from '$components';
 
-	import profileThumb from '$assets/profile-thumb.webp';
+	import profileThumb from '$assets/profile-thumb.webp?enhanced&format=avif;webp';
 	import avatar from '$assets/profile.webp?enhanced&w=1024;512;256&format=avif;webp';
 
 	import { onMount } from 'svelte';
-	onMount(async () => {
-		await import('bootstrap/js/dist/modal.js');
-	});
+	onMount(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
 
 <SectionWrapper id="about" title="About Me" icon="user-icon">
@@ -22,8 +20,9 @@
 					aria-label="Saqib Islam Avatar"
 					title="Saqib Islam: Profile Photo"
 				>
-					<img
+					<enhanced:img
 						src={profileThumb}
+						sizes="(min-width: 256px) 256px, 100vw"
 						class="img-fluid profile rounded-3 shadow-sm hoverTransition"
 						alt="Saqib Islam Avatar"
 						loading="lazy"

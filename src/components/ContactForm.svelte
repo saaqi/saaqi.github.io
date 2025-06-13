@@ -7,8 +7,9 @@
 	let email = $state('');
 	let subject = $state('');
 	let message = $state('');
-
+	let emailValid = $state(false);
 	let disableSubmit = $state(true);
+	let mailtoUrl = '';
 
 	const btn = $derived(
 		disableSubmit
@@ -20,8 +21,6 @@
 				: 'btn-primary'
 	);
 
-	let emailValid = $state(false);
-	let mailtoUrl = '';
 	$effect(() => {
 		const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		const fallbackSubject = `[Contact-Form] saqibtech.com`;

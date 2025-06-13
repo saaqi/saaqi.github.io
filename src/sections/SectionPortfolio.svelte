@@ -10,27 +10,38 @@
 	const btn2 = $derived(!store.darkMode ? 'btn-outline-danger' : 'btn-outline-warning');
 
 	// Import Portfolio Media Folder
-	const portfolioMedia = import.meta.glob('$assets/portfolio/*', { eager: true });
+	const portfolioPdf = import.meta.glob('$assets/portfolio/*.pdf', {eager: true});
+	const portfolioPics = import.meta.glob('$assets/portfolio/*.webp', {
+		eager: true,
+		query: {
+			enhanced: true,
+			w: '500;250',
+			format: 'avif;webp',
+		}
+	 });
 
 	import { onMount } from 'svelte';
-	onMount(async () => {
-		await import('bootstrap/js/dist/modal.js');
-	});
+	onMount(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
 
 {#snippet portfolioCard(list)}
 	{#each list as { coverImage, title, copy, github, link, caseStudy, techStack }, index ('project-' + index)}
 		<div class="draggableItem hoverTransition">
 			<div class="card portfolioCard h-100 shadow-sm">
-				<img
-					src={portfolioMedia['/src/assets/portfolio/' + coverImage]?.default || logo}
-					class="img-fluid card-img-top border-bottom"
-					alt={'Screenshot of ' + title}
-					loading="lazy"
-					width="500"
-					height="281"
-					draggable="false"
-				/>
+				{#each Object.entries(portfolioPics) as [_path, module], index ('pic-' + index)}
+					{#if _path.includes(coverImage)}
+						<enhanced:img
+							src={module.default}
+							sizes="(min-width: 500px) 500px, 100vw"
+							class="img-fluid card-img-top border-bottom"
+							alt={'Screenshot of ' + title}
+							loading="lazy"
+							width="500"
+							height="281"
+							draggable="false"
+						/>
+					{/if}
+				{/each}
 				<div class="card-body d-flex flex-column">
 					<h3 class="h4 card-title fw-semibold mb-3">{title}</h3>
 					<p class="card-text mb-4">{copy}</p>
@@ -118,7 +129,7 @@
 						</div>
 						<div class="modal-body p-0" style="scrollbar-width: none; overflow-y: hidden;">
 							<embed
-								src={portfolioMedia['/src/assets/portfolio/' + caseStudy]?.default || ''}
+								src={portfolioPdf['/src/assets/portfolio/' + caseStudy]?.default || ''}
 								type="application/pdf"
 								style="width: 100%; height: 100%;"
 							/>
