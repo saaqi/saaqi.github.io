@@ -20,7 +20,7 @@
 	</div>
 {/snippet}
 
-<!-- { .d-flex .flex-column : "keeps from purging"} -->
+<!-- { .d-flex .flex-column .section .dark .light : "keeps from purging"} -->
 <section
 	{id}
 	data-scroll-spy={id}
@@ -44,6 +44,12 @@
 		place-items: center;
 		padding: 5rem 0;
 		min-height: 75svh;
+	}
+
+	@media (min-width: 992px) {
+		.section {
+			min-height: 100svh;
+		}
 	}
 
 	@media (min-width: 768px) {
