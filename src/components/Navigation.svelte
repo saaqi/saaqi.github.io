@@ -48,6 +48,22 @@
 			if (observer) observer.disconnect();
 		};
 	});
+
+	// Route Animation
+	import { onNavigate } from '$app/navigation';
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+		// Prevent animation if navigating to the same URL
+		if (navigation.from?.url.pathname === navigation.to?.url.pathname) {
+			return;
+		}
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
 <header
@@ -227,6 +243,46 @@
 			top: 0;
 			width: 100vw;
 			z-index: 3;
+		}
+	}
+
+	/* Slide Trasnitions to the Navigation
+	------------------------------------ */
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation-duration: 0.2s;
+		animation-timing-function: ease-in;
+	}
+
+	::view-transition-old(root) {
+		animation-name: slide-out-left;
+	}
+
+	::view-transition-new(root) {
+		animation-name: slide-in-right;
+	}
+
+	/* Slide Out to Left */
+	@keyframes slide-out-left {
+		from {
+			transform: translateY(0%);
+			opacity: 1;
+		}
+		to {
+			transform: translateY(-10%);
+			opacity: 0;
+		}
+	}
+
+	/* Slide In from Right */
+	@keyframes slide-in-right {
+		from {
+			transform: translateY(10%);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0%);
+			opacity: 1;
 		}
 	}
 </style>
