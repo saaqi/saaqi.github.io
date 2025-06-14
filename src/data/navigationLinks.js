@@ -10,12 +10,12 @@ export const navigationLinks = [
 		icon: 'user-icon'
 	},
 	{
-		link: '/#services',
+		link: '/services',
 		text: 'Services',
 		icon: 'working-icon'
 	},
 	{
-		link: '/#portfolio',
+		link: '/portfolio',
 		text: 'Portfolio',
 		icon: 'briefcase-icon'
 	},
