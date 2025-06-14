@@ -1,8 +1,7 @@
 <script>
-	// import { menuExpanded } from '$data/sharedState.js';
+	const { homePage = false } = $props();
 	import { navigationLinks } from '$data/navigationLinks.js';
 	import icons from '$assets/icons.svg';
-	import { onMount } from 'svelte';
 
 	import { store } from '$data/stores.svelte.js';
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
@@ -10,21 +9,20 @@
 	const btn2 = $derived(store.darkMode ? 'btn-secondary' : 'btn-primary');
 
 	let menuExpanded = $state(false);
-	let activeSection = $state('');
 
 	const menuIcon = $derived(menuExpanded ? `${icons}#close-icon` : `${icons}#menu-icon`);
 	const onclick = () => (menuExpanded = !menuExpanded);
 	const close = () => (menuExpanded = false);
 
 	// Scroll spy functionality -----------------
-	let sections = $state([]);
-	let observer = $state();
+	import { page } from '$app/state';
+	let activeSection = $state('');
 
-	onMount(() => {
-		// Get all sections that have data-scroll-spy attribute
-		sections = document.querySelectorAll('[data-scroll-spy]');
-
-		if (sections.length === 0) return;
+	$effect(() => {
+		// Re-run when route changes
+		page.url.pathname;
+		// Get all sections that have .section class
+		const sections = document.querySelectorAll('.section');
 
 		// Intersection Observer options
 		const observerOptions = {
@@ -34,33 +32,22 @@
 		};
 
 		// Create intersection observer
-		observer = new IntersectionObserver((entries) => {
+		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					const sectionId = entry.target.getAttribute('data-scroll-spy');
+					const sectionId = entry.target.getAttribute('id');
 					activeSection = sectionId;
 				}
 			});
 		}, observerOptions);
 
 		// Observe all sections
-		sections.forEach((section) => {
-			observer.observe(section);
-		});
-
+		sections.forEach((section) => observer.observe(section));
 		// Cleanup function
 		return () => {
-			if (observer) {
-				observer.disconnect();
-			}
+			if (observer) observer.disconnect();
 		};
 	});
-
-	// Helper function to check if a nav item should be active
-	const isActive = (link) => {
-		const target = link.replace('/', '').replace('#', '');
-		return activeSection === target;
-	};
 </script>
 
 <header
@@ -87,11 +74,13 @@
 			<ul id="mainNavigation" class="mainNavigation list-unstyled">
 				{#each navigationLinks as { link, text, icon }, index ('navlinks-' + index)}
 					<li class="item-nav" data-target={link.replace('/', '')}>
-						<!-- Keep class: .active -->
+						<!-- { .active .current : "keeps from purging"} -->
 						<a
 							href={link}
 							class="link-nav btn {btn1} shadow-sm scrollto"
-							class:active={isActive(link)}
+							class:active={(homePage &&
+								link.replace('/', '').replace('#', '') === activeSection) ||
+								(!homePage && link === page.url.pathname)}
 							title={text}
 							onclick={close}
 						>

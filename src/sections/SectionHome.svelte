@@ -11,7 +11,7 @@
 	import socialLinks from '$data/socialLinks.json';
 </script>
 
-<section id="home" data-scroll-spy="home" class="section home py-5 {mode}">
+<section id="home" class="section home py-5 {mode}">
 	<div class="container position-relative text-body">
 		<div class="row flex-lg-row-reverse align-items-center gap-5 gap-lg-0">
 			<div class="graphic-col col-lg-6">

@@ -30,7 +30,7 @@
 	/>
 </svelte:head>
 
-<Navigation />
+<Navigation homePage={$page.url.pathname === '/'} />
 <main id="main" class="main-container {mode}" data-bs-theme={mode}>
 	<LoadingAnimation />
 	<ThemeSwitcher />

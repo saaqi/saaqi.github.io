@@ -5,7 +5,7 @@
 	const btn = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-primary');
 </script>
 
-<SectionWrapper id="contact" data-scroll-spy="contact" title="Contact Me" icon="address-book-icon">
+<SectionWrapper id="contact" title="Contact Me" icon="address-book-icon">
 	<div class="container">
 		<p class="section-copy mb-5">
 			I'd love to hear from you! If you have any questions, project inquiries, or just want to say

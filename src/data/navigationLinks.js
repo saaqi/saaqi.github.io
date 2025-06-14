@@ -5,7 +5,7 @@ export const navigationLinks = [
 		icon: 'home-icon'
 	},
 	{
-		link: '/#about',
+		link: '/about',
 		text: 'About Me',
 		icon: 'user-icon'
 	},

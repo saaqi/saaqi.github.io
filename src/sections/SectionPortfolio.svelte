@@ -151,12 +151,7 @@
 	{/each}
 {/snippet}
 
-<SectionWrapper
-	id="portfolio"
-	data-scroll-spy="portfolio"
-	title="My Portfolio"
-	icon="briefcase-icon"
->
+<SectionWrapper id="portfolio" title="My Portfolio" icon="briefcase-icon">
 	<div class="container">
 		<DraggableContainer
 			touchSensitivity={2}

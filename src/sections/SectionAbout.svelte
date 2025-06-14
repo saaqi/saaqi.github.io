@@ -8,7 +8,7 @@
 	onMount(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
 
-<SectionWrapper id="about" data-scroll-spy="about" title="About Me" icon="user-icon">
+<SectionWrapper id="about" title="About Me" icon="user-icon">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-2 col-lg-2">

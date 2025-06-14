@@ -98,13 +98,7 @@
 	{/each}
 {/snippet}
 
-<SectionWrapper
-	id="services"
-	data-scroll-spy="services"
-	title="Services I Offer"
-	icon="working-icon"
-	class="services"
->
+<SectionWrapper id="services" title="Services I Offer" icon="working-icon" class="services">
 	<div class="container">
 		<DraggableContainer
 			touchSensitivity={2}
