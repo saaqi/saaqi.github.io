@@ -1,14 +1,14 @@
 <script>
-  import { SectionPortfolio } from '$sections'
-  import { siteData } from '$data/stores.svelte.js'
+	import { SectionPortfolio } from '$sections';
+	import { siteData } from '$data/stores.svelte.js';
 </script>
 
 <svelte:head>
-  <title>My Portfolio | {siteData.title + ' - ' + siteData.tagLine}</title>
-  <meta
-  name="description"
-  content="I build cross-platform mobile applications with React Native, and create robust e-commerce solutions with platforms such as WooCommerce and Shopify. My goal is to help your brand connect, convert, and ultimately, thrive in the digital landscape."
-/>
+	<title>My Portfolio | {siteData.title + ' - ' + siteData.tagLine}</title>
+	<meta
+		name="description"
+		content="View my portfolio showcasing responsive websites and mobile apps for clients like auto repair garages, LED manufacturers, grocery stores, clothing studios—built with JavaScript, Svelte, WooCommerce, React Native."
+	/>
 </svelte:head>
 
 <SectionPortfolio />

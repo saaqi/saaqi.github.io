@@ -23,6 +23,7 @@
 <!-- { .d-flex .flex-column : "keeps from purging"} -->
 <section
 	{id}
+	data-scroll-spy={id}
 	class:d-flex={true}
 	class:flex-column={true}
 	class:section={true}

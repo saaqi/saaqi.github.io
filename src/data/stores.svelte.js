@@ -8,4 +8,4 @@ export const siteData = {
 	title: 'Saqib Islam',
 	tagLine: 'Web Developer, UI/UX, Digital Marketing, SEO.',
 	author: 'Saqib Islam'
-}
+};

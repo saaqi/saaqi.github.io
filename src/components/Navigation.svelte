@@ -21,8 +21,8 @@
 	$effect(() => {
 		// Re-run when route changes
 		page.url.pathname;
-		// Get all sections that have .section class
-		const sections = document.querySelectorAll('.section');
+		// Get all sections that have data-scroll-spy attribte
+		const sections = document.querySelectorAll('[data-scroll-spy]');
 
 		// Intersection Observer options
 		const observerOptions = {
@@ -35,7 +35,7 @@
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.isIntersecting) {
-					const sectionId = entry.target.getAttribute('id');
+					const sectionId = entry.target.getAttribute('data-scroll-spy');
 					activeSection = sectionId;
 				}
 			});
@@ -88,19 +88,18 @@
 		<!-- { .nav-visibility : "keeps from purging"} -->
 		<nav id="navbar" class="navbar nav-menu" class:nav-visibility={!menuExpanded}>
 			<ul id="mainNavigation" class="mainNavigation list-unstyled">
-				{#each navigationLinks as { link, text, icon }, index ('navlinks-' + index)}
-					<li class="item-nav" data-target={link.replace('/', '')}>
-						<!-- { .active .current : "keeps from purging"} -->
+				{#each navigationLinks as { link, text, icon, target }, index ('navlinks-' + index)}
+					<li class="item-nav" data-target={target}>
+						<!-- { .active : "keeps from purging"} -->
 						<a
 							href={link}
 							class="link-nav btn {btn1} shadow-sm scrollto"
-							class:active={(homePage &&
-								link.replace('/', '').replace('#', '') === activeSection) ||
+							class:active={(homePage && target == activeSection) ||
 								(!homePage && link === page.url.pathname)}
 							title={text}
 							onclick={close}
 						>
-							<svg class="icon ${icon}">
+							<svg class="icon {icon}">
 								<use xlink:href={icons + '#' + icon}></use>
 							</svg>
 							<span class="text-nav">{text}</span>

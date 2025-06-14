@@ -1,5 +1,5 @@
 <script>
-	import { siteData } from '$data/stores.svelte.js'
+	import { siteData } from '$data/stores.svelte.js';
 	import {
 		SectionHome,
 		SectionAbout,
@@ -14,7 +14,7 @@
 	<title>{siteData.title + ' | ' + siteData.tagLine}</title>
 	<meta
 		name="description"
-		content="Saqib Islam is a Full-Stack Web Developer, UI/UX Designer & Digital Strategist crafting fast, sleek, SEO-optimized websites that convert and grow brands."
+		content="Full-Stack Web Developer, UI/UX Designer & Digital Strategist. Saqib Islam builds fast, sleek, SEO optimized websites and mobile apps that propel your business forward. Hire me to launch or scale your digital presence."
 	/>
 </svelte:head>
 

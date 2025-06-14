@@ -30,7 +30,7 @@
 					<h3 class="card-title fw-semibold h4 mb-3">{title}</h3>
 					<p class="card-text">{@html copy}</p>
 				</div>
-				<div class="card-footer">
+				<!-- <div class="card-footer">
 					<div class="btn-group w-100">
 						<a
 							href="#contact"
@@ -55,14 +55,14 @@
 							</button>
 						{/if}
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	{/each}
 {/snippet}
 
 <!-- Generate Modals -->
-{#snippet serviceModals(list)}
+<!-- {#snippet serviceModals(list)}
 	{#each list as { title, more }, index ('modal-' + index)}
 		{#if more}
 			<div
@@ -96,7 +96,7 @@
 			</div>
 		{/if}
 	{/each}
-{/snippet}
+{/snippet} -->
 
 <SectionWrapper id="services" title="Services I Offer" icon="working-icon" class="services">
 	<div class="container">
@@ -108,7 +108,6 @@
 		>
 			{@render serviceCards(services)}
 		</DraggableContainer>
-		{@render serviceModals(services)}
 	</div>
 </SectionWrapper>
 

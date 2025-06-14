@@ -8,8 +8,8 @@
 <SectionWrapper id="contact" title="Contact Me" icon="address-book-icon">
 	<div class="container">
 		<p class="section-copy mb-5">
-			I'd love to hear from you! If you have any questions, project inquiries, or just want to say
-			hello, please don't hesitate to reach out. I look forward to connecting with you!
+			I would love to hear from you! If you have any questions, project inquiries, or just want to
+			say hello, please don't hesitate to reach out. I look forward to connecting with you!
 		</p>
 
 		<div class="row mt-4">
