@@ -41,12 +41,12 @@
 <style>
 	.section {
 		display: flex;
-		place-items: center;
+		justify-content: center;
 		padding: 5rem 0;
 		min-height: 75svh;
 	}
 
-	@media (min-width: 992px) {
+	@media (max-width: 992px) {
 		.section {
 			min-height: 100svh;
 		}

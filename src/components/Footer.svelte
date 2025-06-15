@@ -19,7 +19,7 @@
 		<div class="row align-items-center gap-md-0 gap-3">
 			<div class="col-md-4 text-center text-lg-start">
 				<img
-					class="img-fluid"
+					class="footerLogo img-fluid"
 					src={logo}
 					alt="Logo"
 					width="900"
@@ -62,3 +62,9 @@
 		</div>
 	</div>
 </footer>
+
+<style>
+	.footerLogo {
+		max-width: 75%
+	}
+</style>
