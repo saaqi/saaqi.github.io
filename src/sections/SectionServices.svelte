@@ -4,21 +4,21 @@
 
 	import { SectionWrapper, DraggableContainer } from '$components';
 
-	import { store } from '$data/stores.svelte.js';
-	const buttonColors = $derived({
-		btn1: store.darkMode ? 'btn-outline-secondary' : 'btn-outline-primary',
-		btn3: store.darkMode ? 'btn-outline-warning' : 'btn-outline-danger'
-	});
+	// import { store } from '$data/stores.svelte.js';
+	// const buttonColors = $derived({
+	// 	btn1: store.darkMode ? 'btn-outline-secondary' : 'btn-outline-primary',
+	// 	btn3: store.darkMode ? 'btn-outline-warning' : 'btn-outline-danger'
+	// });
 
-	import { onMount } from 'svelte';
-	onMount(async () => await import('bootstrap/js/dist/modal.js'));
+	// import { onMount } from 'svelte';
+	// onMount(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
 
 <!-- Generate Cards -->
 {#snippet serviceCards(list)}
-	{#each list as { title, copy, more, iconsList }, index ('card-' + index)}
+	{#each list.services as { title, copy, iconsList }, index ('card-' + index)}
 		<div class="draggableItem hoverTransition">
-			<div class="card serviceCard h-100 shadow-sm">
+			<div class="card serviceCard shadow-sm h-100">
 				<div class="card-header fs-4 d-flex gap-4">
 					{#each iconsList as icon, index ('icon-' + index)}
 						<svg class="icon {icon}">
@@ -26,77 +26,25 @@
 						</svg>
 					{/each}
 				</div>
-				<div class="card-body d-flex flex-column">
+				<div class="card-body d-flex flex-column h-100">
 					<h3 class="card-title fw-semibold h4 mb-3">{title}</h3>
-					<p class="card-text">{@html copy}</p>
+					<p class="card-text">{copy}</p>
 				</div>
-				<!-- <div class="card-footer">
-					<div class="btn-group w-100">
-						<a
-							href="#contact"
-							class="btn {buttonColors.btn1} w-50 btn-icon d-flex align-items-center justify-content-center gap-1 scrollto"
-							title="Hire Me!"
-						>
-							<svg class="icon handshake-icon">
-								<use xlink:href={icons + '#handshake-icon'}></use>
-							</svg> Hire Me!
-						</a>
-						{#if more}
-							<button
-								type="button"
-								class="btn {buttonColors.btn1} w-50 btn-icon d-flex align-items-center justify-content-center gap-1"
-								data-bs-toggle="modal"
-								data-bs-target="#{`service-` + index}"
-								title="Get More Info"
-							>
-								<svg class="icon content-icon">
-									<use xlink:href={icons + '#content-icon'}></use>
-								</svg> Info
-							</button>
-						{/if}
-					</div>
-				</div> -->
 			</div>
 		</div>
 	{/each}
 {/snippet}
 
-<!-- Generate Modals -->
-<!-- {#snippet serviceModals(list)}
-	{#each list as { title, more }, index ('modal-' + index)}
-		{#if more}
-			<div
-				class="modal fade"
-				id={`service-` + index}
-				tabindex="-1"
-				aria-labelledby={`label-service-` + index}
-				aria-hidden="true"
-			>
-				<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-					<div class="modal-content">
-						<div class="modal-header">
-							<div class="modal-title fs-5" id={`label-service-` + index}>{title}</div>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-							></button>
-						</div>
-						<div class="modal-body">{@html more}</div>
-						<div class="modal-footer py-1">
-							<button
-								type="button"
-								class="btn {buttonColors.btn3} py-2 px-3 d-flex align-items-center"
-								data-bs-dismiss="modal"
-							>
-								<svg class="icon close-icon fs-4">
-									<use xlink:href={icons + '#close-icon'}></use>
-								</svg> Close
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		{/if}
+{#snippet reasons(list)}
+	{#each list.reasons as { heading, reason }, index ('reason-' + index)}
+		<ul>
+			<li>
+				<strong>{heading}:</strong>
+				{reason}
+			</li>
+		</ul>
 	{/each}
-{/snippet} -->
+{/snippet}
 
 <SectionWrapper id="services" title="Services I Offer" icon="working-icon" class="services">
 	<div class="container">
@@ -108,6 +56,8 @@
 		>
 			{@render serviceCards(services)}
 		</DraggableContainer>
+		<h3 class="mt-5 mb-4 text-center">✅ Why Choose Me?</h3>
+		{@render reasons(services)}
 	</div>
 </SectionWrapper>
 
