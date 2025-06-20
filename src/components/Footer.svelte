@@ -29,10 +29,10 @@
 				/>
 			</div>
 			<div class="col-md-4 m-0 my-4">
-				<div class="h4 text-center mb-3">Say, Hello!</div>
+				<div class="h4 text-center mb-4">Say, Hello!</div>
 				<ul
 					id="footerSocialLinks"
-					class="social-links list-unstyled d-flex flex-wrap justify-content-center gap-3"
+					class="social-links list-unstyled d-flex flex-wrap justify-content-around gap-2"
 				>
 					{#each socialLinks as { name, url, title, icon }, index ('footerSocialLink-' + index)}
 						<li>

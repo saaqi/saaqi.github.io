@@ -35,7 +35,7 @@
 				</p>
 				<ul
 					id="heroSocialLinks"
-					class="social-links list-unstyled d-flex flex-wrap gap-4 justify-content-center justify-content-lg-start my-4"
+					class="social-links list-unstyled d-flex flex-wrap gap-5 justify-content-center justify-content-lg-start my-4"
 				>
 					{#each socialLinks as { name, url, title, icon }, index ('homeSocialLink' + index)}
 						<li>
