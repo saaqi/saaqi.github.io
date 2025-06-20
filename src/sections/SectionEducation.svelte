@@ -34,7 +34,7 @@
 
 								{#each issuer as {text, icon}, index (('issuer-', index))}
 									<div class="issuer-item me-2">
-										<svg class="icon {icon} small" title={text}>
+										<svg class="icon {icon} small">
 											<use xlink:href={icons + '#' + icon}></use>
 										 </svg>
 										{text}
