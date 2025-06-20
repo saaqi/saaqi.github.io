@@ -15,6 +15,7 @@
 		<div class="row mt-4">
 			<div class="contactList col-lg-3 info d-flex flex-column gap-4 gap-lg-5">
 				<ObfuscatedEmail
+					key="179"
 					class="text-decoration-none"
 					target="_blank"
 					rel="nofollow noopener noreferrer"
