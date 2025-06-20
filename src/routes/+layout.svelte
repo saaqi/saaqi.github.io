@@ -5,10 +5,6 @@
 	// Importing global styles
 	import '/src/app.scss';
 
-	// Supports weights 100-900
-	import '@fontsource-variable/montserrat/wght.css';
-	import '@fontsource-variable/montserrat/wght-italic.css';
-
 	// Import Components
 	import { LoadingAnimation, TopLink, Navigation, ThemeSwitcher, Footer } from '$components';
 

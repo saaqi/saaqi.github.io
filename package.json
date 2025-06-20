@@ -27,22 +27,23 @@
 		"cssnano": "^7.0.7",
 		"eslint": "^9.29.0",
 		"eslint-config-prettier": "^10.1.5",
-		"eslint-plugin-svelte": "^3.9.2",
+		"eslint-plugin-svelte": "^3.9.3",
 		"globals": "^16.2.0",
-		"postcss": "^8.5.5",
+		"postcss": "^8.5.6",
 		"prettier": "^3.5.3",
 		"prettier-plugin-svelte": "^3.4.0",
 		"sass-embedded": "^1.89.2",
-		"svelte": "^5.34.3",
-		"svelte-check": "^4.2.1",
-		"terser": "^5.42.0",
+		"svelte": "^5.34.7",
+		"svelte-check": "^4.2.2",
+		"terser": "^5.43.1",
 		"vite": "^6.3.5"
 	},
 	"dependencies": {
-		"@fontsource-variable/montserrat": "^5.2.6",
+		"@fontsource-variable/inter": "^5.2.6",
+		"@fontsource-variable/space-grotesk": "^5.2.8",
 		"@sveltejs/enhanced-img": "^0.6.0",
 		"@types/bootstrap": "^5.2.10",
-		"bootstrap": "^5.3.6",
+		"bootstrap": "^5.3.7",
 		"install": "^0.13.0"
 	}
 }

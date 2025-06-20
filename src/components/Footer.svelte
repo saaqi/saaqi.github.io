@@ -65,6 +65,6 @@
 
 <style>
 	.footerLogo {
-		max-width: 75%
+		max-width: 75%;
 	}
 </style>
