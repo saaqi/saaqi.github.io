@@ -1,6 +1,6 @@
 <script>
 	import icons from '$assets/icons.svg';
-	import { SectionWrapper, ContactForm } from '$components';
+	import { SectionWrapper, ContactForm, ObfuscatedEmail } from '$components';
 	import { store } from '$data/stores.svelte.js';
 	const btn = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-primary');
 </script>
@@ -14,8 +14,7 @@
 
 		<div class="row mt-4">
 			<div class="contactList col-lg-3 info d-flex flex-column gap-4 gap-lg-5">
-				<a
-					href="mailto:saqib@saqibtech.com?subject=Hi,%20Saqib%20Let%27s%20talk!"
+				<ObfuscatedEmail
 					class="text-decoration-none"
 					target="_blank"
 					rel="nofollow noopener noreferrer"
@@ -27,7 +26,7 @@
 					</div>
 					<div class="h4 text-heading">Email</div>
 					<div class="text-body">saqib@saqibtech.com</div>
-				</a>
+				</ObfuscatedEmail>
 				<a
 					href="https://wa.me/+923006412193"
 					class="text-decoration-none"

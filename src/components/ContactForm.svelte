@@ -26,9 +26,10 @@
 		const fallbackSubject = `[Contact-Form] saqibtech.com`;
 		emailValid = email !== '' && emailRegex.test(email);
 		disableSubmit = !(name !== '' && emailValid && message !== '');
-		mailtoUrl =
-			`mailto:saqib@saqibtech.com?subject=${encodeURIComponent(subject || fallbackSubject)}&` +
-			`body=${encodeURIComponent(message)}%0D%0A%0D%0AFrom: ${name}%0D%0A${email}`;
+		mailtoUrl = [
+			`mailto:saqib@saqibtech.com?subject=${encodeURIComponent(subject || fallbackSubject)}&`,
+			`body=${encodeURIComponent(message)}%0D%0A%0D%0AFrom: ${name}%0D%0A${email}`
+		];
 	});
 
 	const alert = $derived(store.darkMode ? 'alert-warning' : 'alert-danger');

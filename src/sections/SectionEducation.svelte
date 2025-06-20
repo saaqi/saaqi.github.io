@@ -32,11 +32,11 @@
 								</svg>
 								<span class="me-1">From:</span>
 
-								{#each issuer as {text, icon}, index (('issuer-', index))}
+								{#each issuer as { text, icon }, index (('issuer-', index))}
 									<div class="issuer-item me-2">
 										<svg class="icon {icon} small">
 											<use xlink:href={icons + '#' + icon}></use>
-										 </svg>
+										</svg>
 										{text}
 									</div>
 								{/each}
