@@ -21,6 +21,12 @@ body {
 	}
 }
 
+/* ## Components Defaults
+--------------------------------------------- */
+p {
+	line-height: 1.6;
+}
+
 /* ## Section default
 --------------------------------------------- */
 .section:nth-child(even) {
@@ -72,8 +78,9 @@ body {
 	padding: 1rem 1.5rem;
 	text-transform: uppercase;
 	transition: all ease-in-out 0.1s;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
 	line-height: 1;
+	vertical-align: baseline;
 
 	&.btn-icon {
 		line-height: 0;

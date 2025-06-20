@@ -11,7 +11,10 @@
 			{ "text": "Docker", "icon": "docker" },
 			{ "text": "NoSQL Databases", "icon": "database" }
 		],
-		"issuer": ["IBM", "Coursera"]
+		"issuer": [
+			{ "text": "IBM", "icon": "ibm-icon" },
+			{ "text": "Coursera", "icon": "coursera-icon" }
+		]
 	},
 	{
 		"title": "Meta React Native Developer Certificate",
@@ -25,7 +28,10 @@
 			{ "text": "Android App Development", "icon": "playstore" },
 			{ "text": "Cross-Platform Development", "icon": "globe" }
 		],
-		"issuer": ["Meta", "Coursera"]
+		"issuer": [
+			{ "text": "Meta", "icon": "meta-icon" },
+			{ "text": "Coursera", "icon": "coursera-icon" }
+		]
 	},
 	{
 		"title": "Meta Front-End Developer Certificate",
@@ -39,7 +45,10 @@
 			{ "text": "UI/UX Design", "icon": "pen-ruler" },
 			{ "text": "Cascading Style Sheets (CSS)", "icon": "css" }
 		],
-		"issuer": ["Meta", "Coursera"]
+		"issuer": [
+			{ "text": "Meta", "icon": "meta-icon" },
+			{ "text": "Coursera", "icon": "coursera-icon" }
+		]
 	},
 	{
 		"title": "Google UX Design Certificate",
@@ -53,7 +62,10 @@
 			{ "text": "Figma, Adobe XD", "icon": "pen-ruler" },
 			{ "text": "User Experience (UX)", "icon": "pen-ruler" }
 		],
-		"issuer": ["Google", "Coursera"]
+		"issuer": [
+			{ "text": "Google", "icon": "google-icon" },
+			{ "text": "Coursera", "icon": "coursera-icon" }
+		]
 	},
 	{
 		"title": "Google Data Analytics",
@@ -67,7 +79,10 @@
 			{ "text": "Spreadsheets", "icon": "table" },
 			{ "text": "Tableau", "icon": "tableau" }
 		],
-		"issuer": ["Google", "Coursera"]
+		"issuer": [
+			{ "text": "Google", "icon": "google-icon" },
+			{ "text": "Coursera", "icon": "coursera-icon" }
+		]
 	},
 	{
 		"title": "Google Cybersecurity Certificate",
@@ -81,7 +96,10 @@
 			{ "text": "Linux Systems", "icon": "linux" },
 			{ "text": "Intrusion Detection Systems (IDS)", "icon": "user-secret" }
 		],
-		"issuer": ["Google", "Coursera"]
+		"issuer": [
+			{ "text": "Google", "icon": "google-icon" },
+			{ "text": "Coursera", "icon": "coursera-icon" }
+		]
 	},
 	{
 		"title": "JavaScript Programming Certificate",
@@ -95,7 +113,10 @@
 			{ "text": "Web Interactivity", "icon": "working" },
 			{ "text": "Data Manipulation", "icon": "screwdriver-wrench" }
 		],
-		"issuer": ["Google", "UC Davis"]
+		"issuer": [
+			{ "text": "Google", "icon": "google-icon" },
+			{ "text": "UC Davis", "icon": "ucdavis-icon" }
+		]
 	},
 	{
 		"title": "Google IT Automation with Python Certificate",
@@ -109,7 +130,10 @@
 			{ "text": "Configuration Management", "icon": "gear" },
 			{ "text": "Troubleshooting & Debugging", "icon": "screwdriver-wrench" }
 		],
-		"issuer": ["Google", "Coursera"]
+		"issuer": [
+			{ "text": "Google", "icon": "google-icon" },
+			{ "text": "Coursera", "icon": "coursera-icon" }
+		]
 	},
 	{
 		"title": "Google IT Support Professional Certificate",
@@ -123,6 +147,9 @@
 			{ "text": "Customer Support", "icon": "handshake" },
 			{ "text": "Command-Line Interface (CLI)", "icon": "working" }
 		],
-		"issuer": ["Google", "Coursera"]
+		"issuer": [
+			{ "text": "Google", "icon": "google-icon" },
+			{ "text": "Coursera", "icon": "coursera-icon" }
+		]
 	}
 ]

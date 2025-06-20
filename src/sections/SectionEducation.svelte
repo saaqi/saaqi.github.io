@@ -16,7 +16,7 @@
 		<div class="draggableItem hoverTransition">
 			<div class="card certificateCard h-100 shadow-sm">
 				<div class="card-body d-flex flex-column h-100">
-					<svg class="icon award-icon h2 {theme.text}">
+					<svg class="icon award-icon h2 mb-3 {theme.text}">
 						<use xlink:href={icons + '#award-icon'}></use>
 					</svg>
 					<h3 class="h4 card-title fw-semibold mb-3">{title}</h3>
@@ -32,17 +32,12 @@
 								</svg>
 								<span class="me-1">From:</span>
 
-								{#each issuer as authority, index (('issuer-', index))}
-									<div class="issuer-item">
-										<svg class="icon {authority.toLowerCase().replace(/\s+/g, '')}-icon small">
-											<use
-												xlink:href={icons +
-													'#' +
-													authority.toLowerCase().replace(/\s+/g, '') +
-													'-icon'}
-											></use>
-										</svg>
-										{authority}
+								{#each issuer as {text, icon}, index (('issuer-', index))}
+									<div class="issuer-item me-2">
+										<svg class="icon {icon} small" title={text}>
+											<use xlink:href={icons + '#' + icon}></use>
+										 </svg>
+										{text}
 									</div>
 								{/each}
 							</div>
@@ -55,7 +50,7 @@
 				<ul class="list-group list-group-flush mt-auto">
 					{#each skills as skill, index ('skill-' + index)}
 						<li class="list-group-item">
-							<svg class="icon skill-icon {skill.icon + '-icon'} small">
+							<svg class="icon skill-icon me-1 {skill.icon + '-icon'} small">
 								<use xlink:href={icons + '#' + skill.icon + '-icon'}></use>
 							</svg>
 							{skill.text}
@@ -134,6 +129,6 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		line-clamp: 3;
-		max-height: 4.5em;
+		max-height: 4.8em;
 	}
 </style>

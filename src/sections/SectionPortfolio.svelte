@@ -50,7 +50,7 @@
 				<ul class="list-group list-group-flush mt-auto">
 					{#each techStack as { text, icon }, index ('tech-' + index)}
 						<li class="list-group-item">
-							<svg class={icon + ' icon'}>
+							<svg class="icon {icon} me-1">
 								<use xlink:href={icons + '#' + icon}></use>
 							</svg>
 							{text}

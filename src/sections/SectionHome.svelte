@@ -99,10 +99,6 @@
 		background-image: url('$assets/repeated-square-dark.webp');
 	}
 
-	.intro {
-		line-height: 1.5;
-	}
-
 	.hero-buttons {
 		.btn {
 			width: 10em;

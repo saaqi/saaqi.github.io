@@ -144,7 +144,6 @@
 		white-space: nowrap;
 	}
 	.link-nav {
-		line-height: normal;
 		display: flex;
 		align-items: center;
 		padding: 1em;

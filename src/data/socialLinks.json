@@ -6,6 +6,12 @@
 		"icon": "linkedin-icon"
 	},
 	{
+		"name": "credly",
+		"url": "https://www.credly.com/users/saaqi",
+		"title": "Credly Profile Link",
+		"icon": "credly-icon"
+	},
+	{
 		"name": "github",
 		"url": "https://github.com/saaqi",
 		"title": "Github Profile Link",
