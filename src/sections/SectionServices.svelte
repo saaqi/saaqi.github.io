@@ -1,17 +1,7 @@
 <script>
+	import { SectionWrapper, DraggableContainer } from '$components';
 	import services from '$data/services.json';
 	import icons from '$assets/icons.svg';
-
-	import { SectionWrapper, DraggableContainer } from '$components';
-
-	// import { store } from '$data/stores.svelte.js';
-	// const buttonColors = $derived({
-	// 	btn1: store.darkMode ? 'btn-outline-secondary' : 'btn-outline-primary',
-	// 	btn3: store.darkMode ? 'btn-outline-warning' : 'btn-outline-danger'
-	// });
-
-	// import { onMount } from 'svelte';
-	// onMount(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
 
 <!-- Generate Cards -->
