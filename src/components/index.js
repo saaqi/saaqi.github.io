@@ -2,7 +2,6 @@ export { default as ContactForm } from './ContactForm.svelte';
 export { default as LoadingAnimation } from './LoadingAnimation.svelte';
 export { default as ThemeSwitcher } from './ThemeSwitcher.svelte';
 export { default as TopLink } from './TopLink.svelte';
-export { default as ObfuscatedEmail } from './ObfuscatedEmail.svelte';
 
 export { default as DraggableContainer } from './DraggableContainer.svelte';
 export { default as SectionWrapper } from './SectionWrapper.svelte';
