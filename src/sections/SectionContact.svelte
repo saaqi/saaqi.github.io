@@ -26,7 +26,10 @@
 		}
 	});
 	const query = "?subject=Hi,%20Saqib%20Let's%20talk!";
-	const onclick = () => window.open('mailto:' + encodedEmail + query, '_blank');
+	const onclick = event => {
+		event.preventDefault();
+		window.open('mailto:' + encodedEmail + query, '_blank');
+		}
 </script>
 
 <SectionWrapper id="contact" title="Contact Me" icon="address-book-icon">
@@ -38,7 +41,7 @@
 
 		<div class="row mt-4">
 			<div class="contactList col-lg-3 info d-flex flex-column gap-4 gap-lg-5">
-				<button class="emailBlock" {onclick}>
+				<a href="/" class="emailBlock" {onclick}>
 					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
 						<svg class="icon email-icon">
 							<use xlink:href={icons + '#email-icon'}></use>
@@ -46,7 +49,7 @@
 					</div>
 					<div class="h4 text-heading">Email</div>
 					<div class="text-body">{encodedEmail}</div>
-				</button>
+				</a>
 				<a
 					href="https://wa.me/+923006412193"
 					class="text-decoration-none"
