@@ -173,18 +173,3 @@
 	{@render caseStudy(projects)}
 </SectionWrapper>
 
-<style>
-	.draggableItem {
-		flex: 0 0 45%;
-	}
-	@media (max-width: 992px) {
-		.draggableItem {
-			flex: 0 0 48%;
-		}
-	}
-	@media (max-width: 768px) {
-		.draggableItem {
-			flex: 0 0 95%;
-		}
-	}
-</style>
