@@ -19,13 +19,19 @@
 		}
 	});
 
+	// Case Study Modals
+	let modalNumber = $state();
+	const loadModal = (index) => () => {
+		modalNumber = index;
+	};
+	$inspect(modalNumber, 'modalNumber');
 	import { onMount } from 'svelte';
 	onMount(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
 
 {#snippet portfolioCard(list)}
 	{#each list as { coverImage, title, copy, github, link, caseStudy, techStack }, index ('project-' + index)}
-		<div class="draggableItem hoverTransition">
+		<article class="draggableItem hoverTransition">
 			<div class="card portfolioCard h-100 shadow-sm">
 				{#each Object.entries(portfolioPics) as [_path, module], index ('pic-' + index)}
 					{#if _path.includes(coverImage)}
@@ -89,6 +95,8 @@
 						{#if caseStudy}
 							<button
 								type="button"
+								onmouseover={loadModal(index)}
+								onfocus={loadModal(index)}
 								class={'btn btn-icon fs-5 ' + btn1}
 								data-bs-toggle="modal"
 								data-bs-target={`#case-study-` + index}
@@ -103,13 +111,13 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</article>
 	{/each}
 {/snippet}
 
 {#snippet caseStudy(list)}
 	{#each list as { title, caseStudy }, index ('case-study-' + index)}
-		{#if caseStudy}
+		{#if index === modalNumber}
 			<div
 				class="modal fade"
 				id={`case-study-` + index}
@@ -157,17 +165,17 @@
 			touchSensitivity={2}
 			indicators={true}
 			id="portfolioContainer"
-			class="portfolioContainer row g-2 draggableContainer pb-lg-0 pb-3"
+			class="portfolioContainer"
 		>
 			{@render portfolioCard(projects)}
 		</DraggableContainer>
-		{@render caseStudy(projects)}
 	</div>
+	{@render caseStudy(projects)}
 </SectionWrapper>
 
 <style>
 	.draggableItem {
-		flex: 0 0 33.3333333%;
+		flex: 0 0 45%;
 	}
 	@media (max-width: 992px) {
 		.draggableItem {

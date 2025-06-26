@@ -13,7 +13,7 @@
 
 {#snippet educationCards(list)}
 	{#each list as { title, description, id, date, issuer, skills }, index (('certificate-', index))}
-		<div class="draggableItem hoverTransition">
+		<article class="draggableItem hoverTransition">
 			<div class="card certificateCard h-100 shadow-sm">
 				<div class="card-body d-flex flex-column h-100">
 					<svg class="icon award-icon h2 mb-3 {theme.text}">
@@ -87,7 +87,7 @@
 					</a>
 				</div>
 			</div>
-		</div>
+		</article>
 	{/each}
 {/snippet}
 
@@ -97,7 +97,7 @@
 			touchSensitivity={2}
 			indicators={true}
 			id="educationContainer"
-			class="educationContainer row g-2 draggableContainer pb-lg-0 pb-3"
+			class="educationContainer"
 		>
 			{@render educationCards(certificates)}
 		</DraggableContainer>
@@ -105,19 +105,6 @@
 </SectionWrapper>
 
 <style>
-	.draggableItem {
-		flex: 0 0 33.3333333%;
-	}
-	@media (max-width: 992px) {
-		.draggableItem {
-			flex: 0 0 48%;
-		}
-	}
-	@media (max-width: 768px) {
-		.draggableItem {
-			flex: 0 0 95%;
-		}
-	}
 	.skill-icon {
 		--icon-fill: var(--bs-body-color);
 		fill: var(--icon-fill);

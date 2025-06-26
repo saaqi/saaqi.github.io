@@ -13,7 +13,7 @@
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
 
 	// Canonical URL for SEO
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { data } from '/src/app.js';
 	const baseUrl = data.baseURL;
 </script>
@@ -22,11 +22,11 @@
 	<meta name="theme-color" content={store.darkMode ? '#212529' : '#ffffff'} />
 	<link
 		rel="canonical"
-		href={$page.url.href.startsWith(baseUrl) ? $page.url.href : baseUrl + $page.url.pathname}
+		href={page.url.href.startsWith(baseUrl) ? page.url.href : baseUrl + page.url.pathname}
 	/>
 </svelte:head>
 
-<Navigation homePage={$page.url.pathname === '/'} />
+<Navigation homePage={page.url.pathname === '/'} />
 <main id="main" class="main-container {mode}" data-bs-theme={mode}>
 	<LoadingAnimation />
 	<ThemeSwitcher />

@@ -7,7 +7,7 @@
 <!-- Generate Cards -->
 {#snippet serviceCards(list)}
 	{#each list.services as { title, copy, iconsList }, index ('card-' + index)}
-		<div class="draggableItem hoverTransition">
+		<article class="draggableItem hoverTransition">
 			<div class="card serviceCard shadow-sm h-100">
 				<div class="card-header fs-4 d-flex gap-4">
 					{#each iconsList as icon, index ('icon-' + index)}
@@ -21,7 +21,7 @@
 					<p class="card-text">{copy}</p>
 				</div>
 			</div>
-		</div>
+		</article>
 	{/each}
 {/snippet}
 
@@ -42,7 +42,7 @@
 			touchSensitivity={2}
 			indicators={true}
 			id="servicesContainer"
-			class="servicesContainer row g-2 draggableContainer pb-lg-0 pb-3"
+			class="servicesContainer"
 		>
 			{@render serviceCards(services)}
 		</DraggableContainer>
@@ -51,18 +51,3 @@
 	</div>
 </SectionWrapper>
 
-<style>
-	.draggableItem {
-		flex: 0 0 33.3333333%;
-	}
-	@media (max-width: 992px) {
-		.draggableItem {
-			flex: 0 0 48%;
-		}
-	}
-	@media (max-width: 768px) {
-		.draggableItem {
-			flex: 0 0 95%;
-		}
-	}
-</style>

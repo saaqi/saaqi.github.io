@@ -79,7 +79,16 @@
 </script>
 
 <div class="draggableOuterContainer {store.darkMode ? 'dark' : ''}">
-	<div use:draggableContainer={{ sensitivity: touchSensitivity }} {...props}>
+	<!-- .draggableContainer, .row, .g-2, .pb-lg-0, .pb-3 : keeps from purging -->
+	<div
+		use:draggableContainer={{ sensitivity: touchSensitivity }}
+		{...props}
+		class:draggableContainer={true}
+		class:row={true}
+		class:g-2={true}
+		class:pb-lg-0={true}
+		class:pb-3={true}
+	>
 		{@render children()}
 	</div>
 	{#if indicators}
@@ -99,7 +108,22 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: start;
+
+		> :global(*) {
+			flex: 0 0 33.3333333%;
+		}
+		@media (max-width: 992px) {
+			> :global(*) {
+				flex: 0 0 48%;
+			}
+		}
+		@media (max-width: 768px) {
+			> :global(*) {
+				flex: 0 0 95%;
+			}
+		}
 	}
+
 
 	.draggableOuterContainer {
 		position: relative;
