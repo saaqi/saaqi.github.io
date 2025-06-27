@@ -26,10 +26,10 @@
 		}
 	});
 	const query = "?subject=Hi,%20Saqib%20Let's%20talk!";
-	const onclick = event => {
+	const onclick = (event) => {
 		event.preventDefault();
 		window.open('mailto:' + encodedEmail + query, '_blank');
-		}
+	};
 </script>
 
 <SectionWrapper id="contact" title="Contact Me" icon="address-book-icon">
@@ -39,16 +39,16 @@
 			say hello, please don't hesitate to reach out. I look forward to connecting with you!
 		</p>
 
-		<div class="row mt-4">
-			<div class="contactList col-lg-3 info d-flex flex-column gap-4 gap-lg-5">
+		<div class="row mt-4 ">
+			<div class="col-lg-4 col-12 d-flex flex-column gap-4 gap-lg-5">
 				<a href="/" class="emailBlock" {onclick}>
 					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
 						<svg class="icon email-icon">
 							<use xlink:href={icons + '#email-icon'}></use>
 						</svg>
 					</div>
-					<div class="h4 text-heading">Email</div>
-					<div class="text-body">{encodedEmail}</div>
+					<h4 class="text-heading">Email</h4>
+					<p class="text-body mb-0">{encodedEmail}</p>
 				</a>
 				<a
 					href="https://wa.me/+923006412193"
@@ -61,8 +61,8 @@
 							<use xlink:href={icons + '#whatsapp-icon'}></use>
 						</svg>
 					</div>
-					<div class="h4 text-heading">WhatsApp</div>
-					<div class="text-body">+92 300 6412193</div>
+					<h4 class="text-heading">WhatsApp</h4>
+					<p class="text-body mb-0">+92 300 6412193</p>
 				</a>
 				<a href="tel:+923006412193" class="text-decoration-none">
 					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
@@ -70,12 +70,11 @@
 							<use xlink:href={icons + '#phone-icon'}></use>
 						</svg>
 					</div>
-					<div class="h4 text-heading">Call</div>
-					<div class="text-body">+92 300 6412193</div>
+					<h4 class="text-heading">Call</h4>
+					<p class="text-body mb-0">+92 300 6412193</p>
 				</a>
 			</div>
-
-			<div class="col-lg-9 col-12 mt-5 mt-lg-0">
+			<div class="col-lg-8 col-12 mt-5 mt-lg-0">
 				<ContactForm />
 			</div>
 		</div>

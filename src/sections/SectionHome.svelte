@@ -58,7 +58,7 @@
 					class="col-12 m-0 hero-buttons d-flex gap-2 justify-content-lg-start justify-content-center"
 				>
 					<a
-						href="#contact"
+						href="/contact"
 						class="btn scrollto {btn1} shadow-none"
 						title="Hire Me!"
 						aria-label="Hire Me!"
