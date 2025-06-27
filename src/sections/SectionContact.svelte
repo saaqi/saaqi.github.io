@@ -46,8 +46,8 @@
 				<use xlink:href={icons + '#' + icon}></use>
 			</svg>
 		</div>
-		<h4 class="text-heading">{heading}</h4>
-		<p class="text-body mb-0">{text}</p>
+		<div class="text-heading h4">{heading}</div>
+		<div class="text-body">{text}</div>
 	</a>
 {/snippet}
 
