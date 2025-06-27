@@ -26,11 +26,30 @@
 		}
 	});
 	const query = "?subject=Hi,%20Saqib%20Let's%20talk!";
-	const onclick = (event) => {
+	const emailLink = (event) => {
 		event.preventDefault();
 		window.open('mailto:' + encodedEmail + query, '_blank');
 	};
 </script>
+
+{#snippet contactList(href, className, icon, heading, text, clickMethod)}
+	<a
+		{href}
+		class={className}
+		class:text-decoration-none={true}
+		{...clickMethod ? { onclick: clickMethod } : ''}
+		target="_blank"
+		rel="nofollow noopener noreferrer"
+	>
+		<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
+			<svg class="icon {icon}">
+				<use xlink:href={icons + '#' + icon}></use>
+			</svg>
+		</div>
+		<h4 class="text-heading">{heading}</h4>
+		<p class="text-body mb-0">{text}</p>
+	</a>
+{/snippet}
 
 <SectionWrapper id="contact" title="Contact Me" icon="address-book-icon">
 	<div class="container">
@@ -39,40 +58,35 @@
 			say hello, please don't hesitate to reach out. I look forward to connecting with you!
 		</p>
 
-		<div class="row mt-4 ">
+		<div class="row mt-4">
 			<div class="col-lg-4 col-12 d-flex flex-column gap-4 gap-lg-5">
-				<a href="/" class="emailBlock" {onclick}>
-					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
-						<svg class="icon email-icon">
-							<use xlink:href={icons + '#email-icon'}></use>
-						</svg>
-					</div>
-					<h4 class="text-heading">Email</h4>
-					<p class="text-body mb-0">{encodedEmail}</p>
-				</a>
-				<a
-					href="https://wa.me/+923006412193"
-					class="text-decoration-none"
-					rel="nofollow noopener noreferrer"
-					target="_blank"
-				>
-					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
-						<svg class="icon whatsapp-icon">
-							<use xlink:href={icons + '#whatsapp-icon'}></use>
-						</svg>
-					</div>
-					<h4 class="text-heading">WhatsApp</h4>
-					<p class="text-body mb-0">+92 300 6412193</p>
-				</a>
-				<a href="tel:+923006412193" class="text-decoration-none">
-					<div class="icon-container btn {btn} rounded-circle p-3 me-3 fs-3">
-						<svg class="icon phone-icon">
-							<use xlink:href={icons + '#phone-icon'}></use>
-						</svg>
-					</div>
-					<h4 class="text-heading">Call</h4>
-					<p class="text-body mb-0">+92 300 6412193</p>
-				</a>
+				{@render contactList(
+					// contactList(href, className, icon, heading, text, method)
+					'/',
+					'emailBlock',
+					'email-icon',
+					'Email',
+					encodedEmail,
+					emailLink
+				)}
+				{@render contactList(
+					// contactList(href, className, icon, heading, text, method)
+					'https://wa.me/+923006412193',
+					'whatsAppBlock',
+					'email-icon',
+					'WhatsApp',
+					'+92 300 6412193',
+					false
+				)}
+				{@render contactList(
+					// contactList(href, className, icon, heading, text, method)
+					'tel:+923006412193',
+					'phoneBlock',
+					'phone-icon',
+					'Call',
+					'+92 300 6412193',
+					false
+				)}
 			</div>
 			<div class="col-lg-8 col-12 mt-5 mt-lg-0">
 				<ContactForm />
