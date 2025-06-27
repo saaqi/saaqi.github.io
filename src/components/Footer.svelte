@@ -26,7 +26,6 @@
 					height="569"
 					loading="lazy"
 					draggable="false"
-					style="max-width: 75%;"
 				/>
 			</div>
 			<div class="col-md-4 m-0 my-4">
@@ -63,3 +62,9 @@
 		</div>
 	</div>
 </footer>
+
+<style>
+	.footerLogo {
+		max-width: 75%;
+	}
+</style>
