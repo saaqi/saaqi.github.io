@@ -124,7 +124,6 @@
 		}
 	}
 
-
 	.draggableOuterContainer {
 		position: relative;
 

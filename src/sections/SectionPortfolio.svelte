@@ -172,4 +172,3 @@
 	</div>
 	{@render caseStudy(projects)}
 </SectionWrapper>
-

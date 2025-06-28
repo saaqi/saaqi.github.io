@@ -152,7 +152,11 @@
 				Send Message
 			</button>
 			{#if mainAlert}
-				<div class="alert {alert} mt-3" role="alert" transition:slide={{ duration: 100 }}>
+				<div
+					class="alert {alert} text-center text-md-start mt-3"
+					role="alert"
+					transition:slide={{ duration: 100 }}
+				>
 					Please complete the form before sending your message.
 				</div>
 			{/if}
