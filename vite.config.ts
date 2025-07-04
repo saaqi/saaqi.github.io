@@ -1,20 +1,18 @@
+import path from 'path';
+import cssnano from 'cssnano';
+import { defineConfig } from 'vite';
+import autoprefixer from 'autoprefixer';
+const bootstrap = 'node_modules/bootstrap';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { enhancedImages } from '@sveltejs/enhanced-img';
-import { defineConfig } from 'vite';
-import path from 'path';
-
-const bootstrap = 'node_modules/bootstrap';
 const IN_PRODUCTION = process.env.NODE_ENV === 'production';
 import { purgeCSSPlugin } from '@fullhuman/postcss-purgecss';
-import cssnano from 'cssnano';
-import autoprefixer from 'autoprefixer';
 
 export default defineConfig({
 	plugins: [
 		enhancedImages(), // must come before the SvelteKit plugin
 		sveltekit()
 	],
-
 	resolve: {
 		alias: {
 			$assets: path.resolve('./src/assets'),
@@ -26,7 +24,6 @@ export default defineConfig({
 			$lib: path.resolve('./src/lib')
 		}
 	},
-
 	css: {
 		preprocessorOptions: {
 			scss: {
@@ -39,12 +36,11 @@ export default defineConfig({
 						purgeCSSPlugin({
 							content: [
 								'./src/app.html',
-								'./src/**/*.js',
-								'./src/**/*.svelte',
+								'./src/**/*.{svelte,ts,js}',
 								`${bootstrap}/js/dist/modal.js`
 							],
 							safelist: [/svelte-/, /modal-/],
-							defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
+							defaultExtractor: (content: string) => content.match(/[\w-/:]+(?<!:)/g) || [],
 							keyframes: true,
 							variables: true
 						}),
@@ -56,11 +52,9 @@ export default defineConfig({
 				: []
 		}
 	},
-
 	server: {
 		port: 3000
 	},
-
 	build: {
 		emptyOutDir: true,
 		minify: 'terser',

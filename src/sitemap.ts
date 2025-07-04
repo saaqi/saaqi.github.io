@@ -1,13 +1,13 @@
 import fs from 'fs';
 import path from 'path';
-import { data } from './app.js'; // adjust if needed
+import { appData } from '$lib';
 
-const siteUrl = data.baseURL;
+const siteUrl = appData.baseURL;
 
 function getStaticRoutes(dir = '.svelte-kit/output/prerendered/pages') {
-	let routes = [];
+	const routes: string[] = [];
 
-	function walk(currentPath) {
+	function walk(currentPath: string) {
 		const entries = fs.readdirSync(currentPath, { withFileTypes: true });
 
 		for (const entry of entries) {
@@ -34,13 +34,13 @@ function getStaticRoutes(dir = '.svelte-kit/output/prerendered/pages') {
 	return routes;
 }
 
-function generateSitemap(routes) {
+function generateSitemap(routes: string[]) {
 	const urls = routes
-		.map((route) => {
+		.map((route: string) => {
 			const encodedRoute = encodeURI(route);
 			return `<url><loc>${siteUrl}${encodedRoute}</loc></url>`;
 		})
-		.join('');
+		.join('\n');
 
 	return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
@@ -59,5 +59,6 @@ const sitemap = generateSitemap(routes);
 
 fs.writeFileSync('static/sitemap.xml', sitemap);
 console.log('✅ Sitemap generated at static/sitemap.xml');
+fs.mkdirSync('build', { recursive: true });
 fs.writeFileSync('build/sitemap.xml', sitemap);
 console.log('✅ Sitemap generated at build/sitemap.xml');
