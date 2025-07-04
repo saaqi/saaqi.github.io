@@ -33,6 +33,7 @@
 </script>
 
 {#snippet contactList(href, className, icon, heading, text, clickMethod)}
+	<!-- { .nav-text-decoration-none : "keeps from purging"} -->
 	<a
 		{href}
 		class={className}
