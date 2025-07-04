@@ -2,8 +2,8 @@
 	import icons from '$assets/icons.svg';
 	import { store } from '$data/stores.svelte.js';
 
-	let autoTheme = $state(false);
-	let autoActiveButton = $derived(
+	let autoTheme: boolean = $state(false);
+	let autoActiveButton: string = $derived(
 		autoTheme
 			? store.darkMode
 				? 'btn-primary'
@@ -12,8 +12,7 @@
 				? 'btn-outline-dark'
 				: 'btn-outline-light'
 	);
-
-	let deviceThemeDark = $state(false);
+	let deviceThemeDark: boolean = $state(false);
 
 	// Initial State
 	const initState = () => {
