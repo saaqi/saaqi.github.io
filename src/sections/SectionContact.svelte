@@ -2,6 +2,7 @@
 	import icons from '$assets/icons.svg';
 	import { store } from '$data/stores.svelte';
 	import { SectionWrapper, ContactForm } from '$components';
+
 	const btn = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-primary');
 
 	// Utility: XOR obfuscation/deobfuscation

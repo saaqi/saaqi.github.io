@@ -1,14 +1,13 @@
 <script lang="ts">
-	import heroSvg from '$assets/hero.svg';
 	import icons from '$assets/icons.svg';
+	import heroSvg from '$assets/hero.svg';
+	import { store } from '$data/stores.svelte';
+	import socialLinks from '$data/socialLinks.json';
 	import resume from '$assets/resume-saqib-islam.pdf';
 
-	import { store } from '$data/stores.svelte';
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
 	const btn1 = $derived(store.darkMode ? 'btn-secondary' : 'btn-primary');
 	const btn2 = $derived(store.darkMode ? 'btn-outline-secondary' : 'btn-outline-primary');
-
-	import socialLinks from '$data/socialLinks.json';
 </script>
 
 <section id="home" data-scroll-spy="home" class="section home py-5 {mode}">

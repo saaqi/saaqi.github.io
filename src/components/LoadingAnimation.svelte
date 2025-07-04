@@ -1,9 +1,8 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	let noPreloader: boolean = $state(false);
-	import type { Attachment } from 'svelte/attachments';
 
-	const hideLoader: Attachment = () => {
+	const hideLoader: import('svelte/attachments').Attachment = () => {
 		noPreloader = true;
 	};
 </script>

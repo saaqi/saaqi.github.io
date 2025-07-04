@@ -19,6 +19,16 @@
 		}
 	});
 
+	interface Project {
+		title: string;
+		coverImage: string;
+		copy: string;
+		github?: string;
+		link?: string;
+		caseStudy?: string;
+		techStack: { text?: string; icon?: string }[];
+	}
+
 	// Case Study Modals
 	let modalNumber = $state();
 	const loadModal = (index: number) => () => {
@@ -28,7 +38,7 @@
 	onMount(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
 
-{#snippet portfolioCard(list: [])}
+{#snippet portfolioCard(list: Project[])}
 	{#each list as { coverImage, title, copy, github, link, caseStudy, techStack }, index ('project-' + index)}
 		<article class="draggableItem hoverTransition">
 			<div class="card portfolioCard h-100 shadow-sm">
@@ -114,7 +124,7 @@
 	{/each}
 {/snippet}
 
-{#snippet caseStudy(list)}
+{#snippet caseStudy(list: Project[])}
 	{#each list as { title, caseStudy }, index ('case-study-' + index)}
 		{#if index === modalNumber}
 			<div
@@ -135,7 +145,8 @@
 						</div>
 						<div class="modal-body p-0" style="scrollbar-width: none; overflow-y: hidden;">
 							<embed
-								src={portfolioPdf['/src/assets/portfolio/' + caseStudy]?.default || ''}
+								src={(portfolioPdf['/src/assets/portfolio/' + caseStudy] as { default: string })
+									?.default || ''}
 								type="application/pdf"
 								style="width: 100%; height: 100%;"
 							/>

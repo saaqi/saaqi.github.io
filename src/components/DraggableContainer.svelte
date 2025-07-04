@@ -1,5 +1,4 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
 	import icons from '$assets/icons.svg';
 	import { store } from '$data/stores.svelte';
 
@@ -7,7 +6,7 @@
 	interface Props {
 		touchSensitivity?: number;
 		indicators?: boolean;
-		children: Snippet;
+		children: import('svelte').Snippet;
 		[key: string]: unknown;
 	}
 	const { touchSensitivity = 2, indicators = true, children, ...props }: Props = $props();
@@ -16,8 +15,7 @@
 	function hasTouchSupport() {
 		return (
 			'ontouchstart' in window || // Most browsers
-			navigator.maxTouchPoints > 0 || // Modern browsers
-			(navigator as any).msMaxTouchPoints > 0 // Older IE
+			navigator.maxTouchPoints > 0 // Modern browsers
 		);
 	}
 
