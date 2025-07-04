@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import heroSvg from '$assets/hero.svg';
 	import icons from '$assets/icons.svg';
 	import resume from '$assets/resume-saqib-islam.pdf';
@@ -86,7 +86,7 @@
 	</div>
 </section>
 
-<style>
+<style lang="scss">
 	.home {
 		display: flex;
 		align-items: center;

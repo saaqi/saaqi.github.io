@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { SectionWrapper, DraggableContainer } from '$components';
 	import { store } from '$data/stores.svelte.js';
 
@@ -104,7 +104,7 @@
 	</div>
 </SectionWrapper>
 
-<style>
+<style lang="scss">
 	.skill-icon {
 		--icon-fill: var(--bs-body-color);
 		fill: var(--icon-fill);

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { SectionWrapper, StatsCounter, SkillLevels } from '$components';
 
 	// Profile Picture
@@ -86,7 +86,7 @@
 	{@render profilePictureModal()}
 </SectionWrapper>
 
-<style>
+<style lang="scss">
 	.profile {
 		border: 1px solid var(--bs-tertiary-color);
 	}

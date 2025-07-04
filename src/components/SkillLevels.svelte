@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { store } from '$data/stores.svelte.js';
 	import icons from '$assets/icons.svg';
 	import skillsLevel from '$data/skillsLevel.json';
@@ -60,7 +60,7 @@
 	</div>
 </article>
 
-<style>
+<style lang="scss">
 	.progress-bar {
 		width: 1px;
 		height: 0.625rem;

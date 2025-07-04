@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	const currentYear = new Date().getFullYear();
 	import socialLinks from '$data/socialLinks.json';
 	import icons from '$assets/icons.svg';

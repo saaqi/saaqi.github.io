@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import icons from '$assets/icons.svg';
 	import { store } from '$data/stores.svelte.js';
 
@@ -76,7 +76,7 @@
 	/>
 </div>
 
-<style>
+<style lang="scss">
 	.switchContainer {
 		padding: 0.4em 0.6em;
 		border-radius: 2rem;

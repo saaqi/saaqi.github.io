@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { slide } from 'svelte/transition';
 	import icons from '$assets/icons.svg';
 	import { store } from '$data/stores.svelte.js';
@@ -162,7 +162,7 @@
 	</div>
 </form>
 
-<style>
+<style lang="scss">
 	.form-control:focus {
 		box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2);
 	}

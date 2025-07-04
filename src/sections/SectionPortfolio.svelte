@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { SectionWrapper, DraggableContainer } from '$components';
 	import { store } from '$data/stores.svelte.js';
 

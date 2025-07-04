@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { siteData } from '$data/stores.svelte.js';
 	import {
 		SectionHome,

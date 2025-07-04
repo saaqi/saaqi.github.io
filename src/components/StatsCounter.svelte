@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { store } from '$data/stores.svelte.js';
 	import icons from '$assets/icons.svg';
 	import statCounters from '$data/statCounters.json';

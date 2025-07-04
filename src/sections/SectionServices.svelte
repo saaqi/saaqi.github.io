@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { SectionWrapper, DraggableContainer } from '$components';
 	import services from '$data/services.json';
 	import icons from '$assets/icons.svg';

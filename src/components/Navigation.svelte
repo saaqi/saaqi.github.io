@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	const { homePage = false } = $props();
 	import { navigationLinks } from '$data/navigationLinks.js';
 	import icons from '$assets/icons.svg';

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { store } from '$data/stores.svelte.js';
 	import icons from '$assets/icons.svg';
 
@@ -38,7 +38,7 @@
 	{@render children()}
 </section>
 
-<style>
+<style lang="scss">
 	.section {
 		display: flex;
 		justify-content: center;

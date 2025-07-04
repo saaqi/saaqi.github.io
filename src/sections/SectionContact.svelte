@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import icons from '$assets/icons.svg';
 	import { SectionWrapper, ContactForm } from '$components';
 	import { store } from '$data/stores.svelte.js';

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { fade } from 'svelte/transition';
 
 	import { store } from '$data/stores.svelte.js';
@@ -26,7 +26,7 @@
 	</div>
 {/if}
 
-<style>
+<style lang="scss">
 	button {
 		position: fixed;
 		bottom: 1rem;

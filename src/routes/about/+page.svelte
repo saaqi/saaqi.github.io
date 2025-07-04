@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { SectionAbout } from '$sections';
 	import { siteData } from '$data/stores.svelte.js';
 </script>

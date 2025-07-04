@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { fade } from 'svelte/transition';
 	let hidePreloader = false;
 </script>
@@ -13,7 +13,7 @@
 	</div>
 {/if}
 
-<style>
+<style lang="scss">
 	#preloader {
 		position: fixed;
 		height: 100%;
