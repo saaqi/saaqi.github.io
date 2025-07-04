@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { SectionWrapper, DraggableContainer } from '$components';
-	import { store } from '$data/stores.svelte.js';
-
-	import projects from '$data/projects.json';
+	import { onMount } from 'svelte';
 	import icons from '$assets/icons.svg';
+	import projects from '$data/projects.json';
+	import { store } from '$data/stores.svelte.js';
+	import { SectionWrapper, DraggableContainer } from '$components';
+
 
 	const btn1 = $derived(!store.darkMode ? 'btn-outline-primary' : 'btn-outline-light');
 	const btn2 = $derived(!store.darkMode ? 'btn-outline-danger' : 'btn-outline-warning');
@@ -21,22 +22,21 @@
 
 	// Case Study Modals
 	let modalNumber = $state();
-	const loadModal = (index) => () => {
+	const loadModal = (index: number) => () => {
 		modalNumber = index;
 	};
-	$inspect(modalNumber, 'modalNumber');
-	import { onMount } from 'svelte';
+
 	onMount(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
 
-{#snippet portfolioCard(list)}
+{#snippet portfolioCard(list: [])}
 	{#each list as { coverImage, title, copy, github, link, caseStudy, techStack }, index ('project-' + index)}
 		<article class="draggableItem hoverTransition">
 			<div class="card portfolioCard h-100 shadow-sm">
 				{#each Object.entries(portfolioPics) as [_path, module], index ('pic-' + index)}
 					{#if _path.includes(coverImage)}
 						<enhanced:img
-							src={module.default}
+							src={(module as { default: string }).default}
 							sizes="(min-width: 500px) 500px, 100vw"
 							class="img-fluid card-img-top border-bottom"
 							alt={'Screenshot of ' + title}

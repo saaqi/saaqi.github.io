@@ -2,11 +2,12 @@
 	import { store } from '$data/stores.svelte.js';
 	import icons from '$assets/icons.svg';
 	import statCounters from '$data/statCounters.json';
+	import observeWhenVisible from '../functions/observeWhenVisible.js';
+
 	const textColor = $derived(store.darkMode ? 'text-secondary' : 'text-primary');
 
 	// countWhenVisible.js
-	import observeWhenVisible from '../functions/observeWhenVisible.js';
-	function countWhenVisible(node) {
+	function countWhenVisible(node: HTMLElement) {
 		let hasCounted = false;
 		let startTime = null;
 
