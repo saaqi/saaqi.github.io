@@ -1,21 +1,27 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import icons from '$assets/icons.svg';
 	import { store } from '$data/stores.svelte.js';
 
-	const { touchSensitivity = 2, indicators = true, children, ...props } = $props();
+	// Define Props
+	interface Props {
+		touchSensitivity?: number;
+		indicators?: boolean;
+		children: Snippet;
+		[key: string]: unknown;
+	}
+	const { touchSensitivity = 2, indicators = true, children, ...props }: Props = $props();
 
-	/**
-	 * Svelte 5 action that enables horizontal dragging functionality for a container element.
-	 */
+	// Svelte 5 action that enables horizontal dragging functionality for a container element.
 	function hasTouchSupport() {
 		return (
 			'ontouchstart' in window || // Most browsers
 			navigator.maxTouchPoints > 0 || // Modern browsers
-			navigator.msMaxTouchPoints > 0 // Older IE
+			(navigator as any).msMaxTouchPoints > 0 // Older IE
 		);
 	}
 
-	function draggableContainer(node, options = {}) {
+	function draggableContainer(node: HTMLElement, options = { sensitivity: touchSensitivity }) {
 		// Only add drag functionality if device doesn't have touch support
 		if (hasTouchSupport()) {
 			return {
@@ -23,13 +29,13 @@
 			};
 		}
 
-		const { sensitivity = 3 } = options;
+		const { sensitivity = touchSensitivity } = options;
 
-		let isDragging = false;
-		let startX;
-		let scrollLeft;
+		let isDragging: boolean = false;
+		let startX: MouseEvent['pageX'];
+		let scrollLeft: number;
 
-		function handleMouseDown(e) {
+		function handleMouseDown(e: MouseEvent) {
 			isDragging = true;
 			startX = e.pageX - node.offsetLeft;
 			scrollLeft = node.scrollLeft;
@@ -46,7 +52,7 @@
 			node.classList.remove('dragging');
 		}
 
-		function handleMouseMove(e) {
+		function handleMouseMove(e: MouseEvent) {
 			if (!isDragging) return;
 			e.preventDefault();
 			const x = e.pageX - node.offsetLeft;
@@ -82,12 +88,12 @@
 	<!-- .draggableContainer, .row, .g-2, .pb-lg-0, .pb-3 : keeps from purging -->
 	<div
 		use:draggableContainer={{ sensitivity: touchSensitivity }}
-		{...props}
 		class:draggableContainer={true}
 		class:row={true}
 		class:g-2={true}
 		class:pb-lg-0={true}
 		class:pb-3={true}
+		{...props}
 	>
 		{@render children()}
 	</div>
@@ -134,9 +140,6 @@
 			pointer-events: none;
 
 			svg.swipe-indicator {
-				// background-color: var(--bs-tertiary-bg);
-				// border: 1px solid var(--bs-tertiary-color);
-				// border-radius: 4.8em;
 				padding: 0.2em;
 				height: 1.1em;
 				width: 1.1em;

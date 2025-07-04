@@ -1,15 +1,15 @@
 <script lang="ts">
 	import { slide } from 'svelte/transition';
-	import icons from '$assets/icons.svg';
 	import { store } from '$data/stores.svelte.js';
+	import icons from '$assets/icons.svg';
 
-	let name = $state('');
-	let email = $state('');
-	let subject = $state('');
-	let message = $state('');
-	let emailValid = $state(false);
-	let disableSubmit = $state(true);
-	let mailtoUrl = '';
+	let name: string = $state('');
+	let email: string = $state('');
+	let subject: string = $state('');
+	let message: string = $state('');
+	let mailtoUrl: string = $state('');
+	let emailValid: boolean = $state(false);
+	let disableSubmit: boolean = $state(true);
 
 	const btn = $derived(
 		disableSubmit
@@ -21,6 +21,25 @@
 				: 'btn-primary'
 	);
 
+	const alert = $derived(store.darkMode ? 'alert-warning' : 'alert-danger');
+	const border = $derived({
+		name: name ? 'border-success-subtle' : 'border-danger-subtle',
+		email: emailValid ? 'border-success-subtle' : 'border-danger-subtle',
+		message: message ? 'border-success-subtle' : 'border-danger-subtle',
+		submit: disableSubmit ? 'border-danger-subtle' : 'border-success-subtle'
+	});
+
+	const onclick = (e: Event) => {
+		e.preventDefault();
+		if (!disableSubmit) window.open(mailtoUrl, '_blank');
+	};
+	let mainAlert = $state(false);
+	const showMainAlert = () => {
+		if (disableSubmit) mainAlert = true;
+	};
+	const hideMainAlert = () => (mainAlert = false);
+
+  // Reactive statements to handle form validation and mailto URL generation
 	$effect(() => {
 		const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		const fallbackSubject = `[Contact-Form] saqibtech.com`;
@@ -33,24 +52,6 @@
 			`From: ${name.trim()}%0D%0A${email.trim()}`
 		].join('');
 	});
-
-	const alert = $derived(store.darkMode ? 'alert-warning' : 'alert-danger');
-	const border = $derived({
-		name: name ? 'border-success-subtle' : 'border-danger-subtle',
-		email: emailValid ? 'border-success-subtle' : 'border-danger-subtle',
-		message: message ? 'border-success-subtle' : 'border-danger-subtle',
-		submit: disableSubmit ? 'border-danger-subtle' : 'border-success-subtle'
-	});
-
-	const onclick = (e) => {
-		e.preventDefault();
-		if (!disableSubmit) window.open(mailtoUrl, '_blank');
-	};
-	let mainAlert = $state(false);
-	const showMainAlert = () => {
-		if (disableSubmit) mainAlert = true;
-	};
-	const hideMainAlert = () => (mainAlert = false);
 </script>
 
 <form id="contact-email-form" class="contact-email-form">

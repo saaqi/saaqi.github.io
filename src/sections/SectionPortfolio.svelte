@@ -162,7 +162,6 @@
 <SectionWrapper id="portfolio" title="My Portfolio" icon="briefcase-icon">
 	<div class="container">
 		<DraggableContainer
-			touchSensitivity={2}
 			indicators={true}
 			id="portfolioContainer"
 			class="portfolioContainer"
