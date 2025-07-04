@@ -41,7 +41,7 @@
 	text: string,
 	clickMethod?: (event: Event) => void
 )}
-	<!-- { .nav-text-decoration-none : "keeps from purging"} -->
+	<!-- { .text-decoration-none : "keeps from purging"} -->
 	<a
 		{href}
 		class={className}
