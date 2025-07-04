@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
-	import { store } from '$data/stores.svelte.js';
 	import icons from '$assets/icons.svg';
+	import { slide } from 'svelte/transition';
+	import { store } from '$data/stores.svelte';
 
 	let name: string = $state('');
 	let email: string = $state('');
@@ -39,7 +39,7 @@
 	};
 	const hideMainAlert = () => (mainAlert = false);
 
-  // Reactive statements to handle form validation and mailto URL generation
+	// Reactive statements to handle form validation and mailto URL generation
 	$effect(() => {
 		const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 		const fallbackSubject = `[Contact-Form] saqibtech.com`;

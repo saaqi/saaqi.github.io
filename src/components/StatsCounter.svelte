@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { store } from '$data/stores.svelte.js';
+	import { store } from '$data/stores.svelte';
 	import icons from '$assets/icons.svg';
 	import statCounters from '$data/statCounters.json';
 	import observeWhenVisible from '../functions/observeWhenVisible.js';
@@ -60,7 +60,7 @@
 		</h3>
 	</div>
 	<div id="statsCounters" class="row stats g-3 row-gap-4 mt-4">
-		{#each statCounters as { header, level, title, icon }, index('stats-' + index)}
+		{#each statCounters as { header, level, title, icon }, index ('stats-' + index)}
 			<div class="col-lg-3 col-6 text-break">
 				<div class="count-box pt-4 pb-3 px-3 text-center rounded-3 h-100 hoverTransition">
 					<div

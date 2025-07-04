@@ -1,6 +1,6 @@
 <script lang="ts">
 	import icons from '$assets/icons.svg';
-	import { store } from '$data/stores.svelte.js';
+	import { store } from '$data/stores.svelte';
 
 	let autoTheme: boolean = $state(false);
 	let autoActiveButton: string = $derived(

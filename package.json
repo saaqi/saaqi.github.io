@@ -36,6 +36,7 @@
 		"svelte": "^5.34.8",
 		"svelte-check": "^4.2.2",
 		"terser": "^5.43.1",
+		"typescript-eslint": "^8.35.1",
 		"vite": "^6.3.5"
 	},
 	"dependencies": {

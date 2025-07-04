@@ -1,6 +1,6 @@
 <script lang="ts">
 	import icons from '$assets/icons.svg';
-	import { store } from '$data/stores.svelte.js';
+	import { store } from '$data/stores.svelte';
 	import skillsLevel from '$data/skillsLevel.json';
 	import observeWhenVisible from '../functions/observeWhenVisible';
 
@@ -10,7 +10,8 @@
 	function animateProgress(node: HTMLElement) {
 		const observer = observeWhenVisible(
 			(entry, observer) => {
-				(entry.target as HTMLElement).style.width = `${entry.target.getAttribute('aria-valuenow')}%`;
+				(entry.target as HTMLElement).style.width =
+					`${entry.target.getAttribute('aria-valuenow')}%`;
 				observer.unobserve(entry.target);
 			},
 			{ threshold: 1.0 }

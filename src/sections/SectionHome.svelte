@@ -3,7 +3,7 @@
 	import icons from '$assets/icons.svg';
 	import resume from '$assets/resume-saqib-islam.pdf';
 
-	import { store } from '$data/stores.svelte.js';
+	import { store } from '$data/stores.svelte';
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
 	const btn1 = $derived(store.darkMode ? 'btn-secondary' : 'btn-primary');
 	const btn2 = $derived(store.darkMode ? 'btn-outline-secondary' : 'btn-outline-primary');

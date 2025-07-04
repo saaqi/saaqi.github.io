@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
 	import icons from '$assets/icons.svg';
-	import { store } from '$data/stores.svelte.js';
+	import { store } from '$data/stores.svelte';
 
 	// Define Props
 	interface Props {

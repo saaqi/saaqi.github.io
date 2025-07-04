@@ -1,6 +1,6 @@
 <script lang="ts">
 	import icons from '$assets/icons.svg';
-	import { store } from '$data/stores.svelte.js';
+	import { store } from '$data/stores.svelte';
 
 	// Define Props
 	interface Props {
@@ -11,7 +11,14 @@
 		children: import('svelte').Snippet;
 		[key: string]: unknown;
 	}
-	const { id = '', icon = '', title = '', hideHeading = false, children, ...props }: Props = $props();
+	const {
+		id = '',
+		icon = '',
+		title = '',
+		hideHeading = false,
+		children,
+		...props
+	}: Props = $props();
 </script>
 
 {#snippet headingContainer()}

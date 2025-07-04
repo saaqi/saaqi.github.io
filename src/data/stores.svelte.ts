@@ -6,4 +6,3 @@ export const store: Store = $state({
 	// Shared state for the application
 	darkMode: false
 });
-z

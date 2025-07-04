@@ -1,9 +1,17 @@
 <script lang="ts">
-	import { SectionWrapper, DraggableContainer } from '$components';
-	import { store } from '$data/stores.svelte.js';
-
-	import certificates from '$data/certificates.json';
 	import icons from '$assets/icons.svg';
+	import { store } from '$data/stores.svelte';
+	import certificates from '$data/certificates.json';
+	import { SectionWrapper, DraggableContainer } from '$components';
+
+	interface Certificate {
+		title: string;
+		description: string;
+		id: string;
+		date: string;
+		issuer: { text: string; icon: string }[];
+		skills: { text: string; icon: string }[];
+	}
 
 	const theme = $derived({
 		button: store.darkMode ? 'btn-outline-light' : 'btn-outline-primary',
@@ -11,8 +19,8 @@
 	});
 </script>
 
-{#snippet educationCards(list)}
-	{#each list as { title, description, id, date, issuer, skills }, index (('certificate-', index))}
+{#snippet educationCards(list: Certificate[])}
+	{#each list as { title, description, id, date, issuer, skills }, index ('certificate-' + index)}
 		<article class="draggableItem hoverTransition">
 			<div class="card certificateCard h-100 shadow-sm">
 				<div class="card-body d-flex flex-column h-100">
@@ -32,7 +40,7 @@
 								</svg>
 								<span class="me-1">From:</span>
 
-								{#each issuer as { text, icon }, index (('issuer-', index))}
+								{#each issuer as { text, icon }, index ('issuer-' + index)}
 									<div class="issuer-item me-2">
 										<svg class="icon {icon} small">
 											<use xlink:href={icons + '#' + icon}></use>

@@ -4,11 +4,14 @@
 
 	import { appData } from '$lib';
 	import { page } from '$app/state';
-	import { store } from '$data/stores.svelte.js';
+	import { store } from '$data/stores.svelte';
 	import { LoadingAnimation, TopLink, Navigation, ThemeSwitcher, Footer } from '$components';
 
 	// Initial layout component for the application
-	const { children } = $props();
+	interface Props {
+		children: import('svelte').Snippet;
+	}
+	const { children }: Props = $props();
 
 	// Handle Dark Mode
 	const mode = $derived(store.darkMode ? 'dark' : 'light');

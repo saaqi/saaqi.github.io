@@ -1,7 +1,7 @@
 <script lang="ts">
 	import icons from '$assets/icons.svg';
 	import { fade } from 'svelte/transition';
-	import { store } from '$data/stores.svelte.js';
+	import { store } from '$data/stores.svelte';
 
 	const button = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-dark');
 	let show: boolean = $state(false);
