@@ -1,15 +1,17 @@
-<script>
-	import { store } from '$data/stores.svelte.js';
+<script lang="ts">
 	import icons from '$assets/icons.svg';
+	import { store } from '$data/stores.svelte';
 	import skillsLevel from '$data/skillsLevel.json';
+	import observeWhenVisible from '../functions/observeWhenVisible';
+
 	const color = $derived(store.darkMode ? 'bg-secondary' : 'bg-primary');
 	const bgColor = $derived(store.darkMode ? 'bg-secondary-subtle' : 'bg-primary-subtle');
 
-	import observeWhenVisible from '../functions/observeWhenVisible.js';
-	function animateProgress(node) {
+	function animateProgress(node: HTMLElement) {
 		const observer = observeWhenVisible(
 			(entry, observer) => {
-				entry.target.style.width = `${entry.target.getAttribute('aria-valuenow')}%`;
+				(entry.target as HTMLElement).style.width =
+					`${entry.target.getAttribute('aria-valuenow')}%`;
 				observer.unobserve(entry.target);
 			},
 			{ threshold: 1.0 }
@@ -60,7 +62,7 @@
 	</div>
 </article>
 
-<style>
+<style lang="scss">
 	.progress-bar {
 		width: 1px;
 		height: 0.625rem;

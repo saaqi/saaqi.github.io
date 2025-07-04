@@ -1,35 +1,37 @@
-<script>
-	import { store } from '$data/stores.svelte.js';
+<script lang="ts">
+	import { store } from '$data/stores.svelte';
 	import icons from '$assets/icons.svg';
 	import statCounters from '$data/statCounters.json';
+	import observeWhenVisible from '../functions/observeWhenVisible.js';
+
 	const textColor = $derived(store.darkMode ? 'text-secondary' : 'text-primary');
 
 	// countWhenVisible.js
-	import observeWhenVisible from '../functions/observeWhenVisible.js';
-	function countWhenVisible(node) {
+	function countWhenVisible(node: HTMLElement): { destroy(): void } {
 		let hasCounted = false;
-		let startTime = null;
+		let startTime: number | null = null;
 
-		const targetCount = parseInt(node.textContent, 10);
+		const targetCount = parseInt(node.textContent || '0', 10);
 		const speed = 1500;
 
-		// Set initial visible value to 0
 		node.textContent = '0';
 
 		const observer = observeWhenVisible(
-			(__, observer) => {
+			(_, observer) => {
 				if (hasCounted) return;
 				hasCounted = true;
 
 				startTime = performance.now();
-				let interval = setInterval(() => {
-					let elapsedTime = performance.now() - startTime;
-					let progress = elapsedTime / speed;
+
+				const interval = setInterval(() => {
+					const elapsedTime = performance.now() - (startTime as number);
+					const progress = elapsedTime / speed;
+
 					if (progress >= 1) {
 						clearInterval(interval);
-						node.textContent = targetCount;
+						node.textContent = targetCount.toString();
 					} else {
-						node.textContent = Math.floor(progress * targetCount);
+						node.textContent = Math.floor(progress * targetCount).toString();
 					}
 				}, 20);
 
@@ -58,7 +60,7 @@
 		</h3>
 	</div>
 	<div id="statsCounters" class="row stats g-3 row-gap-4 mt-4">
-		{#each statCounters as { header, level, title, icon }, index (('stats-', index))}
+		{#each statCounters as { header, level, title, icon }, index ('stats-' + index)}
 			<div class="col-lg-3 col-6 text-break">
 				<div class="count-box pt-4 pb-3 px-3 text-center rounded-3 h-100 hoverTransition">
 					<div

@@ -1,9 +1,9 @@
-<script>
-	import { SectionWrapper, DraggableContainer } from '$components';
-	import { store } from '$data/stores.svelte.js';
-
-	import projects from '$data/projects.json';
+<script lang="ts">
+	import { onMount } from 'svelte';
 	import icons from '$assets/icons.svg';
+	import projects from '$data/projects.json';
+	import { store } from '$data/stores.svelte';
+	import { SectionWrapper, DraggableContainer } from '$components';
 
 	const btn1 = $derived(!store.darkMode ? 'btn-outline-primary' : 'btn-outline-light');
 	const btn2 = $derived(!store.darkMode ? 'btn-outline-danger' : 'btn-outline-warning');
@@ -19,24 +19,33 @@
 		}
 	});
 
+	interface Project {
+		title: string;
+		coverImage: string;
+		copy: string;
+		github?: string;
+		link?: string;
+		caseStudy?: string;
+		techStack: { text?: string; icon?: string }[];
+	}
+
 	// Case Study Modals
 	let modalNumber = $state();
-	const loadModal = (index) => () => {
+	const loadModal = (index: number) => () => {
 		modalNumber = index;
 	};
-	$inspect(modalNumber, 'modalNumber');
-	import { onMount } from 'svelte';
+
 	onMount(async () => await import('bootstrap/js/dist/modal.js'));
 </script>
 
-{#snippet portfolioCard(list)}
+{#snippet portfolioCard(list: Project[])}
 	{#each list as { coverImage, title, copy, github, link, caseStudy, techStack }, index ('project-' + index)}
 		<article class="draggableItem hoverTransition">
 			<div class="card portfolioCard h-100 shadow-sm">
 				{#each Object.entries(portfolioPics) as [_path, module], index ('pic-' + index)}
 					{#if _path.includes(coverImage)}
 						<enhanced:img
-							src={module.default}
+							src={(module as { default: string }).default}
 							sizes="(min-width: 500px) 500px, 100vw"
 							class="img-fluid card-img-top border-bottom"
 							alt={'Screenshot of ' + title}
@@ -115,7 +124,7 @@
 	{/each}
 {/snippet}
 
-{#snippet caseStudy(list)}
+{#snippet caseStudy(list: Project[])}
 	{#each list as { title, caseStudy }, index ('case-study-' + index)}
 		{#if index === modalNumber}
 			<div
@@ -136,7 +145,8 @@
 						</div>
 						<div class="modal-body p-0" style="scrollbar-width: none; overflow-y: hidden;">
 							<embed
-								src={portfolioPdf['/src/assets/portfolio/' + caseStudy]?.default || ''}
+								src={(portfolioPdf['/src/assets/portfolio/' + caseStudy] as { default: string })
+									?.default || ''}
 								type="application/pdf"
 								style="width: 100%; height: 100%;"
 							/>
@@ -161,15 +171,9 @@
 
 <SectionWrapper id="portfolio" title="My Portfolio" icon="briefcase-icon">
 	<div class="container">
-		<DraggableContainer
-			touchSensitivity={2}
-			indicators={true}
-			id="portfolioContainer"
-			class="portfolioContainer"
-		>
+		<DraggableContainer indicators={true} id="portfolioContainer" class="portfolioContainer">
 			{@render portfolioCard(projects)}
 		</DraggableContainer>
 	</div>
 	{@render caseStudy(projects)}
 </SectionWrapper>
-

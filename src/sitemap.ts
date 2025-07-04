@@ -1,16 +1,13 @@
 import fs from 'fs';
 import path from 'path';
-import { data } from '/src/app.js'; // Adjust the path as needed
+import { appData } from '$lib';
 
-const siteUrl = data.baseURL;
+const siteUrl = appData.baseURL;
 
-/**
- * Recursively collects all HTML files from the prerendered pages directory.
- */
 function getStaticRoutes(dir = '.svelte-kit/output/prerendered/pages') {
-	let routes = [];
+	const routes: string[] = [];
 
-	function walk(currentPath) {
+	function walk(currentPath: string) {
 		const entries = fs.readdirSync(currentPath, { withFileTypes: true });
 
 		for (const entry of entries) {
@@ -37,20 +34,15 @@ function getStaticRoutes(dir = '.svelte-kit/output/prerendered/pages') {
 	return routes;
 }
 
-export async function GET() {
-	const routes = getStaticRoutes();
-
+function generateSitemap(routes: string[]) {
 	const urls = routes
-		.map((route) => {
+		.map((route: string) => {
 			const encodedRoute = encodeURI(route);
-			return `
-    <url>
-      <loc>${siteUrl}${encodedRoute}</loc>
-    </url>`;
+			return `<url><loc>${siteUrl}${encodedRoute}</loc></url>`;
 		})
-		.join('');
+		.join('\n');
 
-	const xml = `<?xml version="1.0" encoding="UTF-8"?>
+	return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset
   xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="https://www.w3.org/1999/xhtml"
@@ -60,10 +52,13 @@ export async function GET() {
   xmlns:video="https://www.google.com/schemas/sitemap-video/1.1">
   ${urls}
 </urlset>`.trim();
-
-	return new Response(xml, {
-		headers: {
-			'Content-Type': 'application/xml'
-		}
-	});
 }
+
+const routes = getStaticRoutes();
+const sitemap = generateSitemap(routes);
+
+fs.writeFileSync('static/sitemap.xml', sitemap);
+console.log('✅ Sitemap generated at static/sitemap.xml');
+fs.mkdirSync('build', { recursive: true });
+fs.writeFileSync('build/sitemap.xml', sitemap);
+console.log('✅ Sitemap generated at build/sitemap.xml');

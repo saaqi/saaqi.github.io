@@ -1,12 +1,10 @@
-<script>
-	import { fade } from 'svelte/transition';
-
-	import { store } from '$data/stores.svelte.js';
-	const button = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-dark');
-
+<script lang="ts">
 	import icons from '$assets/icons.svg';
+	import { fade } from 'svelte/transition';
+	import { store } from '$data/stores.svelte';
 
-	let show = $state(false);
+	const button = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-dark');
+	let show: boolean = $state(false);
 </script>
 
 <svelte:window on:scroll={() => (show = window.scrollY >= 250)} />
@@ -26,7 +24,7 @@
 	</div>
 {/if}
 
-<style>
+<style lang="scss">
 	button {
 		position: fixed;
 		bottom: 1rem;

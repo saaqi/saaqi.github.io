@@ -1,11 +1,24 @@
-<script>
-	import { SectionWrapper, DraggableContainer } from '$components';
-	import services from '$data/services.json';
+<script lang="ts">
 	import icons from '$assets/icons.svg';
+	import services from '$data/services.json';
+	import { SectionWrapper, DraggableContainer } from '$components';
+
+	interface Service {
+		title: string;
+		copy: string;
+		iconsList: string[];
+	}
+	interface Reason {
+		heading: string;
+		reason: string;
+	}
 </script>
 
 <!-- Generate Cards -->
-{#snippet serviceCards(list)}
+{#snippet serviceCards(list: { services: Service[] })}
+	{#if !list.services || list.services.length === 0}
+		<p class="text-center">No services available at the moment.</p>
+	{/if}
 	{#each list.services as { title, copy, iconsList }, index ('card-' + index)}
 		<article class="draggableItem hoverTransition">
 			<div class="card serviceCard shadow-sm h-100">
@@ -25,7 +38,7 @@
 	{/each}
 {/snippet}
 
-{#snippet reasons(list)}
+{#snippet reasons(list: { reasons: Reason[] })}
 	{#each list.reasons as { heading, reason }, index ('reason-' + index)}
 		<ul>
 			<li>
@@ -50,4 +63,3 @@
 		{@render reasons(services)}
 	</div>
 </SectionWrapper>
-

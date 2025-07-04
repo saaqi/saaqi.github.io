@@ -1,14 +1,19 @@
-<script>
-	const { homePage = false } = $props();
-	import { navigationLinks } from '$data/navigationLinks.js';
+<script lang="ts">
 	import icons from '$assets/icons.svg';
+	import { store } from '$data/stores.svelte';
+	import { navigationLinks } from '$data/navigationLinks.js';
 
-	import { store } from '$data/stores.svelte.js';
+	// Define Props
+	interface Props {
+		homePage: boolean;
+	}
+	const { homePage = false }: Props = $props();
+
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
 	const btn1 = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-dark');
 	const btn2 = $derived(store.darkMode ? 'btn-secondary' : 'btn-primary');
 
-	let menuExpanded = $state(false);
+	let menuExpanded: boolean = $state(false);
 
 	const menuIcon = $derived(menuExpanded ? `${icons}#close-icon` : `${icons}#menu-icon`);
 	const onclick = () => (menuExpanded = !menuExpanded);
@@ -16,37 +21,38 @@
 
 	// Scroll spy functionality -----------------
 	import { page } from '$app/state';
-	let activeSection = $state('');
+	let activeSection: string = $state('');
 
 	$effect(() => {
 		// Re-run when route changes
-		page.url.pathname;
-		// Get all sections that have data-scroll-spy attribte
-		const sections = document.querySelectorAll('[data-scroll-spy]');
+		if (page.url.pathname) {
+			// Get all sections that have data-scroll-spy attribte
+			const sections = document.querySelectorAll('[data-scroll-spy]');
 
-		// Intersection Observer options
-		const observerOptions = {
-			root: null,
-			rootMargin: '-20% 0px -100% 0px',
-			threshold: 0
-		};
+			// Intersection Observer options
+			const observerOptions = {
+				root: null,
+				rootMargin: '-20% 0px -100% 0px',
+				threshold: 0
+			};
 
-		// Create intersection observer
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					const sectionId = entry.target.getAttribute('data-scroll-spy');
-					activeSection = sectionId;
-				}
-			});
-		}, observerOptions);
+			// Create intersection observer
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const sectionId = entry.target.getAttribute('data-scroll-spy');
+						activeSection = sectionId || '';
+					}
+				});
+			}, observerOptions);
 
-		// Observe all sections
-		sections.forEach((section) => observer.observe(section));
-		// Cleanup function
-		return () => {
-			if (observer) observer.disconnect();
-		};
+			// Observe all sections
+			sections.forEach((section) => observer.observe(section));
+			// Cleanup function
+			return () => {
+				if (observer) observer.disconnect();
+			};
+		}
 	});
 
 	// Route Animation

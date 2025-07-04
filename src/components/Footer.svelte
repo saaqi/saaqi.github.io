@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
 	const currentYear = new Date().getFullYear();
 	import socialLinks from '$data/socialLinks.json';
 	import icons from '$assets/icons.svg';
 	import logo from '$assets/logo.svg';
 
 	// Handle Dark Mode
-	import { store } from '$data/stores.svelte.js';
+	import { store } from '$data/stores.svelte';
 	const mode = $derived(
 		store.darkMode
 			? 'dark text-bg-dark text-bg-dark'

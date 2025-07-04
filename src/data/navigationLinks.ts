@@ -1,4 +1,11 @@
-export const navigationLinks = [
+interface Links {
+	link: string;
+	target: string;
+	text: string;
+	icon: string;
+}
+
+export const navigationLinks: Links[] = [
 	{
 		link: '/',
 		target: 'home',

@@ -5,11 +5,11 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"build": "vite build --emptyOutDir && bun ./src/sitemap.js",
+		"build": "vite build --emptyOutDir && bun ./src/sitemap.ts",
 		"build-bootstrap": "sass --no-source-map ./src/styles/bs-dynamic.scss ./src/styles/bootstrap.css",
 		"check": "svelte-check",
 		"dev": "vite dev",
-		"deploy": "git checkout main && git merge sveltekit && git push && git checkout sveltekit",
+		"deploy": "git checkout main && git pull && git merge sveltekit && git push && git checkout sveltekit",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"preview": "vite preview",
@@ -36,6 +36,7 @@
 		"svelte": "^5.34.8",
 		"svelte-check": "^4.2.2",
 		"terser": "^5.43.1",
+		"typescript-eslint": "^8.35.1",
 		"vite": "^6.3.5"
 	},
 	"dependencies": {
@@ -43,6 +44,7 @@
 		"@fontsource-variable/space-grotesk": "^5.2.8",
 		"@sveltejs/enhanced-img": "^0.6.1",
 		"@types/bootstrap": "^5.2.10",
+		"@types/node": "^24.0.10",
 		"bootstrap": "^5.3.7",
 		"install": "^0.13.0"
 	}

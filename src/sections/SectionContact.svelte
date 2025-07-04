@@ -1,13 +1,14 @@
-<script>
+<script lang="ts">
 	import icons from '$assets/icons.svg';
+	import { store } from '$data/stores.svelte';
 	import { SectionWrapper, ContactForm } from '$components';
-	import { store } from '$data/stores.svelte.js';
+
 	const btn = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-primary');
 
 	// Utility: XOR obfuscation/deobfuscation
 	const email = 'saqib@saqibtech.com';
 	const key = 151; // XOR key, can be any number till 255
-	function xorEmail(str, key) {
+	function xorEmail(str: string, key: number): string {
 		return Array.from(str)
 			.map((char) => String.fromCharCode(char.charCodeAt(0) ^ key))
 			.join('');
@@ -26,13 +27,21 @@
 		}
 	});
 	const query = "?subject=Hi,%20Saqib%20Let's%20talk!";
-	const emailLink = (event) => {
+	const emailLink = (event: Event) => {
 		event.preventDefault();
 		window.open('mailto:' + encodedEmail + query, '_blank');
 	};
 </script>
 
-{#snippet contactList(href, className, icon, heading, text, clickMethod)}
+{#snippet contactList(
+	href: string,
+	className: string,
+	icon: string,
+	heading: string,
+	text: string,
+	clickMethod?: (event: Event) => void
+)}
+	<!-- { .nav-text-decoration-none : "keeps from purging"} -->
 	<a
 		{href}
 		class={className}
@@ -75,8 +84,7 @@
 					'whatsAppBlock',
 					'email-icon',
 					'WhatsApp',
-					'+92 300 6412193',
-					false
+					'+92 300 6412193'
 				)}
 				{@render contactList(
 					// contactList(href, className, icon, heading, text, method)
@@ -84,8 +92,7 @@
 					'phoneBlock',
 					'phone-icon',
 					'Call',
-					'+92 300 6412193',
-					false
+					'+92 300 6412193'
 				)}
 			</div>
 			<div class="col-lg-8 col-12 mt-5 mt-lg-0">

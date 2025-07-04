@@ -1,10 +1,14 @@
-<script>
+<script lang="ts">
 	import { fade } from 'svelte/transition';
-	let hidePreloader = false;
+	let noPreloader: boolean = $state(false);
+
+	const hideLoader: import('svelte/attachments').Attachment = () => {
+		noPreloader = true;
+	};
 </script>
 
-{#if !hidePreloader}
-	<div {@attach () => (hidePreloader = true)} id="preloader" out:fade>
+{#if !noPreloader}
+	<div {@attach hideLoader} id="preloader" out:fade>
 		<div class="typewriter">
 			<div class="slide"><i></i></div>
 			<div class="paper"></div>
@@ -13,7 +17,7 @@
 	</div>
 {/if}
 
-<style>
+<style lang="scss">
 	#preloader {
 		position: fixed;
 		height: 100%;

@@ -1,21 +1,23 @@
-<script>
-	// Initial layout component for the application
-	const { children } = $props();
-
+<script lang="ts">
 	// Importing global styles
-	import '/src/app.scss';
+	import '$styles/app.scss';
 
-	// Import Components
+	import { appData } from '$lib';
+	import { page } from '$app/state';
+	import { store } from '$data/stores.svelte';
 	import { LoadingAnimation, TopLink, Navigation, ThemeSwitcher, Footer } from '$components';
 
+	// Initial layout component for the application
+	interface Props {
+		children: import('svelte').Snippet;
+	}
+	const { children }: Props = $props();
+
 	// Handle Dark Mode
-	import { store } from '$data/stores.svelte.js';
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
 
 	// Canonical URL for SEO
-	import { page } from '$app/state';
-	import { data } from '/src/app.js';
-	const baseUrl = data.baseURL;
+	const baseUrl = appData.baseURL;
 </script>
 
 <svelte:head>

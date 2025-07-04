@@ -1,10 +1,11 @@
-<script>
+<script lang="ts">
 	import { SectionWrapper, StatsCounter, SkillLevels } from '$components';
-
-	// Profile Picture
-	import profileThumb from '$assets/profile-thumb.webp?enhanced&w=256&format=avif;webp';
+	// @ts-expect-error: This Module Exists typescript doesn't recognize enhanced imports
 	import avatar from '$assets/profile.webp?enhanced&w=1024;512;256&format=avif;webp';
-	let avatarModal = $state(false);
+	// @ts-expect-error: This Module Exists typescript doesn't recognize enhanced imports
+	import profileThumb from '$assets/profile-thumb.webp?enhanced&w=256&format=avif;webp';
+
+	let avatarModal: boolean = $state(false);
 	const loadAvatarModal = () => (avatarModal = true);
 	import { onMount } from 'svelte';
 	onMount(async () => await import('bootstrap/js/dist/modal.js'));
@@ -86,7 +87,7 @@
 	{@render profilePictureModal()}
 </SectionWrapper>
 
-<style>
+<style lang="scss">
 	.profile {
 		border: 1px solid var(--bs-tertiary-color);
 	}
