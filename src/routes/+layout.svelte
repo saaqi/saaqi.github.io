@@ -16,15 +16,13 @@
 	// Handle Dark Mode
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
 
-	// Canonical URL for SEO
-	const baseUrl = appData.baseURL;
 </script>
 
 <svelte:head>
 	<meta name="theme-color" content={store.darkMode ? '#212529' : '#ffffff'} />
 	<link
 		rel="canonical"
-		href={page.url.href.startsWith(baseUrl) ? page.url.href : baseUrl + page.url.pathname}
+		href={appData.baseURL + page.route.id}
 	/>
 </svelte:head>
 
