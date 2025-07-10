@@ -20,7 +20,7 @@
 
 	$effect(() => {
 		// Re-run when route changes
-		if (page.route.id) {
+		if (page.route.id === '/') {
 			// Get all sections that have data-scroll-spy attribte
 			const sections = document.querySelectorAll('[data-scroll-spy]');
 
@@ -47,6 +47,9 @@
 			return () => {
 				if (observer) observer.disconnect();
 			};
+		} else {
+			// If not on home page, set active section
+			activeSection = page.route.id?.replace('/', '') || '';
 		}
 	});
 

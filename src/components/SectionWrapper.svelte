@@ -7,7 +7,8 @@
 		id: string;
 		icon?: string;
 		title?: string;
-		hideHeading?: boolean;
+		class?: string;
+		minHeight?: 'svh25' | 'svh50' | 'svh75' | 'svh100';
 		children: import('svelte').Snippet;
 		[key: string]: unknown;
 	}
@@ -15,7 +16,8 @@
 		id = '',
 		icon = '',
 		title = '',
-		hideHeading = false,
+		minHeight = 'svh75',
+		class: className = '',
 		children,
 		...props
 	}: Props = $props();
@@ -39,16 +41,13 @@
 <!-- { .d-flex .flex-column .section .dark .light : "keeps from purging"} -->
 <section
 	{id}
+	class="{id} section d-flex flex-column {minHeight} {className}"
 	data-scroll-spy={id}
-	class:d-flex={true}
-	class:flex-column={true}
-	class:section={true}
 	class:dark={store.darkMode}
-	class:light={!store.darkMode}
 	data-bs-theme={store.darkMode ? 'dark' : 'light'}
 	{...props}
 >
-	{#if !hideHeading}
+	{#if title}
 		{@render headingContainer()}
 	{/if}
 	{@render children()}
@@ -59,7 +58,22 @@
 		display: flex;
 		justify-content: center;
 		padding: 5rem 0;
+	}
+
+	.svh25 {
+		min-height: 25svh;
+	}
+
+	.svh50 {
+		min-height: 50svh;
+	}
+
+	.svh75 {
 		min-height: 75svh;
+	}
+
+	.svh100 {
+		min-height: 100svh;
 	}
 
 	@media (max-width: 992px) {

@@ -64,6 +64,11 @@
 </footer>
 
 <style>
+	@media (min-width: 768px) {
+	.footer {
+			padding-left: 5.5em;
+		}
+	}
 	.footerLogo {
 		max-width: 75%;
 	}

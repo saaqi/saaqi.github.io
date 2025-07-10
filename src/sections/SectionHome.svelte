@@ -2,6 +2,7 @@
 	import icons from '$assets/icons.svg';
 	import heroSvg from '$assets/hero.svg';
 	import { store } from '$data/stores.svelte';
+	import { SectionWrapper } from '$components';
 	import socialLinks from '$data/socialLinks.json';
 	import resume from '$assets/resume-saqib-islam.pdf';
 
@@ -10,7 +11,21 @@
 	const btn2 = $derived(store.darkMode ? 'btn-outline-secondary' : 'btn-outline-primary');
 </script>
 
-<section id="home" data-scroll-spy="home" class="section home py-5 {mode}">
+<SectionWrapper id="home" class="py-5" minHeight="svh100">
+	{#snippet headingContainer()}
+		<div class="container">
+			<div class="row">
+				<div class="heading-container">
+					<h2 class="section-heading">
+						<svg class="icon {mode}">
+							<use xlink:href={icons + '#' + mode}></use>
+						</svg>
+						Welcome to My Portfolio
+					</h2>
+				</div>
+			</div>
+		</div>
+	{/snippet}
 	<div class="container position-relative text-body">
 		<div class="row flex-lg-row-reverse align-items-center gap-5 gap-lg-0">
 			<div class="graphic-col col-lg-6">
@@ -83,18 +98,15 @@
 			</div>
 		</div>
 	</div>
-</section>
+</SectionWrapper>
 
 <style lang="scss">
-	.home {
-		display: flex;
-		align-items: center;
+	:global(.home) {
 		background-image: url('$assets/lined_paper.webp');
 		background-repeat: repeat;
-		min-height: 100svh;
 	}
 
-	.home.dark {
+	:global(.home.dark) {
 		background-image: url('$assets/repeated-square-dark.webp');
 	}
 
@@ -103,6 +115,7 @@
 			width: 10em;
 		}
 	}
+
 	.social-links svg.icon {
 		--icon-fill: var(--bs-body-color);
 		fill: var(--bs-body-color);
