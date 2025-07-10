@@ -1,13 +1,9 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import icons from '$assets/icons.svg';
-	import { store } from '$data/stores.svelte';
+	import { onNavigate } from '$app/navigation';
+	import { store } from '$data/stores.svelte.js';
 	import { navigationLinks } from '$data/navigationLinks.js';
-
-	// Define Props
-	interface Props {
-		homePage: boolean;
-	}
-	const { homePage = false }: Props = $props();
 
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
 	const btn1 = $derived(store.darkMode ? 'btn-outline-light' : 'btn-outline-dark');
@@ -20,43 +16,41 @@
 	const close = () => (menuExpanded = false);
 
 	// Scroll spy functionality -----------------
-	import { page } from '$app/state';
+	const homePage: boolean = page.route.id === '/';
 	let activeSection: string = $state('');
 
 	$effect(() => {
 		// Re-run when route changes
-		if (page.url.pathname) {
-			// Get all sections that have data-scroll-spy attribte
-			const sections = document.querySelectorAll('[data-scroll-spy]');
+		page.url.pathname;
+		// Get all sections that have data-scroll-spy attribte
+		const sections = document.querySelectorAll('[data-scroll-spy]');
 
-			// Intersection Observer options
-			const observerOptions = {
-				root: null,
-				rootMargin: '-20% 0px -100% 0px',
-				threshold: 0
-			};
+		// Intersection Observer options
+		const observerOptions = {
+			root: null,
+			rootMargin: '-20% 0px -100% 0px',
+			threshold: 0
+		};
 
-			// Create intersection observer
-			const observer = new IntersectionObserver((entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						const sectionId = entry.target.getAttribute('data-scroll-spy');
-						activeSection = sectionId || '';
-					}
-				});
-			}, observerOptions);
+		// Create intersection observer
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					const sectionId = entry.target.getAttribute('data-scroll-spy');
+					activeSection = sectionId || '';
+				}
+			});
+		}, observerOptions);
 
-			// Observe all sections
-			sections.forEach((section) => observer.observe(section));
-			// Cleanup function
-			return () => {
-				if (observer) observer.disconnect();
-			};
-		}
+		// Observe all sections
+		sections.forEach((section) => observer.observe(section));
+		// Cleanup function
+		return () => {
+			if (observer) observer.disconnect();
+		};
 	});
 
 	// Route Animation
-	import { onNavigate } from '$app/navigation';
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
 		// Prevent animation if navigating to the same URL
@@ -100,8 +94,7 @@
 						<a
 							href={link}
 							class="link-nav btn {btn1} shadow-sm scrollto"
-							class:active={(homePage && target == activeSection) ||
-								(!homePage && link === page.url.pathname)}
+							class:active={homePage ? target === activeSection : link === page.url.pathname}
 							title={text}
 							onclick={close}
 						>
