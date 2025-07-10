@@ -15,15 +15,11 @@
 
 	// Handle Dark Mode
 	const mode = $derived(store.darkMode ? 'dark' : 'light');
-
 </script>
 
 <svelte:head>
 	<meta name="theme-color" content={store.darkMode ? '#212529' : '#ffffff'} />
-	<link
-		rel="canonical"
-		href={appData.baseURL + page.route.id}
-	/>
+	<link rel="canonical" href={appData.baseURL + page.route.id} />
 </svelte:head>
 
 <Navigation />
