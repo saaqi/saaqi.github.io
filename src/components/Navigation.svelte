@@ -21,33 +21,34 @@
 
 	$effect(() => {
 		// Re-run when route changes
-		page.url.pathname;
-		// Get all sections that have data-scroll-spy attribte
-		const sections = document.querySelectorAll('[data-scroll-spy]');
+		if (homePage) {
+			// Get all sections that have data-scroll-spy attribte
+			const sections = document.querySelectorAll('[data-scroll-spy]');
 
-		// Intersection Observer options
-		const observerOptions = {
-			root: null,
-			rootMargin: '-20% 0px -100% 0px',
-			threshold: 0
-		};
+			// Intersection Observer options
+			const observerOptions = {
+				root: null,
+				rootMargin: '-20% 0px -100% 0px',
+				threshold: 0
+			};
 
-		// Create intersection observer
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					const sectionId = entry.target.getAttribute('data-scroll-spy');
-					activeSection = sectionId || '';
-				}
-			});
-		}, observerOptions);
+			// Create intersection observer
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						const sectionId = entry.target.getAttribute('data-scroll-spy');
+						activeSection = sectionId || '';
+					}
+				});
+			}, observerOptions);
 
-		// Observe all sections
-		sections.forEach((section) => observer.observe(section));
-		// Cleanup function
-		return () => {
-			if (observer) observer.disconnect();
-		};
+			// Observe all sections
+			sections.forEach((section) => observer.observe(section));
+			// Cleanup function
+			return () => {
+				if (observer) observer.disconnect();
+			};
+		}
 	});
 
 	// Route Animation
