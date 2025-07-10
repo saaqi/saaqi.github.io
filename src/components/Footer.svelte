@@ -65,7 +65,7 @@
 
 <style>
 	@media (min-width: 768px) {
-	.footer {
+		.footer {
 			padding-left: 5.5em;
 		}
 	}
