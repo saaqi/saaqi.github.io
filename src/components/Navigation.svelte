@@ -16,12 +16,11 @@
 	const close = () => (menuExpanded = false);
 
 	// Scroll spy functionality -----------------
-	const homePage: boolean = page.route.id === '/';
 	let activeSection: string = $state('');
 
 	$effect(() => {
 		// Re-run when route changes
-		if (homePage) {
+		if (page.route.id) {
 			// Get all sections that have data-scroll-spy attribte
 			const sections = document.querySelectorAll('[data-scroll-spy]');
 
@@ -95,7 +94,7 @@
 						<a
 							href={link}
 							class="link-nav btn {btn1} shadow-sm scrollto"
-							class:active={homePage ? target === activeSection : link === page.url.pathname}
+							class:active={target === activeSection}
 							title={text}
 							onclick={close}
 						>
