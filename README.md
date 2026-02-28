@@ -1,42 +1,119 @@
-# Developer Portfolio – GitHub Pages
+# Saqib Islam – Web Developer, UI/UX Designer, Digital Marketing, SEO  
 
-A lightweight, dynamic portfolio website built with GitHub Pages that automatically displays my public repositories using the GitHub REST API.
 
-## 🎯 Purpose
+## 🏠 Home
 
-The goal of this project is to create a simple, maintainable portfolio site that stays up to date automatically as I create new repositories.
+### Hi there, I'm Saqib Islam  
+Combining full-stack web development, intuitive UI/UX design, and strategic digital marketing with SEO expertise, I build high-converting, sleek websites that don’t just perform, they propel your business forward. :contentReference[oaicite:2]{index=2}
 
-## ✨ Highlights
+---
 
-- No backend required
-- Zero database
-- Fully static deployment
-- Dynamic repository listing via client-side API calls
-- Automatically updates when repositories change
+## About Me  
 
-## 🧠 Architecture
+As a Full-Stack Web Developer, UI/UX Designer, and Digital Marketing Strategist, my passion is creating powerful online presences. I focus on fast, beautiful, SEO-optimized websites, leveraging modern frameworks like React and Svelte, and developing cross-platform mobile apps using React Native. :contentReference[oaicite:3]{index=3}
 
-The site uses client-side JavaScript to fetch data from:
+### My Track Record  
+- **40+** Satisfied Clients  
+- **60+** Completed Projects  
+- **6+** Years of Professional Experience  
+- **10+** Certificates from Meta, Google & IBM
 
-https://api.github.com/users/<username>/repos
+### My Skills  
+- HTML  
+- CSS  
+- JavaScript  
+- WordPress/CMS  
+- Sveltekit  
+- Shopify  
+- React  
+- React Native
 
-The response is parsed and rendered into the DOM dynamically.
+---
 
-Because everything runs client-side, hosting is simple and cost-free using GitHub Pages.
+## 🛠️ Services I Offer
 
-## 🚀 Why This Approach?
+### 🖥️ Website & Web App Development  
+Build powerful, fast, SEO-ready websites and web apps using React, Svelte, and modern tools. :contentReference[oaicite:6]{index=6}
 
-- Keeps infrastructure simple
-- No server maintenance
-- Always reflects latest GitHub activity
-- Fully version-controlled
+### 🛒 E-Commerce Development  
+E-commerce websites on WooCommerce, Shopify, including payment gateway integration. :contentReference[oaicite:7]{index=7}
 
-## 🔮 Roadmap
+### 📱 Cross-Platform Mobile App Development  
+High-performance mobile apps for iOS and Android using React Native & Expo. :contentReference[oaicite:8]{index=8}
 
-- Dark mode toggle
-- Repository filtering & sorting
-- Improved responsive layout
-- Add blog section
+### 🎯 Digital Marketing  
+Google Ads, Meta Ads, keyword strategy, analytics, ad optimization. :contentReference[oaicite:9]{index=9}
+
+### 🔍 SEO (Search Engine Optimization)  
+Keyword research, technical SEO, on-page and off-page strategies. :contentReference[oaicite:10]{index=10}
+
+### 🛠️ Maintenance & Support  
+Monitoring, updates, backup & recovery, performance optimization. :contentReference[oaicite:11]{index=11}
+
+---
+
+## 📁 My Portfolio
+
+### Sadiq Super Store Grocery 
+Responsive business website with JavaScript & Bootstrap.
+
+[Sadiq Super Store](https://sadiqsuperstore.com)
+
+### Car Club Auto Repair Garage  
+Responsive website built with Vite, JavaScript, Bootstrap.
+
+[Car Club Tire & Auto Repair Service](https://carclubtire.com)
+
+### Paklite E-Commerce Platform  
+WordPress + WooCommerce store.
+
+[Paklite - Corporate Lighting](https://paklite.com)
+
+### Little Lemon – Mobile App  
+Cross-platform app built in React Native + Expo.
+
+[Restaurant Android App](https://github.com/saaqi/restaurant-mobile-app-react-native)
+
+### Steel Rebars Manufacturer  
+Professional website for steel manufacturer (Svelte, JS, Bootstrap).
+
+[Ikram Steel Industries](https://ikramsteel.com)
+
+### O2 Clothing Studio  
+E-commerce site developed with Shopify.
+
+---
+
+## 🎓 My Education & Certificates
+
+### IBM Full-Stack JavaScript Developer Certificate  
+Issued March 2025 — IBM / Coursera
+
+### Meta React Native Developer Certificate  
+Issued December 2024 — Meta / Coursera
+
+### Meta Front-End Developer Certificate  
+Issued May 2024 — Meta / Coursera
+
+### Google UX Design Certificate  
+Issued June 2023 — Google / Coursera
+
+### Google Data Analytics  
+Issued January 2025 — Google / Coursera
+
+### Google Cybersecurity Certificate  
+Issued August 2023 — Google / Coursera
+
+### Google IT Automation with Python Certificate  
+Issued March 2023 — Google / Coursera
+
+---
+
+## 📬 Contact Me
+
+📧 Email: saqib@saqibtech.com  
+📱 WhatsApp & Call: **+92 300 6412193**  
+
 
 ---
 
